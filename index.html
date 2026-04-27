@@ -133,8 +133,8 @@ section{padding:96px 5%}
 .who-tile-you{background:#323232}
 @media(max-width:600px){.who-grid{grid-template-columns:1fr 1fr}}
 
-.vcard-linkedin{width:300px;flex-shrink:0}
-.vcard-linkedin iframe{width:300px;height:399px;border-radius:16px;display:block;border:none;overflow:hidden}
+.vcard-linkedin{width:280px;flex-shrink:0;flex-grow:0;flex-basis:280px}
+.vcard-linkedin iframe{width:280px;height:370px;border-radius:16px;display:block;border:none;overflow:hidden}
 
 /* VERTICAL VIDEO CAROUSEL */
 .vcarousel-sec{background:var(--dark);padding:80px 0;overflow:hidden}
@@ -143,7 +143,7 @@ section{padding:96px 5%}
 .vcarousel-header .h2{color:var(--white)}
 .vcarousel-outer{overflow:hidden;width:100%;cursor:grab;user-select:none}
 .vcarousel-outer:active{cursor:grabbing}
-.vcarousel-track{display:flex;flex-wrap:nowrap;gap:20px;width:max-content;animation:vscroll 30s linear infinite;padding:10px 40px}
+.vcarousel-track{display:flex;flex-wrap:nowrap;align-items:flex-start;gap:16px;width:max-content;animation:vscroll 40s linear infinite;padding:10px 40px}
 .vcarousel-track:hover{animation-play-state:paused}
 @keyframes vscroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .vcard{flex-shrink:0;width:300px}
