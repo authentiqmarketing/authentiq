@@ -492,6 +492,7 @@ footer{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c
 }
 </style>
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/245064687.js"></script>
+<script src="https://js-na2.hsforms.net/forms/embed/245064687.js" defer></script>
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -760,6 +761,16 @@ src="https://www.facebook.com/tr?id=2037031713545831&ev=PageView&noscript=1"
     <div class="qgen-box fade">
       <div class="qgen-input-row">
         <div class="qgen-field">
+          <span class="qgen-prefix">&#128100;</span>
+          <input class="qgen-input" id="qgen-name" type="text" placeholder="Your name" autocomplete="name" />
+        </div>
+        <div class="qgen-field">
+          <span class="qgen-prefix">&#9993;</span>
+          <input class="qgen-input" id="qgen-email" type="email" placeholder="Your email" autocomplete="email" />
+        </div>
+      </div>
+      <div class="qgen-input-row" style="margin-top:10px;">
+        <div class="qgen-field">
           <span class="qgen-prefix">&#127760;</span>
           <input class="qgen-input" id="qgen-url" type="url" placeholder="https://yourwebsite.com" autocomplete="off" />
         </div>
@@ -888,19 +899,6 @@ src="https://www.facebook.com/tr?id=2037031713545831&ev=PageView&noscript=1"
   </div>
 </section>
 
-<!-- CTA -->
-<div class="cta-sec">
-  <div class="cta-overlay"></div>
-  <div class="cta-in">
-    <h2>See it for<br>yourself. <span>Free.</span></h2>
-    <p>Book a free demo. We run a short interview, edit one clip, and send it to you. You will see exactly what your content could look like with no commitment required.</p>
-    <div class="cta-acts">
-      <a class="btn-cta" href="https://meetings-na2.hubspot.com/grant-taleck/coach-led-video-thought-leadership-demo" target="_blank">Book your free demo</a>
-      <span class="cta-fine">Short interview. One edited clip. No credit card.</span>
-    </div>
-  </div>
-</div>
-
 <!-- FOOTER -->
 
 
@@ -1004,8 +1002,32 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+async function submitToHubSpot(name, email) {
+  const portalId = '245064687';
+  const formId = '771e1140-d16f-49ac-892e-c1060a7b9263';
+  const nameParts = name.trim().split(' ');
+  const firstName = nameParts[0] || '';
+  const lastName = nameParts.slice(1).join(' ') || '';
+  try {
+    await fetch('https://api.hsforms.com/submissions/v3/integration/submit/' + portalId + '/' + formId, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        fields: [
+          { name: 'firstname', value: firstName },
+          { name: 'lastname', value: lastName },
+          { name: 'email', value: email }
+        ],
+        context: { pageUri: window.location.href, pageName: document.title }
+      })
+    });
+  } catch(e) { /* silent fail — don't block question generation */ }
+}
+
 async function generateQuestions() {
   const urlInput = document.getElementById('qgen-url');
+  const nameInput = document.getElementById('qgen-name');
+  const emailInput = document.getElementById('qgen-email');
   const btn = document.getElementById('qgen-btn');
   const btnLabel = document.getElementById('qgen-btn-label');
   const spinner = document.getElementById('qgen-spinner');
@@ -1014,7 +1036,11 @@ async function generateQuestions() {
   const errorEl = document.getElementById('qgen-error');
   const errorMsg = document.getElementById('qgen-error-msg');
   const hint = document.getElementById('qgen-hint');
+  const name = nameInput ? nameInput.value.trim() : '';
+  const email = emailInput ? emailInput.value.trim() : '';
   const url = urlInput.value.trim();
+  if (!name) { nameInput.focus(); errorMsg.textContent = 'Please enter your name.'; errorEl.style.display = 'block'; return; }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { emailInput.focus(); errorMsg.textContent = 'Please enter a valid email.'; errorEl.style.display = 'block'; return; }
   if (!url) { urlInput.focus(); return; }
   let normalizedUrl = url;
   if (!normalizedUrl.startsWith('http')) { normalizedUrl = 'https://' + (normalizedUrl.startsWith('www.') ? normalizedUrl : 'www.' + normalizedUrl); }
@@ -1030,6 +1056,7 @@ async function generateQuestions() {
   btnLabel.textContent = 'Analyzing...';
   spinner.style.display = 'inline-block';
   hint.textContent = 'Reading your website and crafting questions...';
+  await submitToHubSpot(name, email);
   try {
     const response = await fetch('/api/generate?url=' + encodeURIComponent(url), {
       method: 'GET'
@@ -1275,96 +1302,4 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 
 
 
-<!-- AI VS YOU SECTION -->
-<section class="contrast-sec">
-  <div class="w">
-    <div class="ey">The Difference</div>
-    <h2 class="h2">Your face. Your voice.<br>Your real ideas.</h2>
-    <p class="sub">AI starts with a blank page. We start with you.</p>
-    <div class="contrast-grid">
-      <div class="contrast-card contrast-bad fade">
-        <div class="contrast-label contrast-label-bad">
-          <span class="contrast-dot contrast-dot-bad"></span>What AI sounds like
-        </div>
-        <div class="contrast-content">
-          <p class="contrast-quote">"As a seasoned professional in the B2B space, I've observed that consistent content creation is paramount to establishing thought leadership and driving meaningful engagement across digital touchpoints."</p>
-          <div class="contrast-meta">
-            <span class="contrast-tag">Generic</span>
-            <span class="contrast-tag">Could be anyone</span>
-            <span class="contrast-tag">No personality</span>
-          </div>
-        </div>
-      </div>
-      <div class="contrast-divider">
-        <div class="contrast-vs">VS</div>
-      </div>
-      <div class="contrast-card contrast-good fade" style="transition-delay:.15s">
-        <div class="contrast-label contrast-label-good">
-          <span class="contrast-dot contrast-dot-good"></span>What YOU sound like
-        </div>
-        <div class="contrast-content">
-          <p class="contrast-quote">"The best sales call I ever had — the prospect already knew my whole story. They'd watched three of my videos. We skipped the pitch entirely and just talked about working together."</p>
-          <div class="contrast-meta">
-            <span class="contrast-tag contrast-tag-good">Specific</span>
-            <span class="contrast-tag contrast-tag-good">Unmistakably you</span>
-            <span class="contrast-tag contrast-tag-good">Builds trust</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- PROBLEM -->
-<section class="prob-sec prob-hero-sec">
-  <div class="w">
-    <div class="ey prob-label" id="prob-label">The Problem</div>
-    <div class="prob-hero-wrap" id="prob-hero">
-      <h2 class="prob-hero-h" id="prob-hero-h">You know you should be posting. You just can't stay consistent.</h2>
-      <h2 class="prob-reveal-h" id="prob-reveal-h">Video Thought Leadership created with a Thinking Coach for B2B founders struggling with consistency and finding what to say.</h2>
-    </div>
-    <p class="sub">Every solution feels promising. None of them last.</p>
-    <div class="pgrid fade">
-      <div class="pc"><div class="pnum">01</div><h3>You try to DIY it</h3><p>You sit down to record or write. An hour passes. Nothing goes live. Next week becomes next month. You quietly stop.</p></div>
-      <div class="pc"><div class="pnum">02</div><h3>You hire a ghostwriter</h3><p>They produce polished posts. No face. No voice. No personality. It does not feel like you because it is not you. Prospects can tell.</p></div>
-      <div class="pc"><div class="pnum">03</div><h3>You use AI</h3><p>Your prospects scroll through AI content all day. They have developed a filter for it. When yours triggers it, you get filed as another faceless brand.</p></div>
-    </div>
-    <div class="pcallout fade">
-      <div class="cbar"></div>
-      <div class="cq">You can be an expert offline.<br>Online, you stay <em>The Invisible Expert.</em></div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section id="how-it-works">
-  <div class="w">
-    <div class="ey">The Process</div>
-    <h2 class="h2">30 minutes a month.<br>We handle the rest.</h2>
-    <p class="sub">Three steps that turn one conversation into a month of LinkedIn content.</p>
-    <div class="srow">
-      <div class="step fade"><div class="stag">Step 01</div><h3>Strategy First</h3><p>We start with a deep dive into who you are, who you serve, and what you want to be known for. Every video has a clear purpose: moving your audience from awareness to familiarity to trust.</p></div>
-      <div class="step fade" style="transition-delay:.1s"><div class="stag">Step 02</div><h3>The Interview</h3><p>Once a month we sit down on a 30-minute video call. We come prepared with strategic questions designed to pull out your best thinking. You just talk. We handle everything after.</p></div>
-      <div class="step fade" style="transition-delay:.2s"><div class="stag">Step 03</div><h3>Content That Compounds</h3><p>We track what resonates. Over time the content gets sharper and the questions get better. The longer you work with us, the more valuable it gets.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- DELIVERABLES -->
-<section class="del-sec">
-  <div class="w">
-    <div class="ey">Deliverables</div>
-    <h2 class="h2">Everything handled.<br>Nothing left to you.</h2>
-    <p class="sub">After your 30-minute interview, you are done. Here is what we produce every month.</p>
-    <div class="dgrid fade">
-      <div class="di"><div class="ddot"></div><div><h4>4 LinkedIn videos per month</h4><p>Clipped and edited from your interview, optimized for LinkedIn's feed.</p></div></div>
-      <div class="di"><div class="ddot"></div><div><h4>Captions in your voice</h4><p>Written to sound like you, not a content agency. No scripts, no generic copy.</p></div></div>
-      <div class="di"><div class="ddot"></div><div><h4>Scheduled to LinkedIn</h4><p>Posts go live on a consistent schedule. You do not touch a thing after the call.</p></div></div>
-      <div class="di"><div class="ddot"></div><div><h4>Strategic question prep</h4><p>Every interview is built around your buyers' questions, not generic prompts.</p></div></div>
-      <div class="di"><div class="ddot"></div><div><h4>Monthly performance review</h4><p>We track what is resonating. Your content improves every month.</p></div></div>
-      <div class="di"><div class="ddot"></div><div><h4>Your face. Your voice.</h4><p>No AI. No ghostwriting. Prospects trust you because it is actually you on camera.</p></div></div>
-    </div>
-  </div>
-</section>
-
->
