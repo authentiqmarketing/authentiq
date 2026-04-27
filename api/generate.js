@@ -3,11 +3,9 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  let body = '';
-  if (typeof req.body === 'string') {
-    body = JSON.parse(req.body);
-  } else {
-    body = req.body;
+  let body = req.body;
+  if (typeof body === 'string') {
+    body = JSON.parse(body);
   }
 
   const url = body && body.url;
@@ -29,7 +27,7 @@ module.exports = async function handler(req, res) {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model: 'claude-3-5-haiku-20241022',
+        model: 'claude-3-haiku-20240307',
         max_tokens: 1000,
         system: 'Act as a curious content marketer that is well versed in B2B marketing. Create 9 interview questions for the business at the given website. Create 3 Top of Funnel, 3 Middle of Funnel, and 3 Bottom of Funnel questions. Return ONLY a JSON array of 9 strings, no preamble, no markdown.',
         messages: [{ role: 'user', content: 'Website: ' + url + '. Generate 9 interview questions.' }]
@@ -39,7 +37,7 @@ module.exports = async function handler(req, res) {
     const data = await response.json();
 
     if (!response.ok) {
-      return res.status(500).json({ error: data.error && data.error.message || 'API error' });
+      return res.status(500).json({ error: data.error && data.error.message || 'API error', status: response.status });
     }
 
     const textBlock = data.content && data.content.find(function(b) { return b.type === 'text'; });
