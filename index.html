@@ -61,10 +61,14 @@ body{font-family:var(--S);color:var(--body);background:var(--white);line-height:
 .sqbar-error{font-size:0.72rem;font-weight:600;color:#c0392b;padding:10px 5%;border-top:1px solid #fcc;background:#fff5f5}
 @media(max-width:900px){.sqbar-label{display:none}}
 @media(max-width:600px){
-  .sqbar-inner{gap:8px;padding:0 4%}
+  .sqbar-inner{gap:6px;padding:0 3%;height:56px}
   .sqbar-label{display:none}
   .sqbar-cta{display:none}
   .sqbar-divider{display:none}
+  .sqbar-field-wrap{flex:1;min-width:0}
+  .sqbar-input{font-size:0.72rem;padding:8px 10px;min-width:0;width:100%}
+  .sqbar-btn{font-size:0.62rem;padding:8px 12px;letter-spacing:0.04em}
+  .sqbar-logo img{height:18px}
   .sqbar-results-inner{grid-template-columns:1fr}
 }
 
@@ -102,7 +106,8 @@ nav{position:fixed;top:44px;display:none;left:0;right:0;z-index:100;display:flex
 
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr}
-  .hero-right{display:none}
+  .hero-right{display:flex;justify-content:center;margin-top:32px}
+  .hero-video-wrap{width:220px}
 }
 
 /* PROOF BAR */
@@ -470,7 +475,8 @@ footer{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c
   .tgrid{grid-template-columns:1fr 1fr}
   .tgr{grid-template-columns:1fr}
   .hero-inner{grid-template-columns:1fr}
-  .hero-right{display:none}
+  .hero-right{display:flex;justify-content:center;margin-top:24px}
+  .hero-video-wrap{width:200px}
   .hero{padding:120px 5% 72px}
   .hero h1{font-size:clamp(2.4rem,10vw,4rem);white-space:normal;line-height:1.0}
   .hero-sub{max-width:100%}
