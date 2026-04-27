@@ -59,16 +59,8 @@ body{font-family:var(--S);color:var(--body);background:var(--white);line-height:
 .sqbar-copy{display:block;margin:10px 5% 14px auto;background:transparent;border:1.5px solid #e2e4ef;color:var(--gray);font-family:var(--S);font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:6px 14px;border-radius:4px;cursor:pointer;transition:all 0.2s;width:fit-content}
 .sqbar-copy:hover{border-color:var(--navy);color:var(--navy)}
 .sqbar-error{font-size:0.72rem;font-weight:600;color:#c0392b;padding:10px 5%;border-top:1px solid #fcc;background:#fff5f5}
-@media(max-width:900px){.sqbar-label{display:none}}
+@media(max-width:900px){.sqbar{display:none}}
 @media(max-width:600px){
-  .sqbar-inner{gap:6px;padding:0 3%;height:56px}
-  .sqbar-label{display:none}
-  .sqbar-cta{display:none}
-  .sqbar-divider{display:none}
-  .sqbar-field-wrap{flex:1;min-width:0}
-  .sqbar-input{font-size:0.72rem;padding:8px 10px;min-width:0;width:100%}
-  .sqbar-btn{font-size:0.62rem;padding:8px 12px;letter-spacing:0.04em}
-  .sqbar-logo img{height:18px}
   .sqbar-results-inner{grid-template-columns:1fr}
 }
 
@@ -494,7 +486,6 @@ footer{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c
   .tgrid{grid-template-columns:1fr}
   .pcallout{flex-direction:column;gap:16px;padding:28px 24px}
   .cbar{width:36px;height:4px;align-self:auto}
-  .sqbar-inner{height:56px}
 }
 </style>
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/245064687.js"></script>
