@@ -48,7 +48,9 @@ body{font-family:var(--S);color:var(--body);background:var(--white);line-height:
 .sqbar-spinner{width:11px;height:11px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite}
 .sqbar-cta{background:var(--orange);color:var(--white);font-family:var(--S);font-size:0.72rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;padding:9px 18px;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background 0.2s;border:none}
 .sqbar-cta:hover{background:#e88a00}
-.sqbar-results{background:rgba(255,255,255,0.99);backdrop-filter:blur(16px);border-top:1px solid rgba(0,0,0,0.07);max-height:340px;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,0.1)}
+.sqbar-close{position:absolute;top:12px;right:16px;background:transparent;border:none;color:var(--gray);font-size:1.2rem;cursor:pointer;line-height:1;padding:4px 8px;border-radius:4px;transition:color 0.2s}
+.sqbar-close:hover{color:var(--dark)}
+.sqbar-results{position:relative;background:rgba(255,255,255,0.99);backdrop-filter:blur(16px);border-top:1px solid rgba(0,0,0,0.07);max-height:340px;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,0.1)}
 .sqbar-results-inner{max-width:1100px;margin:0 auto;padding:18px 5%;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .sqbar-cat{font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
 .sqbar-q-group{display:flex;flex-direction:column;gap:6px}
@@ -534,6 +536,7 @@ src="https://www.facebook.com/tr?id=2037031713545831&ev=PageView&noscript=1"
     <a class="sqbar-cta" href="https://meetings-na2.hubspot.com/grant-taleck/coach-led-video-thought-leadership-demo" target="_blank">Book Free Demo</a>
   </div>
   <div class="sqbar-results" id="sqbar-results" style="display:none">
+    <button class="sqbar-close" onclick="document.getElementById('sqbar-results').style.display='none'">✕</button>
     <div class="sqbar-results-inner" id="sqbar-results-inner"></div>
   </div>
 </div>
