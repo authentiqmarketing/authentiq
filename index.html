@@ -1022,10 +1022,8 @@ async function generateStickyQuestions() {
   resultsWrap.style.display = 'none';
   resultsInner.innerHTML = '';
   try {
-    const response = await fetch('/api/generate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url })
+    const response = await fetch('/api/generate?url=' + encodeURIComponent(url), {
+      method: 'GET'
     });
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || 'Request failed');
@@ -1101,10 +1099,8 @@ async function generateQuestions() {
   spinner.style.display = 'inline-block';
   hint.textContent = 'Reading your website and crafting questions...';
   try {
-    const response = await fetch('/api/generate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url })
+    const response = await fetch('/api/generate?url=' + encodeURIComponent(url), {
+      method: 'GET'
     });
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || 'Request failed');
