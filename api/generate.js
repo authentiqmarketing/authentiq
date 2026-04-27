@@ -1,26 +1,48 @@
-# Vercel Runtime Log
+export default async function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-## Request
-ID: f9d89-1777307858486-341d2c85efc8
-Time: 2026-04-27T16:37:38.486Z
-POST /api/generate → 500
-Host: authentiq-snowy.vercel.app
-Duration: 143ms
-Cache: MISS
-Region: iad1
-User Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
-Referer: https://authentiq-snowy.vercel.app/
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-## Lifecycle
+  try {
+    const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+    const url = body && body.url;
+    if (!url) return res.status(400).json({ error: 'URL is required' });
 
-### Function
-Status: 500
-Duration: 92ms
-Runtime: nodejs24.x
-Memory: 253MB / 2048MB
-Region: iad1
+    const apiKey = process.env.ANTHROPIC_API_KEY;
+    if (!apiKey) return res.status(500).json({ error: 'API key not configured' });
 
-## Deployment
-ID: dpl_6gtuYhJXAYVZ1ieKZR8pLV3mZemU
-Environment: production
-Branch: main
+    const anthropicRes = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+      },
+      body: JSON.stringify({
+        model: 'claude-3-haiku-20240307',
+        max_tokens: 1000,
+        system: 'You are a B2B content strategist. Generate exactly 9 interview questions for the business at the given URL. Return ONLY a valid JSON array of 9 strings. No other text.',
+        messages: [{ role: 'user', content: 'Generate 9 interview questions for: ' + url }]
+      })
+    });
+
+    const data = await anthropicRes.json();
+    if (!anthropicRes.ok) return res.status(500).json({ error: 'Anthropic error', detail: data });
+
+    const textBlock = data.content && data.content.find(b => b.type === 'text');
+    if (!textBlock) return res.status(500).json({ error: 'No text in response' });
+
+    const raw = textBlock.text.trim().replace(/```json|```/g, '').trim();
+    const match = raw.match(/\[[\s\S]*\]/);
+    if (!match) return res.status(500).json({ error: 'No JSON array found' });
+
+    const questions = JSON.parse(match[0]);
+    return res.status(200).json({ questions });
+
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
+}
