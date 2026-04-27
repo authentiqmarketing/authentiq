@@ -97,8 +97,8 @@ nav{position:fixed;top:44px;display:none;left:0;right:0;z-index:100;display:flex
 
 /* HERO VIDEO */
 .hero-right{display:flex;align-items:center;justify-content:center}
-.hero-video-wrap{position:relative;width:320px;border-radius:20px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.12);flex-shrink:0}
-.hero-video-wrap video{display:block;width:100%;height:auto}
+.hero-video-wrap{position:relative;width:280px;border-radius:20px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.12);flex-shrink:0}
+.hero-video-wrap iframe{display:block;width:100%;aspect-ratio:9/16;border:none;border-radius:12px;}
 
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr}
@@ -557,9 +557,7 @@ src="https://www.facebook.com/tr?id=2037031713545831&ev=PageView&noscript=1"
     </div>
     <div class="hero-right">
       <div class="hero-video-wrap">
-        <video autoplay muted loop playsinline>
-          <source src="Grant_Taleck_-_Using_Content_as_a_Relationship_Building_Tool.mp4" type="video/mp4">
-        </video>
+        <iframe src="https://www.youtube.com/embed/5sN4TNMkA1c?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;aspect-ratio:9/16;border-radius:12px;display:block;"></iframe>
       </div>
     </div>
   </div>
