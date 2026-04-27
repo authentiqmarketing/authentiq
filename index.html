@@ -134,7 +134,7 @@ section{padding:96px 5%}
 @media(max-width:600px){.who-grid{grid-template-columns:1fr 1fr}}
 
 .vcard-linkedin{width:300px;flex-shrink:0}
-.vcard-linkedin iframe{width:300px;height:520px;border-radius:16px;display:block;border:none;overflow:hidden}
+.vcard-linkedin iframe{width:300px;height:399px;border-radius:16px;display:block;border:none;overflow:hidden}
 
 /* VERTICAL VIDEO CAROUSEL */
 .vcarousel-sec{background:var(--dark);padding:80px 0;overflow:hidden}
@@ -143,11 +143,11 @@ section{padding:96px 5%}
 .vcarousel-header .h2{color:var(--white)}
 .vcarousel-outer{overflow:hidden;width:100%;cursor:grab;user-select:none}
 .vcarousel-outer:active{cursor:grabbing}
-.vcarousel-track{display:flex;gap:20px;width:max-content;animation:vscroll 30s linear infinite;padding:10px 40px}
+.vcarousel-track{display:flex;flex-wrap:nowrap;gap:20px;width:max-content;animation:vscroll 30s linear infinite;padding:10px 40px}
 .vcarousel-track:hover{animation-play-state:paused}
 @keyframes vscroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .vcard{flex-shrink:0;width:300px}
-.vcard-inner{background:#1a1a20;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);box-shadow:0 8px 32px rgba(0,0,0,0.3);height:520px}
+.vcard-inner{background:#1a1a20;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);box-shadow:0 8px 32px rgba(0,0,0,0.3);height:399px}
 .vcard-screen{padding:12px}
 .vcard-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0033a0,#00c4e0);margin-bottom:8px}
 .vcard-name{font-size:0.65rem;font-weight:700;color:rgba(255,255,255,0.7);margin-bottom:10px;letter-spacing:0.04em}
@@ -652,124 +652,66 @@ src="https://www.facebook.com/tr?id=2037031713545831&ev=PageView&noscript=1"
   </div>
   <div class="vcarousel-outer">
     <div class="vcarousel-track" id="vcarousel-track">
-      <!-- Cards duplicated for seamless loop -->
       <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7453416290993463297?collapsed=1" height="861" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-      </div>
-      <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7450908462751956992?collapsed=1" height="895" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7453416290993463297?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
       </div>
       <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7453073294804742145?collapsed=1" height="895" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7450908462751956992?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
       </div>
-      <div class="vcard">
-        <div class="vcard-inner">
-          <div class="vcard-screen">
-            <div class="vcard-avatar" style="background:linear-gradient(135deg,#323232,#555)"></div>
-            <div class="vcard-name">Dana Okafor</div>
-            <div class="vcard-thumb" style="background:#1a2810">
-              <div class="vcard-play">▶</div>
-            </div>
-            <div class="vcard-caption">I stopped writing content for 6 months. Here's what happened to my pipeline.</div>
-          </div>
-        </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7453073294804742145?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
       </div>
-      <div class="vcard">
-        <div class="vcard-inner">
-          <div class="vcard-screen">
-            <div class="vcard-avatar" style="background:linear-gradient(135deg,#FF9E18,#0068cc)"></div>
-            <div class="vcard-name">Mitch Kubik</div>
-            <div class="vcard-thumb" style="background:#1a1020">
-              <div class="vcard-play">▶</div>
-            </div>
-            <div class="vcard-caption">The invisible expert problem: you're the best kept secret in your industry. Let's fix that.</div>
-          </div>
-        </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7452397116246691841?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
       </div>
-      <div class="vcard">
-        <div class="vcard-inner">
-          <div class="vcard-screen">
-            <div class="vcard-avatar" style="background:linear-gradient(135deg,#00c4e0,#FF9E18)"></div>
-            <div class="vcard-name">Priya Sharma</div>
-            <div class="vcard-thumb" style="background:#0d1a1a">
-              <div class="vcard-play">▶</div>
-            </div>
-            <div class="vcard-caption">What happens when your ideal client Googles you — and finds nothing.</div>
-          </div>
-        </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7446553595107282944?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
       </div>
-      <!-- Duplicate set for seamless loop -->
-      <div class="vcard">
-        <div class="vcard-inner">
-          <div class="vcard-screen">
-            <div class="vcard-avatar"></div>
-            <div class="vcard-name">Grant Taleck</div>
-            <div class="vcard-thumb">
-              <div class="vcard-play">▶</div>
-            </div>
-            <div class="vcard-caption">The best sales call I ever had — the prospect already knew my whole story before we spoke.</div>
-          </div>
-        </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7437493413177933824?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
       </div>
-      <div class="vcard">
-        <div class="vcard-inner">
-          <div class="vcard-screen">
-            <div class="vcard-avatar" style="background:linear-gradient(135deg,#FF9E18,#ff6b00)"></div>
-            <div class="vcard-name">Sarah Mitchell</div>
-            <div class="vcard-thumb" style="background:#1a1a2e">
-              <div class="vcard-play">▶</div>
-            </div>
-            <div class="vcard-caption">3 things financial advisors get wrong about LinkedIn — and how to fix them in 30 minutes.</div>
-          </div>
-        </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7432779173330391040?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
       </div>
-      <div class="vcard">
-        <div class="vcard-inner">
-          <div class="vcard-screen">
-            <div class="vcard-avatar" style="background:linear-gradient(135deg,#00c4e0,#0068cc)"></div>
-            <div class="vcard-name">James Reeves</div>
-            <div class="vcard-thumb" style="background:#0a1628">
-              <div class="vcard-play">▶</div>
-            </div>
-            <div class="vcard-caption">Why your cold outreach isn't working — and what thought leadership does instead.</div>
-          </div>
-        </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7396921580133715968?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
       </div>
-      <div class="vcard">
-        <div class="vcard-inner">
-          <div class="vcard-screen">
-            <div class="vcard-avatar" style="background:linear-gradient(135deg,#323232,#555)"></div>
-            <div class="vcard-name">Dana Okafor</div>
-            <div class="vcard-thumb" style="background:#1a2810">
-              <div class="vcard-play">▶</div>
-            </div>
-            <div class="vcard-caption">I stopped writing content for 6 months. Here's what happened to my pipeline.</div>
-          </div>
-        </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7453416290993463297?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
       </div>
-      <div class="vcard">
-        <div class="vcard-inner">
-          <div class="vcard-screen">
-            <div class="vcard-avatar" style="background:linear-gradient(135deg,#FF9E18,#0068cc)"></div>
-            <div class="vcard-name">Mitch Kubik</div>
-            <div class="vcard-thumb" style="background:#1a1020">
-              <div class="vcard-play">▶</div>
-            </div>
-            <div class="vcard-caption">The invisible expert problem: you're the best kept secret in your industry. Let's fix that.</div>
-          </div>
-        </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7450908462751956992?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
       </div>
-      <div class="vcard">
-        <div class="vcard-inner">
-          <div class="vcard-screen">
-            <div class="vcard-avatar" style="background:linear-gradient(135deg,#00c4e0,#FF9E18)"></div>
-            <div class="vcard-name">Priya Sharma</div>
-            <div class="vcard-thumb" style="background:#0d1a1a">
-              <div class="vcard-play">▶</div>
-            </div>
-            <div class="vcard-caption">What happens when your ideal client Googles you — and finds nothing.</div>
-          </div>
-        </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7453073294804742145?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7452397116246691841?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7446553595107282944?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7437493413177933824?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7432779173330391040?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7396921580133715968?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+    </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7446553595107282944?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7450908462751956992?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7437493413177933824?compact=1" height="399" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
       </div>
     </div>
   </div>
