@@ -22,28 +22,28 @@ export default async function handler(req, res) {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model: 'claude-haiku-4-5-20251001',
+        model: 'claude-3-5-haiku-20241022',
         max_tokens: 1000,
         system: `Act as a curious content marketer that is well versed in B2B marketing and is professional, yet curious and creative. Your goal is to create 9 interview questions that can be asked to the business professional whose website you are given, in order to extract insights that can be repurposed into short videos for social media. These questions should help guide the professional to respond with answers that help potential customers along in the buyer's journey. Create 3 categories of questions: Top of Funnel, Middle of Funnel, and Bottom of Funnel. Each category should contain 3 questions specific to this person's business. Make the questions specific to what THIS person/company actually does — not generic. Return ONLY a JSON array of 9 strings in this exact order: the 3 Top of Funnel questions first, then 3 Middle of Funnel, then 3 Bottom of Funnel. Each string should be just the question text with no category label, no numbering, no preamble, no markdown.`,
-        messages: [{ role: 'user', content: 'The website URL is: ' + url + '. Based on what this type of business likely does, generate 9 interview questions.' }]
+        messages: [{ role: 'user', content: 'The website is: ' + url + '. Generate 9 interview questions for this business.' }]
       })
     });
 
     const data = await response.json();
 
     if (!response.ok) {
-      return res.status(response.status).json({ error: data.error?.message || 'Anthropic API error' });
+      return res.status(response.status).json({ error: data.error?.message || 'Anthropic API error', detail: JSON.stringify(data) });
     }
 
     const textBlock = data.content && data.content.find(b => b.type === 'text');
     if (!textBlock) {
-      return res.status(500).json({ error: 'No response from model' });
+      return res.status(500).json({ error: 'No response from model', detail: JSON.stringify(data) });
     }
 
     let raw = textBlock.text.trim().replace(/```json|```/g, '').trim();
     const match = raw.match(/\[[\s\S]*\]/);
     if (!match) {
-      return res.status(500).json({ error: 'Could not parse questions from response' });
+      return res.status(500).json({ error: 'Could not parse questions', raw: raw });
     }
 
     const questions = JSON.parse(match[0]);
@@ -51,6 +51,6 @@ export default async function handler(req, res) {
 
   } catch (err) {
     console.error('Generate error:', err);
-    return res.status(500).json({ error: 'Internal server error' });
+    return res.status(500).json({ error: err.message || 'Internal server error' });
   }
 }
