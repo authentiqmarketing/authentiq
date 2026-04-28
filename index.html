@@ -81,7 +81,7 @@ nav{position:fixed;top:44px;display:none;left:0;right:0;z-index:100;display:flex
 .hero-inner{max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,0.8fr);gap:80px;align-items:center}
 .hero-left{display:flex;flex-direction:column}
 .hero-tag{display:inline-block;border:1px solid rgba(255,255,255,0.4);color:var(--white);font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:7px 16px;border-radius:2px;margin-bottom:36px;background:rgba(255,255,255,0.08);width:fit-content}
-.hero h1{font-family:var(--D);font-size:clamp(2.4rem,4vw,4.4rem);font-weight:800;line-height:1.0;text-transform:uppercase;color:var(--white);margin-bottom:36px;letter-spacing:0.015em;text-shadow:0 2px 40px rgba(0,0,0,0.2);white-space:nowrap}
+.hero h1{font-family:var(--D);font-size:clamp(2.4rem,4vw,4.4rem);font-weight:800;line-height:1.0;text-transform:uppercase;color:var(--white);margin-bottom:36px;letter-spacing:0.015em;text-shadow:0 2px 40px rgba(0,0,0,0.2);white-space:normal}
 .hero h1 .o{color:var(--orange)}
 .hero-word{display:inline-block;transition:opacity 0.4s ease,transform 0.4s ease}
 .hero-word.fade-out{opacity:0;transform:translateY(-8px)}
@@ -1176,12 +1176,11 @@ function tf(el){el.closest('.fi').classList.toggle('open')}
       {text:"expert.",   br:false, orange:true}
     ],
     [
-      {text:"Build",  br:false},
-      {text:"trust",  br:false},
-      {text:"before", br:true},
+      {text:"Build",  br:false, orange:true},
+      {text:"trust",  br:true, orange:true},
+      {text:"before", br:false},
       {text:"the",    br:false},
-      {text:"first",  br:false, orange:true},
-      {text:"call.",  br:false, orange:true}
+      {text:"call.",  br:false}
     ]
   ];
 
