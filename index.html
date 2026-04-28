@@ -59,8 +59,12 @@ body{font-family:var(--S);color:var(--body);background:var(--white);line-height:
 .sqbar-copy{display:block;margin:10px 5% 14px auto;background:transparent;border:1.5px solid #e2e4ef;color:var(--gray);font-family:var(--S);font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:6px 14px;border-radius:4px;cursor:pointer;transition:all 0.2s;width:fit-content}
 .sqbar-copy:hover{border-color:var(--navy);color:var(--navy)}
 .sqbar-error{font-size:0.72rem;font-weight:600;color:#c0392b;padding:10px 5%;border-top:1px solid #fcc;background:#fff5f5}
-@media(max-width:900px){.sqbar-label{display:none}.sqbar-field-wrap{display:none}.sqbar-divider{display:none}.sqbar-cta{display:none}}
+@media(max-width:900px){.sqbar-label{display:none}}
 @media(max-width:600px){
+  .sqbar-inner{gap:8px;padding:0 4%}
+  .sqbar-label{display:none}
+  .sqbar-cta{display:none}
+  .sqbar-divider{display:none}
   .sqbar-results-inner{grid-template-columns:1fr}
 }
 
@@ -74,7 +78,7 @@ nav{position:fixed;top:44px;display:none;left:0;right:0;z-index:100;display:flex
 .hero{min-height:100vh;display:flex;align-items:center;padding:100px 5% 80px;position:relative;overflow:hidden;background:linear-gradient(135deg,#0033a0 0%,#0055cc 25%,#0088cc 60%,#00b8d9 85%,#00d4e8 100%)}
 @media(max-width:900px){.hero{min-height:auto}}
 .hero-overlay{display:none}
-.hero-inner{max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,0.8fr);gap:80px;align-items:center}
 .hero-left{display:flex;flex-direction:column}
 .hero-tag{display:inline-block;border:1px solid rgba(255,255,255,0.4);color:var(--white);font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:7px 16px;border-radius:2px;margin-bottom:36px;background:rgba(255,255,255,0.08);width:fit-content}
 .hero h1{font-family:var(--D);font-size:clamp(2.4rem,4.8vw,5.2rem);font-weight:800;line-height:1.0;text-transform:uppercase;color:var(--white);margin-bottom:36px;letter-spacing:0.015em;text-shadow:0 2px 40px rgba(0,0,0,0.2);white-space:nowrap}
@@ -82,7 +86,7 @@ nav{position:fixed;top:44px;display:none;left:0;right:0;z-index:100;display:flex
 .hero-word{display:inline-block;transition:opacity 0.4s ease,transform 0.4s ease}
 .hero-word.fade-out{opacity:0;transform:translateY(-8px)}
 #hero-h1{transition:opacity 0.5s ease}
-.hero-sub{font-size:0.97rem;font-weight:600;color:rgba(255,255,255,0.75);max-width:460px;line-height:1.5;margin-bottom:48px}
+.hero-sub{font-size:1.15rem;font-weight:600;color:rgba(255,255,255,0.75);max-width:460px;line-height:1.6;margin-bottom:48px}
 .hero-highlight{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.18);border-radius:4px;padding:1px 7px;color:rgba(255,255,255,0.95);white-space:nowrap}
 .hero-acts{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
 .btn-p{background:var(--orange);color:var(--white);font-family:var(--S);font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:15px 34px;border-radius:3px;text-decoration:none;transition:background 0.2s,transform 0.15s;display:inline-block}
@@ -100,6 +104,7 @@ nav{position:fixed;top:44px;display:none;left:0;right:0;z-index:100;display:flex
   .hero-inner{grid-template-columns:1fr}
   .hero-right{display:flex;justify-content:center;margin-top:32px}
   .hero-video-wrap{width:220px}
+  .sqbar-label{display:none}.sqbar-field-wrap{display:none}.sqbar-divider{display:none}.sqbar-cta{display:none}
 }
 
 /* PROOF BAR */
@@ -352,6 +357,14 @@ footer{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c
 .hiw-title{font-family:var(--S);font-size:1.1rem;font-weight:800;color:var(--dark);margin-bottom:16px;letter-spacing:0.01em}
 .hiw-body{font-size:0.9rem;font-weight:600;color:var(--gray);line-height:1.85}
 /* DIY VS US */
+.pain-sec{background:#0a0a0a;padding:100px 5%}
+.pain-inner{max-width:800px;margin:0 auto}
+.pain-eyebrow{font-family:var(--D);font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:20px}
+.pain-h{font-family:var(--D);font-size:clamp(2rem,4vw,3.2rem);font-weight:800;color:var(--white);margin-bottom:28px;line-height:1.1;letter-spacing:-0.01em}
+.pain-p{font-size:1.05rem;color:rgba(255,255,255,0.55);line-height:1.85;max-width:640px;margin-bottom:48px}
+.pain-pills{display:flex;flex-wrap:wrap;gap:12px}
+.pain-pill{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:40px;padding:10px 20px;font-size:0.85rem;color:rgba(255,255,255,0.6);font-weight:500}
+.diy-title{font-family:var(--D);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;text-align:center;color:#111;margin-bottom:48px;letter-spacing:-0.01em}
 .diy-sec{background:var(--white);padding:96px 5%}
 .diy-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;margin-top:0}
 .diy-col-header{font-size:1rem;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;padding:14px 28px;border-radius:8px;display:inline-block;margin-bottom:16px}
@@ -386,6 +399,7 @@ footer{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c
 .tstep-icon svg{width:36px;height:36px}
 .tstep-dot{width:12px;height:12px;background:var(--orange);border-radius:50%;border:2px solid var(--white);box-shadow:0 0 0 2px var(--orange)}
 .tstep-label{font-size:0.82rem;font-weight:700;color:var(--dark);line-height:1.4;letter-spacing:0.02em;text-transform:uppercase}
+.tstep-desc{font-size:0.76rem;color:#888;text-align:center;line-height:1.5;margin-top:8px;max-width:140px}
 @media(max-width:600px){.timeline-steps{grid-template-columns:1fr 1fr}.timeline-line{display:none}}
 
 /* CONCEPT 3 — Phone Mockup */
@@ -486,6 +500,7 @@ footer{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c
   .tgrid{grid-template-columns:1fr}
   .pcallout{flex-direction:column;gap:16px;padding:28px 24px}
   .cbar{width:36px;height:4px;align-self:auto}
+  .sqbar-inner{height:56px}
 }
 </style>
 <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/245064687.js"></script>
@@ -549,12 +564,12 @@ src="https://www.facebook.com/tr?id=2037031713545831&ev=PageView&noscript=1"
       <p class="hero-sub"><span class="hero-highlight">Monthly video interviews</span> turned into thought leadership content. <span class="hero-highlight">Your face, your voice, your real ideas</span>, edited, captioned, and scheduled for you.</p>
       <div class="hero-acts">
         <a class="btn-p" href="https://meetings-na2.hubspot.com/grant-taleck/coach-led-video-thought-leadership-demo" target="_blank">Book your free demo</a>
-        <a class="btn-g" href="#how-it-works">See how it works</a>
+        <a class="btn-g" href="#see-how-it-works">See how it works</a>
       </div>
     </div>
     <div class="hero-right">
       <div class="hero-video-wrap">
-        <iframe src="https://www.youtube.com/embed/5sN4TNMkA1c?rel=0&modestbranding=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;aspect-ratio:9/16;border-radius:12px;display:block;"></iframe>
+        <iframe src="https://player.vimeo.com/video/1187369250?title=0&byline=0&portrait=0&badge=0&autopause=0&background=1&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="width:100%;aspect-ratio:9/16;border-radius:12px;display:block;"></iframe>
       </div>
     </div>
   </div>
@@ -590,6 +605,21 @@ src="https://www.facebook.com/tr?id=2037031713545831&ev=PageView&noscript=1"
   </div>
 </div>
 
+<!-- PAIN SECTION -->
+<section class="pain-sec">
+  <div class="w pain-inner">
+    <div class="pain-eyebrow">Sound familiar?</div>
+    <h2 class="pain-h">You know you should be posting video content.<br>Something always gets in the way.</h2>
+    <p class="pain-p">You sit down to record. Nothing feels good enough. You tell yourself you'll do it next week. Meanwhile someone in your space is showing up every week, and your buyers are starting to recognize their face instead of yours.</p>
+    <div class="pain-pills">
+      <div class="pain-pill">Too busy to stay consistent</div>
+      <div class="pain-pill">Stared at the screen and posted nothing</div>
+      <div class="pain-pill">Never know what to talk about</div>
+      <div class="pain-pill">Your expertise is invisible</div>
+    </div>
+  </div>
+</section>
+
 <section class="concept-stat">
   <div class="w" style="text-align:center;max-width:800px">
     <div class="ey">The Reality</div>
@@ -599,9 +629,12 @@ src="https://www.facebook.com/tr?id=2037031713545831&ev=PageView&noscript=1"
   </div>
 </section>
 
+<!-- CONCEPT 1: Animated Stat -->
+
 <!-- DIY VS US SECTION -->
 <section class="diy-sec">
   <div class="w">
+    <h2 class="diy-title">Video builds trust. Consistency builds pipeline.</h2>
     <div class="diy-grid">
       <div class="diy-col">
         <div class="diy-col-header diy-col-header-bad">DIYing It</div>
@@ -623,19 +656,6 @@ src="https://www.facebook.com/tr?id=2037031713545831&ev=PageView&noscript=1"
           <div class="diy-item diy-item-good">🤝 The expert your buyers already trust</div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONCEPT 1: Animated Stat -->
-
-<!-- VIDEO SECTION -->
-<section class="video-sec">
-  <div class="w" style="max-width:800px">
-    <div class="ey">See It In Action</div>
-    <h2 class="h2">Watch how it works.</h2>
-    <div class="video-wrap">
-      <iframe src="https://www.loom.com/embed/7104a9be01ec4f719b79be1333d8c5ba" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
   </div>
 </section>
@@ -706,6 +726,18 @@ src="https://www.facebook.com/tr?id=2037031713545831&ev=PageView&noscript=1"
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section class="testi-sec">
+  <div class="w">
+    <h2 class="h2">Real results from<br>real conversations.</h2>
+    <div class="tgr">
+      <div class="tc fade"><p class="tctext">"Their editing expertise is truly top notch, consistently delivering a flawless, polished final product. They have become an invaluable partner in our creative endeavors."</p><div class="tcauth"><div class="tcav">CG</div><div><div class="tcname">Charles Good</div><div class="tctitle">Institute for Management Studies</div></div></div></div>
+      <div class="tc fade" style="transition-delay:.1s"><p class="tctext">"I always wanted to appear more professional on video but kept neglecting it. Working with AuthentIQ, I finally got it right. It is like going from a ripped t-shirt to the nicest suit I have ever worn."</p><div class="tcauth"><div class="tcav">BH</div><div><div class="tcname">Brian Helfman</div><div class="tctitle">Founder and Facilitator</div></div></div></div>
+      <div class="tc fade" style="transition-delay:.2s"><p class="tctext">"3 words after watching video 1: WOW WOW WOW. You made this an easy process. Simple and easy to engage with, and that makes a big difference."</p><div class="tcauth"><div class="tcav">NW</div><div><div class="tcname">Neil Wood</div><div class="tctitle">Consultant</div></div></div></div>
+    </div>
+  </div>
+</section>
+
 <!-- CONCEPT 2: Process Timeline -->
 <section class="concept-timeline">
   <div class="w">
@@ -721,6 +753,7 @@ src="https://www.facebook.com/tr?id=2037031713545831&ev=PageView&noscript=1"
           </div>
           <div class="tstep-dot"></div>
           <div class="tstep-label">Develop Topics<br>&amp; Questions</div>
+          <div class="tstep-desc">A discovery call to learn your business, then we build questions your buyers care about.</div>
         </div>
         <div class="tstep fade" style="transition-delay:.1s">
           <div class="tstep-icon">
@@ -729,6 +762,7 @@ src="https://www.facebook.com/tr?id=2037031713545831&ev=PageView&noscript=1"
           </div>
           <div class="tstep-dot"></div>
           <div class="tstep-label">Monthly 30 Min<br>Interview</div>
+          <div class="tstep-desc">We ask strategic questions and coach you on camera. You just show up and talk.</div>
         </div>
         <div class="tstep fade" style="transition-delay:.2s">
           <div class="tstep-icon">
@@ -737,6 +771,7 @@ src="https://www.facebook.com/tr?id=2037031713545831&ev=PageView&noscript=1"
           </div>
           <div class="tstep-dot"></div>
           <div class="tstep-label">Our Team Edits<br>&amp; Distributes</div>
+          <div class="tstep-desc">We handle editing, captions, and scheduling. You don't touch a thing.</div>
         </div>
         <div class="tstep fade" style="transition-delay:.3s">
           <div class="tstep-icon">
@@ -745,11 +780,20 @@ src="https://www.facebook.com/tr?id=2037031713545831&ev=PageView&noscript=1"
           </div>
           <div class="tstep-dot"></div>
           <div class="tstep-label">Trust<br>Compounds</div>
+          <div class="tstep-desc">The longer you show up, the more familiar you become. That's when deals get easier.</div>
         </div>
       </div>
     </div>
-    <div style="margin-top:52px;text-align:center">
-      <a href="#how-it-works-detail" class="btn-learn-more">Learn More ↓</a>
+  </div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="video-sec" id="see-how-it-works">
+  <div class="w" style="max-width:800px">
+    <div class="ey">See It In Action</div>
+    <h2 class="h2">Watch how it works.</h2>
+    <div class="video-wrap">
+      <iframe src="https://www.loom.com/embed/7104a9be01ec4f719b79be1333d8c5ba" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
   </div>
 </section>
@@ -792,18 +836,6 @@ src="https://www.facebook.com/tr?id=2037031713545831&ev=PageView&noscript=1"
       <div class="qgen-error" id="qgen-error" style="display:none">
         <span id="qgen-error-msg"></span>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testi-sec">
-  <div class="w">
-    <h2 class="h2">Real results from<br>real conversations.</h2>
-    <div class="tgr">
-      <div class="tc fade"><p class="tctext">"Their editing expertise is truly top notch, consistently delivering a flawless, polished final product. They have become an invaluable partner in our creative endeavors."</p><div class="tcauth"><div class="tcav">CG</div><div><div class="tcname">Charles Good</div><div class="tctitle">Institute for Management Studies</div></div></div></div>
-      <div class="tc fade" style="transition-delay:.1s"><p class="tctext">"I always wanted to appear more professional on video but kept neglecting it. Working with AuthentIQ, I finally got it right. It is like going from a ripped t-shirt to the nicest suit I have ever worn."</p><div class="tcauth"><div class="tcav">BH</div><div><div class="tcname">Brian Helfman</div><div class="tctitle">Founder and Facilitator</div></div></div></div>
-      <div class="tc fade" style="transition-delay:.2s"><p class="tctext">"3 words after watching video 1: WOW WOW WOW. You made this an easy process. Simple and easy to engage with, and that makes a big difference."</p><div class="tcauth"><div class="tcav">NW</div><div><div class="tcname">Neil Wood</div><div class="tctitle">Consultant</div></div></div></div>
     </div>
   </div>
 </section>
@@ -899,6 +931,8 @@ src="https://www.facebook.com/tr?id=2037031713545831&ev=PageView&noscript=1"
     </div>
   </div>
 </section>
+
+
 
 <!-- FOOTER -->
 
@@ -1022,7 +1056,7 @@ async function submitToHubSpot(name, email) {
         context: { pageUri: window.location.href, pageName: document.title }
       })
     });
-  } catch(e) { /* silent fail — don't block question generation */ }
+  } catch(e) { /* silent fail */ }
 }
 
 async function generateQuestions() {
@@ -1143,9 +1177,9 @@ function tf(el){el.closest('.fi').classList.toggle('open')}
     ],
     [
       {text:"Build",  br:false},
-      {text:"trust",  br:true},
-      {text:"before", br:false},
-      {text:"the",    br:true},
+      {text:"trust",  br:false},
+      {text:"before", br:true},
+      {text:"the",    br:false},
       {text:"first",  br:false, orange:true},
       {text:"call.",  br:false, orange:true}
     ]
@@ -1299,7 +1333,6 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 <!-- End of HubSpot Embed Code -->
 </body>
 </html
-
 
 
 
