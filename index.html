@@ -975,17 +975,13 @@ src="https://www.facebook.com/tr?id=2037031713545831&ev=PageView&noscript=1"
     .then(function(r){return r.json();})
     .then(function(data){
       if(!data.items||!data.items.length)return;
-      document.getElementById('blog-grid').innerHTML=data.items.map(function(p){
-        var img=p.image?'<img class="blog-card-img" src="'+p.image+'" alt="'+p.title+'" loading="lazy">':'<div class="blog-card-img"></div>';
-        return '<a class="blog-card fade" href="'+p.link+'" target="_blank" rel="noopener">'
-          +img
-          +'<div class="blog-card-body">'
-          +'<div class="blog-card-tag">AuthentIQ</div>'
-          +'<div class="blog-card-title">'+p.title+'</div>'
-          +'<div class="blog-card-excerpt">'+p.desc+'</div>'
-          +'<div class="blog-card-footer"><span class="blog-card-date">'+p.date+'</span><span class="blog-card-arrow">Read more →</span></div>'
-          +'</div></a>';
-      }).join('');
+      var html='';
+      for(var i=0;i<data.items.length;i++){
+        var p=data.items[i];
+        var img=p.image?'<img class="blog-card-img" src="'+p.image+'" alt="" loading="lazy">':'<div class="blog-card-img"></div>';
+        html+='<a class="blog-card fade" href="'+p.link+'" target="_blank" rel="noopener">'+img+'<div class="blog-card-body"><div class="blog-card-tag">AuthentIQ</div><div class="blog-card-title">'+p.title+'</div><div class="blog-card-excerpt">'+p.desc+'</div><div class="blog-card-footer"><span class="blog-card-date">'+p.date+'</span><span class="blog-card-arrow">Read more</span></div></div></a>';
+      }
+      document.getElementById('blog-grid').innerHTML=html;
     }).catch(function(){});
 })();
 </script>
