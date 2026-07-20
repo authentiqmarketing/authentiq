@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AuthentIQ — Done-For-You Podcast Production</title>
-<meta name="description" content="You record your show. We handle everything after you hit stop. Video and audio editing, publishing, clips, captions, and scheduling. Roster capped at 10 shows.">
+<meta name="description" content="You record your show. We handle everything after you record. Video and audio editing, publishing, clips, captions, and scheduling. Roster capped at 10 shows.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -82,7 +82,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-overlay{display:none}
 .hero-inner{max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,0.8fr);gap:80px;align-items:center}
 .hero-left{display:flex;flex-direction:column}
-.hero-tag{display:inline-block;border:1px solid rgba(255,255,255,0.4);color:var(--white);font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:7px 16px;border-radius:2px;margin-bottom:36px;background:rgba(255,255,255,0.08);width:fit-content}
+.hero-tag{display:inline-block;border:1px solid rgba(255,255,255,0.4);color:var(--white);font-size:0.82rem;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;padding:9px 18px;border-radius:2px;margin-bottom:36px;background:rgba(255,255,255,0.08);width:fit-content}
 .hero h1{font-family:var(--D);font-size:clamp(2.4rem,4vw,4.4rem);font-weight:800;line-height:1.0;text-transform:uppercase;color:var(--white);margin-bottom:36px;letter-spacing:0.015em;text-shadow:0 2px 40px rgba(0,0,0,0.2);white-space:normal}
 .hero h1 .o{color:var(--orange)}
 .hero-word{display:inline-block;transition:opacity 0.4s ease,transform 0.4s ease}
@@ -125,7 +125,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 /* SECTIONS */
 section{padding:96px 5%}
 .w{max-width:1100px;margin:0 auto}
-.ey{font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+.ey{font-size:0.82rem;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:var(--orange);margin-bottom:18px}
 .h2{font-family:var(--D);font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;text-transform:uppercase;line-height:1.0;letter-spacing:0.02em;color:var(--dark);margin-bottom:20px}
 .sub{font-size:0.9rem;font-weight:600;color:var(--gray);max-width:460px;line-height:1.8;margin-bottom:52px}
 
@@ -197,10 +197,10 @@ section{padding:96px 5%}
 /* PROBLEM HERO */
 .prob-hero-sec{padding:120px 5% 80px}
 .prob-label{transition:opacity 0.3s ease}
-.prob-hero-wrap{position:relative;cursor:default;margin-bottom:40px;overflow:hidden}
-.prob-hero-h{font-family:var(--D);font-size:clamp(1.6rem,4vw,4rem);font-weight:800;line-height:1.05;text-transform:uppercase;color:var(--dark);letter-spacing:-0.01em;transition:transform 0.55s cubic-bezier(0.4,0,0.2,1),opacity 0.4s ease;will-change:transform}
-.prob-hero-wrap.slid .prob-hero-h{transform:translateX(-110%);opacity:0}
-.prob-reveal-h{font-family:var(--D);font-size:clamp(1.6rem,4vw,4rem);font-weight:800;line-height:1.05;text-transform:uppercase;color:var(--orange);position:absolute;top:0;left:0;right:0;transform:translateX(110%);transition:transform 0.55s cubic-bezier(0.4,0,0.2,1),opacity 0.4s ease;opacity:0;pointer-events:none}
+.prob-hero-wrap{position:relative;cursor:default;margin-bottom:40px}
+.prob-hero-h{font-family:var(--D);font-size:clamp(1.5rem,3.4vw,3.1rem);font-weight:800;line-height:1.08;text-transform:uppercase;color:var(--dark);letter-spacing:-0.01em}
+.prob-hero-wrap.slid .prob-reveal-h{opacity:1;transform:none}
+.prob-reveal-h{font-family:var(--D);font-size:clamp(1.5rem,3.4vw,3.1rem);font-weight:800;line-height:1.08;text-transform:uppercase;color:var(--orange);letter-spacing:-0.01em;opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
 .prob-hero-wrap.slid .prob-reveal-h{transform:translateX(0);opacity:1}
 
 /* PROBLEM */
@@ -535,13 +535,19 @@ footer{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c
 .pod-rec{display:flex;align-items:center;gap:8px;font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:18px}
 .pod-rec i{width:10px;height:10px;background:#ff3b30;border-radius:50%;display:inline-block;animation:cursor-pulse 1.5s ease-in-out infinite}
 .pod-wave{display:flex;align-items:center;gap:5px;height:64px;margin-bottom:20px}
-.pod-wave b{flex:1;background:linear-gradient(180deg,#00c4e0,#0055cc);border-radius:3px;display:block}
+.pod-wave b{flex:1;background:linear-gradient(180deg,#00c4e0,#0055cc);border-radius:3px;display:block;animation:podbar 1.5s ease-in-out infinite alternate;transform-origin:center}
+@keyframes podbar{0%{transform:scaleY(0.5)}100%{transform:scaleY(1.05)}}
 .pod-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-top:1px solid rgba(255,255,255,0.08);font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.75)}
-.pod-row span{color:rgba(255,255,255,0.35);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.08em}
+.pod-row span{color:rgba(255,255,255,0.35);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.08em;opacity:0;transform:translateX(8px);transition:opacity .4s ease,transform .4s ease}
+.pod-row span.on{opacity:1;transform:none}
+.pod-row.pod-final{color:var(--white);font-weight:700}
+.pod-row.pod-final span{color:var(--orange)}
+@media(prefers-reduced-motion:reduce){.pod-wave b{animation:none}.pod-row span{opacity:1;transform:none;transition:none}}
+
 /* NEW: seats */
 .seats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;max-width:420px;margin:48px auto 0}
 .seat{aspect-ratio:1/1;border-radius:10px;border:2px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;font-family:var(--D);font-weight:800;font-size:1rem;color:rgba(255,255,255,0.7)}
-.seats-label{margin-top:16px;text-align:center;font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+.seats-label{margin-top:16px;text-align:center;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
 /* NEW: stats row */
 .stat-row{display:flex;gap:64px;justify-content:center;flex-wrap:wrap;margin:0 0 64px;text-align:center}
 .stat-row b{display:block;font-family:var(--D);font-weight:800;font-size:2.8rem;color:var(--white);line-height:1.1}
@@ -559,7 +565,7 @@ footer{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c
 /* NEW: final cta */
 .final-sec{background:linear-gradient(135deg,#0033a0 0%,#0055cc 25%,#0088cc 60%,#00b8d9 85%,#00d4e8 100%);text-align:center}
 .final-sec .h2{color:var(--white)}
-.final-sec p{color:rgba(255,255,255,0.75);font-size:0.95rem;font-weight:600;max-width:520px;margin:0 auto 40px;line-height:1.8}
+.final-sec p{color:rgba(255,255,255,0.75);font-size:0.95rem;font-weight:600;max-width:780px;margin:0 auto 40px;line-height:1.8}
 </style>
 </head>
 <body>
@@ -586,13 +592,13 @@ footer{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c
       <div class="pod-card">
         <div class="pod-rec"><i></i> This week's episode</div>
         <div class="pod-wave">
-          <b style="height:30%"></b><b style="height:62%"></b><b style="height:88%"></b><b style="height:52%"></b><b style="height:96%"></b><b style="height:70%"></b><b style="height:40%"></b><b style="height:78%"></b><b style="height:58%"></b><b style="height:34%"></b><b style="height:66%"></b><b style="height:44%"></b>
+          <b style="height:30%;animation-delay:0.00s"></b><b style="height:62%;animation-delay:0.12s"></b><b style="height:88%;animation-delay:0.24s"></b><b style="height:52%;animation-delay:0.36s"></b><b style="height:96%;animation-delay:0.48s"></b><b style="height:70%;animation-delay:0.60s"></b><b style="height:40%;animation-delay:0.72s"></b><b style="height:78%;animation-delay:0.84s"></b><b style="height:58%;animation-delay:0.96s"></b><b style="height:34%;animation-delay:1.08s"></b><b style="height:66%;animation-delay:1.20s"></b><b style="height:44%;animation-delay:1.32s"></b>
         </div>
-        <div class="pod-row">Edited &amp; mixed <span>Done</span></div>
-        <div class="pod-row">Video on YouTube <span>Done</span></div>
-        <div class="pod-row">Audio everywhere <span>Done</span></div>
-        <div class="pod-row">Clips &amp; captions <span>Done</span></div>
-        <div class="pod-row">Your to-do list <span>Empty</span></div>
+        <div class="pod-row">Edited &amp; mixed <span>&#10003; Done</span></div>
+        <div class="pod-row">Video on YouTube <span>&#10003; Done</span></div>
+        <div class="pod-row">Audio everywhere <span>&#10003; Done</span></div>
+        <div class="pod-row">Clips &amp; captions <span>&#10003; Done</span></div>
+        <div class="pod-row pod-final">Your to-do list <span>Empty</span></div>
       </div>
     </div>
   </div>
@@ -606,8 +612,8 @@ footer{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c
   <div class="w">
     <p class="ey prob-label">The pattern we see everywhere</p>
     <div class="prob-hero-wrap" id="probwrap">
-      <div class="prob-hero-h">Most podcasts don't&nbsp;fail.</div>
-      <div class="prob-reveal-h">They just stop getting attention.</div>
+      <div class="prob-hero-h">Episode 1 gets everyone's&nbsp;best.</div>
+      <div class="prob-reveal-h">Episode 50 just gets published.</div>
     </div>
     <div class="pgrid fade">
       <div class="pc"><p style="font-weight:600;color:var(--gray);line-height:1.8;font-size:0.9rem">The episodes still go out. But nobody's thinking about the show anymore, and nobody's trying to make it better.</p></div>
@@ -622,12 +628,12 @@ footer{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c
   <div class="w">
     <p class="ey">Why we're different</p>
     <h2 class="h2" style="color:var(--white)">One of a hundred vs. one of ten</h2>
-    <p class="sub" style="color:rgba(255,255,255,0.35)">Every agency says they care. We built a structure where caring is the only way we can operate.</p>
+    <p class="sub" style="color:rgba(255,255,255,0.35);max-width:620px">Every agency says they care. We built a structure where caring is the only way we can operate.</p>
     <div class="contrast-grid fade">
       <div class="contrast-card contrast-bad">
         <div class="contrast-label contrast-label-bad"><span class="contrast-dot contrast-dot-bad"></span>At a big agency</div>
         <div class="contrast-content">
-          <p class="contrast-quote">"Episodes go out on schedule. But it's been months since anyone over there had an idea about our show."</p>
+          <p class="contrast-quote">"Episodes go out on schedule. But it's been months since anyone over there really cared about improving our show."</p>
           <div class="contrast-meta"><span class="contrast-tag">100+ shows</span><span class="contrast-tag">Autopilot</span><span class="contrast-tag">Ticket queue</span></div>
         </div>
       </div>
@@ -651,7 +657,7 @@ footer{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c
 <section id="how-it-works">
   <div class="w">
     <p class="ey">What a month looks like</p>
-    <h2 class="h2">You hit stop.<br>We take it from there.</h2>
+    <h2 class="h2">You record.<br>We take it from there.</h2>
     <p class="sub">Keep your format, your guests, your schedule. Nothing about how you record changes.</p>
     <div class="sgrid fade">
       <div class="step"><div class="sn">1</div><h3>You record your show</h3><p>Same setup, same rhythm. Your show stays exactly yours.</p></div>
@@ -665,7 +671,7 @@ footer{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c
 <section class="concept-stat">
   <div class="w">
     <p class="ey" style="text-align:center">The track record</p>
-    <h2 class="h2" style="color:var(--white);text-align:center;margin-bottom:56px;max-width:820px;margin-left:auto;margin-right:auto">Clients don't stay for years<br>unless the work holds up.</h2>
+    <h2 class="h2" style="color:var(--white);text-align:center;margin-bottom:56px;font-size:clamp(1.4rem,3.2vw,2.7rem)">Clients don't stay for years<br>unless the work holds up.</h2>
     <div class="stat-row fade">
       <div><b>1,000+</b><span>Episodes produced</span></div>
       <div><b>4 &amp; 5 yrs</b><span>Longest partnerships</span></div>
@@ -689,15 +695,15 @@ footer{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c
     <p class="ey">Pricing</p>
     <h2 class="h2">Built around your show.</h2>
     <p class="price-line">Production engagements start at $2,000/month</p>
-    <p class="price-note" style="margin-left:auto;margin-right:auto">Every show is scoped to what it actually needs. Month to month, no contracts, and we'd rather earn your business every month than lock you in.</p>
+    <p class="price-note" style="margin-left:auto;margin-right:auto">Every show is scoped to what it actually needs. Month to month, no contracts.</p>
     <a class="btn-p" href="https://tidycal.com/mitchkubik/intro-call-with-authentiq">Book a call</a>
   </div>
 </section>
 
 <section>
   <div class="w">
-    <p class="ey">Common questions</p>
-    <h2 class="h2">Answers, upfront.</h2>
+    <p class="ey">FAQ</p>
+    <h2 class="h2">Questions we usually get.</h2>
     <div class="fwrap">
       <div class="fi"><div class="fq" onclick="tf(this)">We already work with an agency. How does switching work?<span class="ficon">+</span></div><div class="fa">We handle the technical handoff: hosting access, feeds, and templates. Most switches are fully live within two weeks to a month, and your show never misses an episode.</div></div>
       <div class="fi"><div class="fq" onclick="tf(this)">I've been producing it myself. What do you need from me?<span class="ficon">+</span></div><div class="fa">Just keep recording. We pull the files straight from your recording platform, and everything after that is ours.</div></div>
@@ -711,7 +717,7 @@ footer{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c
 <section class="final-sec">
   <div class="w">
     <h2 class="h2">Your show deserves more attention than it's getting.</h2>
-    <p>A short call about your show, how you're producing it today, and whether we can help. No pitch deck, no pressure.</p>
+    <p>A short call about your show, how you're producing it, and whether we can help.</p>
     <a class="btn-p" href="https://tidycal.com/mitchkubik/intro-call-with-authentiq">Book a call</a>
   </div>
 </section>
@@ -750,7 +756,16 @@ function tf(el){el.closest('.fi').classList.toggle('open')}
   var obs=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');obs.unobserve(en.target)}})},{threshold:0.15});
   document.querySelectorAll('.fade').forEach(function(el){obs.observe(el)});
   var pw=document.getElementById('probwrap');
-  if(pw){var po=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){setTimeout(function(){pw.classList.add('slid')},900);po.unobserve(pw)}})},{threshold:0.6});po.observe(pw)}
+  if(pw){var po=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){setTimeout(function(){pw.classList.add('slid')},350);po.unobserve(pw)}})},{threshold:0.6});po.observe(pw)}
+  var spans=document.querySelectorAll('.pod-card .pod-row span');
+  var noMo=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(spans.length&&!noMo){
+    var play=function(){
+      spans.forEach(function(s){s.classList.remove('on')});
+      spans.forEach(function(s,i){setTimeout(function(){s.classList.add('on')},600+i*750)});
+    };
+    play();setInterval(play,8000);
+  }else{spans.forEach(function(s){s.classList.add('on')})}
   var items=document.querySelectorAll('.pitem');var idx=0;
   if(items.length){setInterval(function(){items.forEach(function(i){i.classList.remove('active')});items[idx%items.length].classList.add('active');idx++},1400)}
 })();
