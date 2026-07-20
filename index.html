@@ -3,12 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AuthentIQ — Video Thought Leadership for B2B Founders</title>
-<meta name="description" content="Monthly video interviews turned into thought leadership content. Build trust before the first sales call.">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="256x256" href="/favicon-256x256.png">
-<link rel="apple-touch-icon" sizes="512x512" href="/favicon-512x512.png">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<title>AuthentIQ — Done-For-You Podcast Production</title>
+<meta name="description" content="You record your show. We handle everything after you hit stop. Video and audio editing, publishing, clips, captions, and scheduling. Roster capped at 10 shows.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 @font-face { font-family: 'Messenger'; src: url('/fonts/Messenger-Regular.otf') format('opentype'); font-weight: 400; }
 
@@ -531,866 +529,242 @@ footer{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c
   .sqbar-inner{height:56px}
 }
 </style>
-<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/245064687.js"></script>
-<script src="https://js-na2.hsforms.net/forms/embed/245064687.js" defer></script>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2037031713545831');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2037031713545831&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-<script>!function(key) {if (window.reb2b) return;window.reb2b = {loaded: true};var s = document.createElement("script");s.async = true;s.src = "https://b2bjsstore.s3.us-west-2.amazonaws.com/b/" + key + "/" + key + ".js.gz";document.getElementsByTagName("script")[0].parentNode.insertBefore(s, document.getElementsByTagName("script")[0]);}("VN080H41ED6J");</script>
-<script src="https://t.contentsquare.net/uxa/cfcd7477dc1e3.js"></script>
+<style>
+/* NEW: podcast player mockup */
+.pod-card{width:300px;background:#10101a;border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:24px;box-shadow:0 32px 80px rgba(0,0,0,0.4);flex-shrink:0}
+.pod-rec{display:flex;align-items:center;gap:8px;font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:18px}
+.pod-rec i{width:10px;height:10px;background:#ff3b30;border-radius:50%;display:inline-block;animation:cursor-pulse 1.5s ease-in-out infinite}
+.pod-wave{display:flex;align-items:center;gap:5px;height:64px;margin-bottom:20px}
+.pod-wave b{flex:1;background:linear-gradient(180deg,#00c4e0,#0055cc);border-radius:3px;display:block;animation:podbar 1.6s ease-in-out infinite alternate;transform-origin:center}
+@keyframes podbar{0%{transform:scaleY(0.55)}100%{transform:scaleY(1.05)}}
+.pod-row span{opacity:0;transform:translateX(6px);animation:poddone 0.45s ease forwards}
+.pod-row:nth-of-type(1) span{animation-delay:0.8s}
+.pod-row:nth-of-type(2) span{animation-delay:1.6s}
+.pod-row:nth-of-type(3) span{animation-delay:2.4s}
+.pod-row:nth-of-type(4) span{animation-delay:3.2s}
+.pod-row:nth-of-type(5) span{animation-delay:4.2s}
+@keyframes poddone{to{opacity:1;transform:none}}
+.pod-row.pod-final{color:var(--white);font-weight:700}
+.pod-row.pod-final span{color:var(--orange);font-size:0.68rem}
+@media(prefers-reduced-motion:reduce){.pod-wave b{animation:none}.pod-row span{animation:none;opacity:1;transform:none}}
+.pod-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-top:1px solid rgba(255,255,255,0.08);font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.75)}
+.pod-row span{color:rgba(255,255,255,0.35);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.08em}
+/* NEW: seats */
+.seats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;max-width:420px;margin:48px auto 0}
+.seat{aspect-ratio:1/1;border-radius:10px;border:2px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;font-family:var(--D);font-weight:800;font-size:1rem;color:rgba(255,255,255,0.7)}
+.seats-label{margin-top:16px;text-align:center;font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+/* NEW: stats row */
+.stat-row{display:flex;gap:64px;justify-content:center;flex-wrap:wrap;margin:0 0 64px;text-align:center}
+.stat-row b{display:block;font-family:var(--D);font-weight:800;font-size:2.8rem;color:var(--white);line-height:1.1}
+.stat-row span{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.45)}
+/* NEW: steps grid */
+.sgrid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.sgrid .step{border-right:1px solid var(--border)}
+.sgrid .step:last-child{border-right:none}
+.step .sn{font-family:var(--D);font-weight:800;font-size:1.6rem;color:var(--orange);margin-bottom:12px}
+@media(max-width:900px){.sgrid{grid-template-columns:1fr 1fr}.sgrid .step:nth-child(2n){border-right:none}.sgrid .step{border-bottom:1px solid var(--border)}}
+@media(max-width:560px){.sgrid{grid-template-columns:1fr}.sgrid .step{border-right:none}}
+/* NEW: pricing line */
+.price-line{font-family:var(--D);font-size:clamp(1.4rem,3vw,2rem);font-weight:800;text-transform:uppercase;color:var(--dark);margin:8px 0 16px}
+.price-note{font-size:0.9rem;font-weight:600;color:var(--gray);max-width:520px;line-height:1.8;margin-bottom:36px}
+/* NEW: final cta */
+.final-sec{background:linear-gradient(135deg,#0033a0 0%,#0055cc 25%,#0088cc 60%,#00b8d9 85%,#00d4e8 100%);text-align:center}
+.final-sec .h2{color:var(--white)}
+.final-sec p{color:rgba(255,255,255,0.75);font-size:0.95rem;font-weight:600;max-width:520px;margin:0 auto 40px;line-height:1.8}
+</style>
 </head>
 <body>
 
-<!-- CUSTOM CURSOR -->
-<div class="cursor" id="cursor">
-  <div class="cursor-ring"></div>
-  <div class="cursor-dot"></div>
-</div>
+<div class="cursor"><div class="cursor-dot"></div><div class="cursor-ring"></div></div>
 
-<!-- NAV + QUESTION BAR -->
-<div class="sqbar" id="sqbar">
-  <div class="sqbar-inner">
-    <a class="sqbar-logo" href="#"><img src="/images/image-1.png" alt="AuthentIQ Marketing" style="height:24px;width:auto;display:block;"></a>
-    <div class="sqbar-divider"></div>
-    <span class="sqbar-label">Get 9 interview questions</span>
-    <div class="sqbar-field-wrap">
-      <input class="sqbar-input" id="sqbar-url" type="url" placeholder="https://yourwebsite.com" autocomplete="off" />
-      <button class="sqbar-btn" id="sqbar-btn" onclick="generateStickyQuestions()">
-        <span id="sqbar-btn-label">Generate Topics</span>
-        <span id="sqbar-spinner" class="sqbar-spinner" style="display:none"></span>
-      </button>
-    </div>
-    <a class="sqbar-cta" href="https://meetings-na2.hubspot.com/grant-taleck/interview-authentiq" target="_blank">Book Free Demo</a>
-  </div>
-  <div class="sqbar-results" id="sqbar-results" style="display:none">
-    <button class="sqbar-close" onclick="document.getElementById('sqbar-results').style.display='none'">✕</button>
-    <div class="sqbar-results-inner" id="sqbar-results-inner"></div>
-  </div>
-</div>
+<nav>
+  <a class="nav-logo" href="/"><img src="/images/image-8.png" alt="AuthentIQ"></a>
+  <a class="nav-cta" href="https://tidycal.com/mitchkubik/intro-call-with-authentiq">Book a call</a>
+</nav>
 
-
-<!-- HERO -->
-<div class="hero">
+<section class="hero">
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-tag">Video thought leadership for B2B leaders</div>
-      <h1 id="hero-h1">Don't be an<br><span class="o">invisible expert.</span></h1>
-      <p class="hero-sub"><span class="hero-highlight">Monthly video interviews</span> turned into thought leadership content. <span class="hero-highlight">Your face, your voice, your real ideas,</span><span class="hero-break"> edited, captioned, and scheduled for you.</span></p>
+      <span class="hero-tag">Done-For-You Video Podcast Production</span>
+      <h1>You record.<br><span class="o">We handle everything&nbsp;else.</span></h1>
+      <p class="hero-sub">Video and audio editing, publishing, clips, captions, and scheduling. All handled by a team that actually pays attention to your show.</p>
       <div class="hero-acts">
-        <a class="btn-p" href="https://meetings-na2.hubspot.com/grant-taleck/interview-authentiq" target="_blank">Book your free demo</a>
-        <a class="btn-g" href="#see-how-it-works">See how it works</a>
+        <a class="btn-p" href="https://tidycal.com/mitchkubik/intro-call-with-authentiq">Book a call</a>
+        <a class="btn-g" href="#how-it-works">How it works</a>
       </div>
     </div>
     <div class="hero-right">
-      <div class="hero-video-wrap">
-        <iframe src="https://player.vimeo.com/video/1187369250?title=0&byline=0&portrait=0&badge=0&autopause=0&autoplay=1&muted=1&loop=1&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="width:100%;aspect-ratio:9/16;border-radius:12px;display:block;"></iframe>
+      <div class="pod-card">
+        <div class="pod-rec"><i></i> This week's episode</div>
+        <div class="pod-wave">
+          <b style="height:30%;animation-delay:0.00s"></b><b style="height:62%;animation-delay:0.13s"></b><b style="height:88%;animation-delay:0.26s"></b><b style="height:52%;animation-delay:0.39s"></b><b style="height:96%;animation-delay:0.52s"></b><b style="height:70%;animation-delay:0.65s"></b><b style="height:40%;animation-delay:0.78s"></b><b style="height:78%;animation-delay:0.91s"></b><b style="height:58%;animation-delay:1.04s"></b><b style="height:34%;animation-delay:1.17s"></b><b style="height:66%;animation-delay:1.30s"></b><b style="height:44%;animation-delay:1.43s"></b>
+        </div>
+        <div class="pod-row">Edited &amp; mixed <span>&#10003; Done</span></div>
+        <div class="pod-row">Video on YouTube <span>&#10003; Done</span></div>
+        <div class="pod-row">Audio everywhere <span>&#10003; Done</span></div>
+        <div class="pod-row">Clips &amp; captions <span>&#10003; Done</span></div>
+        <div class="pod-row pod-final">Your to-do list <span>Empty</span></div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- PROOF BAR -->
 <div class="pbar">
-  <div class="pbar-top">
-    <span class="plabel">Working with</span>
-    <span class="psep"></span>
-  </div>
-  <div class="pmarquee-wrap">
-    <div class="pmarquee-track" id="ptrack">
-      <span class="pitem">Financial Advisors</span>
-      <span class="pitem">Consultants</span>
-      <span class="pitem">Recruiting Firms</span>
-      <span class="pitem">B2B Founders</span>
-      <span class="pitem">EOS Implementers</span>
-      <span class="pitem">Executives</span>
-      <span class="pitem">Coaches</span>
-      <span class="pitem">Investors</span>
-      <span class="pitem">Speakers</span>
-      <span class="pitem">Financial Advisors</span>
-      <span class="pitem">Consultants</span>
-      <span class="pitem">Recruiting Firms</span>
-      <span class="pitem">B2B Founders</span>
-      <span class="pitem">EOS Implementers</span>
-      <span class="pitem">Executives</span>
-      <span class="pitem">Coaches</span>
-      <span class="pitem">Investors</span>
-      <span class="pitem">Speakers</span>
-    </div>
-  </div>
+  <div class="pmarquee-wrap"><div class="pmarquee-track"><span class="pitem">1,000+ EPISODES PRODUCED</span><span class="pitem">4 &amp; 5 YEAR CLIENT PARTNERSHIPS</span><span class="pitem">CAPPED AT 10 SHOWS</span><span class="pitem">VIDEO EDITING</span><span class="pitem">AUDIO MIXING</span><span class="pitem">YOUTUBE</span><span class="pitem">ALL AUDIO PLATFORMS</span><span class="pitem">CLIPS</span><span class="pitem">CAPTIONS</span><span class="pitem">SCHEDULING</span><span class="pitem">SHOW NOTES</span><span class="pitem">MONTH TO MONTH</span><span class="pitem">NO CONTRACTS</span><span class="pitem">1,000+ EPISODES PRODUCED</span><span class="pitem">4 &amp; 5 YEAR CLIENT PARTNERSHIPS</span><span class="pitem">CAPPED AT 10 SHOWS</span><span class="pitem">VIDEO EDITING</span><span class="pitem">AUDIO MIXING</span><span class="pitem">YOUTUBE</span><span class="pitem">ALL AUDIO PLATFORMS</span><span class="pitem">CLIPS</span><span class="pitem">CAPTIONS</span><span class="pitem">SCHEDULING</span><span class="pitem">SHOW NOTES</span><span class="pitem">MONTH TO MONTH</span><span class="pitem">NO CONTRACTS</span></div></div>
 </div>
 
-<!-- PAIN SECTION -->
-<section class="pain-sec">
-  <div class="w pain-inner">
-    <div class="pain-eyebrow">Sound familiar?</div>
-    <h2 class="pain-h">You know you should be posting video. Something always gets in the way.</h2>
-    <p class="pain-p">You sit down to record. Nothing feels good enough. You tell yourself you'll do it next week. Another project gets in the way. Meanwhile someone in your space is showing up every week, and your buyers are starting to recognize their face instead of yours.</p>
-    <div class="pain-pills">
-      <div class="pain-pill">Too busy to stay consistent</div>
-      <div class="pain-pill">Stared at the screen and posted nothing</div>
-      <div class="pain-pill">Never know what to talk about</div>
-      <div class="pain-pill">Your expertise is invisible</div>
+<section class="prob-hero-sec">
+  <div class="w">
+    <p class="ey prob-label">The pattern we see everywhere</p>
+    <div class="prob-hero-wrap" id="probwrap">
+      <div class="prob-hero-h">Most podcasts don't&nbsp;fail.</div>
+      <div class="prob-reveal-h">They just stop getting attention.</div>
+    </div>
+    <div class="pgrid fade">
+      <div class="pc"><p style="font-weight:600;color:var(--gray);line-height:1.8;font-size:0.9rem">The episodes still go out. But nobody's thinking about the show anymore, and nobody's trying to make it better.</p></div>
+      <div class="pc"><p style="font-weight:600;color:var(--gray);line-height:1.8;font-size:0.9rem">Sometimes that's an agency juggling a hundred shows, where yours is a ticket in a queue.</p></div>
+      <div class="pc" style="border-right:none"><p style="font-weight:600;color:var(--gray);line-height:1.8;font-size:0.9rem">Sometimes it's you, editing at 11pm after a full day of running your business.</p></div>
+    </div>
+    <p class="fade" style="margin-top:40px;font-size:1.05rem;font-weight:700;color:var(--dark);max-width:640px">And you started the show for a reason. To build trust with the right people, stay top of mind, bring in business. A show on autopilot does none of that.</p>
+  </div>
+</section>
+
+<section class="contrast-sec">
+  <div class="w">
+    <p class="ey">Why we're different</p>
+    <h2 class="h2" style="color:var(--white)">One of a hundred vs. one of ten</h2>
+    <p class="sub" style="color:rgba(255,255,255,0.35)">Every agency says they care. We built a structure where caring is the only way we can operate.</p>
+    <div class="contrast-grid fade">
+      <div class="contrast-card contrast-bad">
+        <div class="contrast-label contrast-label-bad"><span class="contrast-dot contrast-dot-bad"></span>At a big agency</div>
+        <div class="contrast-content">
+          <p class="contrast-quote">"Episodes go out on schedule. But it's been months since anyone over there had an idea about our show."</p>
+          <div class="contrast-meta"><span class="contrast-tag">100+ shows</span><span class="contrast-tag">Autopilot</span><span class="contrast-tag">Ticket queue</span></div>
+        </div>
+      </div>
+      <div class="contrast-divider"><span class="contrast-vs">VS</span></div>
+      <div class="contrast-card contrast-good">
+        <div class="contrast-label contrast-label-good"><span class="contrast-dot contrast-dot-good"></span>At AuthentIQ</div>
+        <div class="contrast-content">
+          <p class="contrast-quote">"Your show is one of ten. Real thought goes into every episode, because the roster can't grow past that."</p>
+          <div class="contrast-meta"><span class="contrast-tag contrast-tag-good">Capped at 10</span><span class="contrast-tag contrast-tag-good">Real attention</span><span class="contrast-tag contrast-tag-good">Month to month</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="seats fade">
+      <div class="seat">1</div><div class="seat">2</div><div class="seat">3</div><div class="seat">4</div><div class="seat">5</div>
+      <div class="seat">6</div><div class="seat">7</div><div class="seat">8</div><div class="seat">9</div><div class="seat">10</div>
+    </div>
+    <p class="seats-label">Ten seats. That's the whole roster.</p>
+  </div>
+</section>
+
+<section id="how-it-works">
+  <div class="w">
+    <p class="ey">What a month looks like</p>
+    <h2 class="h2">You hit stop.<br>We take it from there.</h2>
+    <p class="sub">Keep your format, your guests, your schedule. Nothing about how you record changes.</p>
+    <div class="sgrid fade">
+      <div class="step"><div class="sn">1</div><h3>You record your show</h3><p>Same setup, same rhythm. Your show stays exactly yours.</p></div>
+      <div class="step"><div class="sn">2</div><h3>We grab the recording</h3><p>We pull the files straight from your recording platform. You don't touch a thing.</p></div>
+      <div class="step"><div class="sn">3</div><h3>We produce &amp; publish</h3><p>Full video and audio edit, show notes, and publishing to YouTube and every audio platform. On schedule, every episode.</p></div>
+      <div class="step"><div class="sn">4</div><h3>Your show gets thought</h3><p>Clips, captions, and someone actually working on making the show better.</p></div>
     </div>
   </div>
 </section>
 
 <section class="concept-stat">
-  <div class="w" style="text-align:center;max-width:800px">
-    <div class="ey">The Reality</div>
-    <div class="stat-number" id="stat-num">0%</div>
-    <p class="stat-label">of hidden decision-makers use thought leadership<br>as part of their vetting process.</p>
-    <p class="stat-source">2025 Edelman-LinkedIn B2B Thought Leadership Impact Report</p>
-  </div>
-</section>
-
-<!-- CONCEPT 1: Animated Stat -->
-
-<!-- DIY VS US SECTION -->
-<section class="diy-sec">
   <div class="w">
-    <h2 class="diy-title">Video builds trust. Consistency builds pipeline.</h2>
-    <div class="diy-grid">
-      <div class="diy-col">
-        <div class="diy-col-header diy-col-header-bad">DIYing It</div>
-        <div class="diy-col-items">
-          <div class="diy-item">⏰ Hours lost every week</div>
-          <div class="diy-item">📉 Do it for 3 months, then stop</div>
-          <div class="diy-item">🤖 Generic AI content nobody trusts</div>
-          <div class="diy-item">🗓️ No strategy, no direction</div>
-          <div class="diy-item">👻 Invisible to your buyers</div>
-        </div>
+    <p class="ey" style="text-align:center">The track record</p>
+    <h2 class="h2" style="color:var(--white);text-align:center;margin-bottom:56px">Nobody keeps an agency for years<br>unless the work stays good.</h2>
+    <div class="stat-row fade">
+      <div><b>1,000+</b><span>Episodes produced</span></div>
+      <div><b>4 &amp; 5 yrs</b><span>Longest partnerships</span></div>
+      <div><b>10</b><span>Show maximum, always</span></div>
+    </div>
+    <div class="quotes-grid fade" style="grid-template-columns:repeat(2,1fr);max-width:900px;margin:0 auto">
+      <div class="quote-card">
+        <p class="quote-text">"Their editing expertise is truly top notch, consistently delivering a flawless, polished final product. They have become an invaluable partner in our creative endeavors."</p>
+        <div style="font-size:0.8rem;font-weight:700;color:rgba(255,255,255,0.9)">Charles Good<br><span style="font-weight:500;color:rgba(255,255,255,0.4)">Institute for Management Studies</span></div>
       </div>
-      <div class="diy-col">
-        <div class="diy-col-header diy-col-header-good">Working with us</div>
-        <div class="diy-col-items">
-          <div class="diy-item diy-item-good">⚡ Use our time as leverage</div>
-          <div class="diy-item diy-item-good">📈 Sustainable system</div>
-          <div class="diy-item diy-item-good">🎙️ Your real face, voice, and ideas</div>
-          <div class="diy-item diy-item-good">🧠 Six-month strategic playbook</div>
-          <div class="diy-item diy-item-good">🤝 The expert your buyers already trust</div>
-        </div>
+      <div class="quote-card">
+        <p class="quote-text">"3 words after watching video 1: WOW WOW WOW. You made this an easy process. Simple and easy to engage with, and that makes a big difference."</p>
+        <div style="font-size:0.8rem;font-weight:700;color:rgba(255,255,255,0.9)">Neil Wood<br><span style="font-weight:500;color:rgba(255,255,255,0.4)">Consultant</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- VERTICAL VIDEO CAROUSEL -->
-<section class="vcarousel-sec">
-  <div class="vcarousel-header w">
-    <div class="ey">Example Content</div>
-    <h2 class="h2">Browse some content<br>we've created.</h2>
-  </div>
-  <div class="vcarousel-outer">
-    <div class="vcarousel-track" id="vcarousel-track">
-      <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7453416290993463297?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-      </div>
-      <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7453073294804742145?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-      </div>
-      <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7452397116246691841?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-      </div>
-      <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7446553595107282944?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-      </div>
-      <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7439384031554813952?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-      </div>
-      <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7444761975370260481?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-      </div>
-      <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7423059982859923456?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-      </div>
-      <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7424111231390740480?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-      </div>
-      <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7453416290993463297?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-      </div>
-      <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7453073294804742145?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-      </div>
-      <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7452397116246691841?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-      </div>
-      <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7446553595107282944?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-      </div>
-      <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7439384031554813952?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-      </div>
-      <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7444761975370260481?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-      </div>
-      <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7423059982859923456?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-      </div>
-      <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7424111231390740480?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-      </div>
-      <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7450908462751956992?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-      </div>
-      <div class="vcard vcard-linkedin">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7428106433797189632?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testi-sec">
-  <div class="w">
-    <h2 class="h2">Real results from<br>real conversations.</h2>
-    <div class="tgr">
-      <div class="tc fade"><p class="tctext">"Their editing expertise is truly top notch, consistently delivering a flawless, polished final product. They have become an invaluable partner in our creative endeavors."</p><div class="tcauth"><img class="tcav" src="/images/image-2.png" alt="Charles Good"><div><div class="tcname">Charles Good</div><div class="tctitle">Institute for Management Studies</div></div></div></div>
-      <div class="tc fade" style="transition-delay:.1s"><p class="tctext">"I always wanted to appear more professional on video but kept neglecting it. Working with AuthentIQ, I finally got it right. It is like going from a ripped t-shirt to the nicest suit I have ever worn."</p><div class="tcauth"><img class="tcav" src="/images/image-3.png" alt="Brian Helfman"><div><div class="tcname">Brian Helfman</div><div class="tctitle">Founder and Facilitator</div></div></div></div>
-      <div class="tc fade" style="transition-delay:.2s"><p class="tctext">"3 words after watching video 1: WOW WOW WOW. You made this an easy process. Simple and easy to engage with, and that makes a big difference."</p><div class="tcauth"><img class="tcav" src="/images/image-4.png" alt="Neil Wood"><div><div class="tcname">Neil Wood</div><div class="tctitle">Consultant</div></div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- CONCEPT 2: Process Timeline -->
-<section class="concept-timeline">
-  <div class="w">
-    <div class="ey">The Process</div>
-    <h2 class="h2">Our Process.</h2>
-    <div class="timeline-wrap">
-      <div class="timeline-line"></div>
-      <div class="timeline-steps">
-        <div class="tstep fade">
-          <div class="tstep-icon">
-            <!-- Brain icon v2 -->
-            <svg viewBox="0 0 40 40" fill="none"><path d="M20 34v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M13 30c-4 0-7-3-7-7 0-2.5 1.3-4.7 3.3-6C9.1 16.1 9 15.3 9 14.5 9 11 11.5 8 15 8c.8 0 1.5.1 2.2.4C18.2 7.5 19.1 7 20 7s1.8.5 2.8 1.4C23.5 8.1 24.2 8 25 8c3.5 0 6 3 6 6.5 0 .8-.1 1.6-.3 2.5C32.7 18.3 34 20.5 34 23c0 4-3 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 30c-2 0-4-2-4-4v-6c0-2 2-4 4-4s4 2 4 4v6c0 2-2 4-4 4z" stroke="currentColor" stroke-width="2"/><path d="M16 22h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          </div>
-          <div class="tstep-dot"></div>
-          <div class="tstep-label">Develop Topics<br>&amp; Questions</div>
-          <div class="tstep-desc">A discovery call to learn your business, then we build questions your buyers care about.</div>
-        </div>
-        <div class="tstep fade" style="transition-delay:.1s">
-          <div class="tstep-icon">
-            <!-- Camera icon -->
-            <svg viewBox="0 0 40 40" fill="none"><rect x="4" y="12" width="24" height="18" rx="3" stroke="currentColor" stroke-width="2"/><path d="M28 18l8-4v12l-8-4V18z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="14" cy="21" r="4" stroke="currentColor" stroke-width="2"/></svg>
-          </div>
-          <div class="tstep-dot"></div>
-          <div class="tstep-label">Monthly 30 Min<br>Interview</div>
-          <div class="tstep-desc">We ask strategic questions and coach you on camera. You just show up and talk.</div>
-        </div>
-        <div class="tstep fade" style="transition-delay:.2s">
-          <div class="tstep-icon">
-            <!-- Laptop icon -->
-            <svg viewBox="0 0 40 40" fill="none"><rect x="6" y="9" width="28" height="18" rx="2" stroke="currentColor" stroke-width="2"/><path d="M2 27h36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14 31h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M15 18l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div class="tstep-dot"></div>
-          <div class="tstep-label">Our Team Edits<br>&amp; Distributes</div>
-          <div class="tstep-desc">We handle editing, captions, and scheduling. You don't touch a thing.</div>
-        </div>
-        <div class="tstep fade" style="transition-delay:.3s">
-          <div class="tstep-icon">
-            <!-- Growth/trending up icon -->
-            <svg viewBox="0 0 40 40" fill="none"><path d="M6 30l9-10 6 6 13-14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 12h6v6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <div class="tstep-dot"></div>
-          <div class="tstep-label">Trust<br>Compounds</div>
-          <div class="tstep-desc">The longer you show up, the more familiar you become. That's when deals get easier.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- VIDEO SECTION -->
-<section class="video-sec" id="see-how-it-works">
-  <div class="w" style="max-width:800px">
-    <div class="ey">See It In Action</div>
-    <h2 class="h2">Watch how it works.</h2>
-    <div class="video-wrap">
-      <iframe src="https://www.loom.com/embed/7104a9be01ec4f719b79be1333d8c5ba" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    </div>
-  </div>
-</section>
-
-<!-- QUESTION GENERATOR -->
-<section class="qgen-sec" id="questions">
-  <div class="w">
-    <h2 class="h2">The magic is in<br>the interview.</h2>
-    <p class="sub">Drop in your website URL and we'll generate a custom set of content recording questions that we would ask during our first content recording session together.</p>
-    <div class="qgen-box fade">
-      <div class="qgen-input-row">
-        <div class="qgen-field">
-          <span class="qgen-prefix">&#128100;</span>
-          <input class="qgen-input" id="qgen-name" type="text" placeholder="Your name" autocomplete="name" />
-        </div>
-        <div class="qgen-field">
-          <span class="qgen-prefix">&#9993;</span>
-          <input class="qgen-input" id="qgen-email" type="email" placeholder="Your email" autocomplete="email" />
-        </div>
-      </div>
-      <div class="qgen-input-row" style="margin-top:10px;">
-        <div class="qgen-field">
-          <span class="qgen-prefix">&#127760;</span>
-          <input class="qgen-input" id="qgen-url" type="url" placeholder="https://yourwebsite.com" autocomplete="off" />
-        </div>
-        <button class="qgen-btn" id="qgen-btn" onclick="generateQuestions()">
-          <span id="qgen-btn-label">Generate Questions</span>
-          <span id="qgen-spinner" class="qgen-spinner" style="display:none"></span>
-        </button>
-      </div>
-      <p class="qgen-hint" id="qgen-hint">We'll read your site and build questions tailored to your expertise.</p>
-      <div class="qgen-results" id="qgen-results" style="display:none">
-        <div class="qgen-results-header">
-          <span class="qgen-results-label">Your 9 Interview Questions</span>
-          <button class="qgen-copy-btn" onclick="copyQuestions()" id="qgen-copy">Copy all</button>
-        </div>
-        <ol class="qgen-list" id="qgen-list"></ol>
-        <div class="qgen-footer-note">These questions are built around your content. Use them in your next recording session, or <a href="https://meetings-na2.hubspot.com/grant-taleck/interview-authentiq" target="_blank">book a free demo</a> and we'll run the interview for you.</div>
-      </div>
-      <div class="qgen-error" id="qgen-error" style="display:none">
-        <span id="qgen-error-msg"></span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
 <section class="price-sec" id="pricing">
-  <div class="w">
-    <div class="ey">Pricing</div>
-    <h2 class="h2">Simple pricing.<br>No contracts.</h2>
-    <p class="sub">Month to month. We would rather earn your business every month than lock you in.</p>
-    <div class="pgr">
-      <div class="card fade">
-        <div class="pplan">Individual</div>
-        <div class="pprice">$495</div>
-        <div class="pper">per person, per month</div>
-        <div class="pdiv"></div>
-        <ul class="plist">
-          <li>30-min monthly video interview</li>
-          <li>4 LinkedIn videos edited and posted</li>
-          <li>Captions written in your voice</li>
-          <li>Scheduled directly to LinkedIn</li>
-          <li>Strategic question prep each month</li>
-        </ul>
-        <a class="btnp bto" href="https://meetings-na2.hubspot.com/grant-taleck/interview-authentiq" target="_blank">Book a free demo</a>
-      </div>
-      <div class="card feat fade" style="transition-delay:.1s">
-        <div class="pbadge">Best for teams</div>
-        <div class="pplan">Authority Team</div>
-        <div class="pprice">$1495</div>
-        <div class="pper">per person / 3+ people</div>
-        <div class="pdiv"></div>
-        <ul class="plist">
-          <li>Everything in Individual</li>
-          <li>Coordinated team content strategy</li>
-          <li>Monthly performance debrief</li>
-          <li>Content that builds company authority</li>
-          <li>Land and expand model</li>
-        </ul>
-        <a class="btnp bts" href="https://meetings-na2.hubspot.com/grant-taleck/interview-authentiq" target="_blank">Book a free demo</a>
-      </div>
-    </div>
-    <p class="pnote">Free demo includes a short interview and one edited clip. No commitment required.</p>
+  <div class="w" style="text-align:center">
+    <p class="ey">Pricing</p>
+    <h2 class="h2">Built around your show.</h2>
+    <p class="price-line">Production engagements start at $2,000/month</p>
+    <p class="price-note" style="margin-left:auto;margin-right:auto">Every show is scoped to what it actually needs. Month to month, no contracts. We'd rather earn your business every month than lock you in.</p>
+    <a class="btn-p" href="https://tidycal.com/mitchkubik/intro-call-with-authentiq">Book a call</a>
   </div>
 </section>
 
-<!-- TEAM -->
-<section class="team-sec">
+<section>
   <div class="w">
-    <div class="ey">Who You're Working With</div>
-    <h2 class="h2">A small team that<br>gets it right.</h2>
-    <p class="sub">Everyone who touches your content is someone you have met.</p>
-    <div class="tgrid">
-      <div class="tcard fade">
-        <img class="tphoto" src="/images/image-5.jpeg" alt="Grant Taleck">
-        <div>
-          <div class="tname">Grant Taleck</div>
-          <div class="trole">Co-Founder</div>
-          <p class="tbio">Grant runs every discovery call and leads client relationships. He understands what makes a B2B founder convert and what makes prospects trust you before the first conversation.</p>
-        </div>
-      </div>
-      <div class="tcard fade" style="transition-delay:.1s">
-        <img class="tphoto" src="/images/image-6.jpeg" alt="Mitch Kubik">
-        <div>
-          <div class="tname">Mitch Kubik</div>
-          <div class="trole">Co-Founder</div>
-          <p class="tbio">Mitch runs operations and oversees every client account. He makes sure the content that goes live actually sounds like the person who said it.</p>
-        </div>
-      </div>
-      <div class="tcard fade" style="transition-delay:.2s">
-        <img class="tphoto" src="/images/image-7.jpeg" alt="Bridget Grasso">
-        <div>
-          <div class="tname">Bridget Grasso</div>
-          <div class="trole">Head of Production</div>
-          <p class="tbio">Bridget leads every client interview and drives production. With a background in broadcast and video, she asks the questions that make the content actually work.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section style="background:var(--white)">
-  <div class="w">
-    <div class="ey">FAQ</div>
-    <h2 class="h2">Common questions.</h2>
+    <p class="ey">Common questions</p>
+    <h2 class="h2">Answers, upfront.</h2>
     <div class="fwrap">
-      <div class="fi"><div class="fq" onclick="tf(this)">What actually happens each month?<span class="ficon">+</span></div><div class="fa">Once a month we sit down on a 30-minute video call. We come prepared with strategic questions designed to pull out your best thinking. After the call we handle everything: editing, captions, scheduling. Four videos go live on your LinkedIn. You do nothing after the interview.</div></div>
-      <div class="fi"><div class="fq" onclick="tf(this)">What is the free demo?<span class="ficon">+</span></div><div class="fa">The demo is a short interview session where we ask you a few strategic questions on video. We edit one clip from that conversation and send it to you. No commitment, no credit card. You see exactly what the content looks and feels like before deciding anything.</div></div>
-      <div class="fi"><div class="fq" onclick="tf(this)">How long before I see results?<span class="ficon">+</span></div><div class="fa">You will have content live within the first week. The real results, warmer sales calls and prospects who already feel like they know you, typically show up around months 3 to 6. This is a long game. The founders who stay with it are the ones who win.</div></div>
-      <div class="fi"><div class="fq" onclick="tf(this)">Will it sound like me?<span class="ficon">+</span></div><div class="fa">Yes, because it is you. We are not writing scripts or putting words in your mouth. We ask you questions and you answer them in your own words. The content sounds like you because it comes from you.</div></div>
-      <div class="fi"><div class="fq" onclick="tf(this)">How is this different from AI or a ghostwriter?<span class="ficon">+</span></div><div class="fa">AI and ghostwriters start with a blank page and fill it with something professional but generic. We start with you: your face, your voice, your actual ideas. You cannot fake a face on video. That is what builds trust.</div></div>
-      <div class="fi"><div class="fq" onclick="tf(this)">Is there a contract?<span class="ficon">+</span></div><div class="fa">No contract. Month to month. We would rather earn your business every month than lock you in.</div></div>
+      <div class="fi"><div class="fq" onclick="tf(this)">We already work with an agency. How does switching work?<span class="ficon">+</span></div><div class="fa">We handle the technical handoff: hosting access, feeds, and templates. Most switches are fully live within two weeks to a month, and your show never misses an episode.</div></div>
+      <div class="fi"><div class="fq" onclick="tf(this)">I've been producing it myself. What do you need from me?<span class="ficon">+</span></div><div class="fa">Just keep recording. We pull the files straight from your recording platform, and everything after that is ours.</div></div>
+      <div class="fi"><div class="fq" onclick="tf(this)">What's included at the starting rate?<span class="ficon">+</span></div><div class="fa">Full production of your episodes: video and audio editing, show notes, and publishing to YouTube and all audio platforms, handled end to end. Clips, captions, and social distribution are scoped on top based on what your show needs.</div></div>
+      <div class="fi"><div class="fq" onclick="tf(this)">Is there a contract?<span class="ficon">+</span></div><div class="fa">No contract. Month to month. We'd rather earn your business every month than lock you in.</div></div>
+      <div class="fi"><div class="fq" onclick="tf(this)">Why only 10 shows?<span class="ficon">+</span></div><div class="fa">Because attention doesn't scale. The shows that feel like they're on autopilot are usually one of a hundred at a big agency. Capping the roster is how we make sure yours never becomes that.</div></div>
     </div>
   </div>
 </section>
 
-
-
-<!-- FROM THE BLOG -->
-<section class="blog-sec">
+<section class="final-sec">
   <div class="w">
-    <div class="ey">AuthentIQ Insights</div>
-    <h2 class="h2">From the blog.</h2>
-    <p class="sub">Practical thinking on LinkedIn, video content, and building trust before the first sales call.</p>
-    <div class="blog-grid" id="blog-grid"></div>
-<script>
-(function(){
-  fetch('/api/blog-rss')
-    .then(function(r){return r.json();})
-    .then(function(data){
-      if(!data.items||!data.items.length)return;
-      var html='';
-      for(var i=0;i<data.items.length;i++){
-        var p=data.items[i];
-        var img=p.image?'<img class="blog-card-img" src="'+p.image+'" alt="" loading="lazy">':'<div class="blog-card-img"></div>';
-        html+='<a class="blog-card" href="'+p.link+'" target="_blank" rel="noopener">'+img+'<div class="blog-card-body"><div class="blog-card-tag">AuthentIQ</div><div class="blog-card-title">'+p.title+'</div><div class="blog-card-excerpt">'+p.desc+'</div><div class="blog-card-footer"><span class="blog-card-date">'+p.date+'</span><span class="blog-card-arrow">Read more</span></div></div></a>';
-      }
-      document.getElementById('blog-grid').innerHTML=html;
-    }).catch(function(){});
-})();
-</script>
-    <div class="blog-bottom">
-      <a href="https://blog.authentiqmarketing.com" target="_blank" class="blog-btn">Read all posts →</a>
-    </div>
+    <h2 class="h2">Your show deserves more attention than it's getting.</h2>
+    <p>A short call about your show, how you're producing it today, and whether we can help. No pitch deck, no pressure.</p>
+    <a class="btn-p" href="https://tidycal.com/mitchkubik/intro-call-with-authentiq">Book a call</a>
   </div>
 </section>
 
-
-<!-- FOOTER -->
-
-
-<!-- BOOKING EMBED -->
-<section style="background:var(--off);padding:96px 5%;">
-  <div class="w" style="max-width:900px;">
-    <div class="ey">Book Your Free Demo</div>
-    <h2 class="h2" style="margin-bottom:12px;">See it for yourself.<br>Pick a time below.</h2>
-    <p style="font-size:0.9rem;font-weight:600;color:var(--gray);line-height:1.8;margin-bottom:40px;max-width:460px;">A short interview, one edited clip, sent to you. No commitment, no credit card. Just a conversation.</p>
-    <div style="background:var(--white);border:1px solid var(--border);border-radius:6px;overflow:hidden;">
-      <div class="meetings-iframe-container" data-src="https://meetings-na2.hubspot.com/grant-taleck/interview-authentiq?embed=true"></div>
-      <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
-    </div>
-  </div>
-</section>
 <footer>
   <div class="fin">
     <div class="ftop">
       <div>
-        <div class="flogo"><img src="/images/image-8.png" alt="AuthentIQ Marketing"></div>
-        <p class="ftag">Video thought leadership for B2B founders and firm leaders.</p>
+        <div class="flogo"><img src="/images/image-8.png" alt="AuthentIQ"></div>
+        <p class="ftag">Done-for-you podcast production for business owners.</p>
       </div>
       <div class="flinks">
         <a href="#how-it-works">How it works</a>
         <a href="#pricing">Pricing</a>
-        <a href="https://www.linkedin.com/in/granttaleck/" target="_blank">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/mitchkubik" target="_blank">LinkedIn</a>
         <a href="https://www.authentiqmarketing.com/terms-and-conditions" target="_blank">Terms</a>
-        <a href="https://www.authentiqmarketing.com/copy-of-terms-and-conditions" target="_blank">Privacy</a>
       </div>
     </div>
-    <div class="fcopy">© 2026 AuthentIQ LLC. All rights reserved.</div>
+    <p class="fcopy">&copy; 2026 AuthentIQ LLC. All rights reserved.</p>
   </div>
 </footer>
 
 <script>
-// Sticky Question Generator
-async function generateStickyQuestions() {
-  const urlInput = document.getElementById('sqbar-url');
-  const btn = document.getElementById('sqbar-btn');
-  const btnLabel = document.getElementById('sqbar-btn-label');
-  const spinner = document.getElementById('sqbar-spinner');
-  const resultsWrap = document.getElementById('sqbar-results');
-  const resultsInner = document.getElementById('sqbar-results-inner');
-  let url = urlInput.value.trim();
-  if (!url) { urlInput.focus(); return; }
-  if (!url.startsWith('http')) { url = 'https://' + (url.startsWith('www.') ? url : 'www.' + url); }
-  urlInput.value = url;
-  btn.disabled = true;
-  btnLabel.textContent = 'Analyzing...';
-  spinner.style.display = 'inline-block';
-  resultsWrap.style.display = 'none';
-  resultsInner.innerHTML = '';
-  try {
-    const response = await fetch('/api/generate?url=' + encodeURIComponent(url), {
-      method: 'GET'
-    });
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error || 'Request failed');
-    const questions = data.questions;
-    if (!Array.isArray(questions) || questions.length === 0) throw new Error('No questions');
-    const cats = ['Top of Funnel', 'Middle of Funnel', 'Bottom of Funnel'];
-    cats.forEach((cat, ci) => {
-      const group = document.createElement('div');
-      group.className = 'sqbar-q-group';
-      const catLabel = document.createElement('div');
-      catLabel.className = 'sqbar-cat';
-      catLabel.textContent = cat;
-      group.appendChild(catLabel);
-      for (let i = 0; i < 3; i++) {
-        const q = questions[ci * 3 + i];
-        if (!q) continue;
-        const qEl = document.createElement('div');
-        qEl.className = 'sqbar-q';
-        qEl.innerHTML = '<span class="sqbar-q-num">0' + (ci*3+i+1) + '</span><span>' + q + '</span>';
-        group.appendChild(qEl);
-      }
-      resultsInner.appendChild(group);
-    });
-    const copyBtn = document.createElement('button');
-    copyBtn.className = 'sqbar-copy';
-    copyBtn.textContent = 'Copy all questions';
-    copyBtn.onclick = function() {
-      const cats2 = ['Top of Funnel','Middle of Funnel','Bottom of Funnel'];
-      let text = cats2.map((c,ci) => c + ':\n' + questions.slice(ci*3,ci*3+3).map((q,i)=>(ci*3+i+1)+'. '+q).join('\n')).join('\n\n');
-      navigator.clipboard.writeText(text).then(() => { copyBtn.textContent = 'Copied!'; setTimeout(()=>copyBtn.textContent='Copy all questions',2000); });
-    };
-    resultsInner.parentElement.appendChild(copyBtn);
-    resultsWrap.style.display = 'block';
-  } catch(err) {
-    resultsInner.innerHTML = '<div class="sqbar-error">Something went wrong. Please check the URL and try again.</div>';
-    resultsWrap.style.display = 'block';
-  } finally {
-    btn.disabled = false;
-    btnLabel.textContent = 'Generate Topics';
-    spinner.style.display = 'none';
-  }
-}
-document.addEventListener('DOMContentLoaded', function() {
-  var si = document.getElementById('sqbar-url');
-  if (si) si.addEventListener('keydown', function(e){ if(e.key==='Enter') generateStickyQuestions(); });
-});
-
-
-async function submitToHubSpot(name, email) {
-  const portalId = '245064687';
-  const formId = '771e1140-d16f-49ac-892e-c1060a7b9263';
-  const nameParts = name.trim().split(' ');
-  const firstName = nameParts[0] || '';
-  const lastName = nameParts.slice(1).join(' ') || '';
-  try {
-    await fetch('https://api.hsforms.com/submissions/v3/integration/submit/' + portalId + '/' + formId, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        fields: [
-          { name: 'firstname', value: firstName },
-          { name: 'lastname', value: lastName },
-          { name: 'email', value: email }
-        ],
-        context: { pageUri: window.location.href, pageName: document.title }
-      })
-    });
-  } catch(e) { /* silent fail */ }
-}
-
-async function generateQuestions() {
-  const urlInput = document.getElementById('qgen-url');
-  const nameInput = document.getElementById('qgen-name');
-  const emailInput = document.getElementById('qgen-email');
-  const btn = document.getElementById('qgen-btn');
-  const btnLabel = document.getElementById('qgen-btn-label');
-  const spinner = document.getElementById('qgen-spinner');
-  const results = document.getElementById('qgen-results');
-  const list = document.getElementById('qgen-list');
-  const errorEl = document.getElementById('qgen-error');
-  const errorMsg = document.getElementById('qgen-error-msg');
-  const hint = document.getElementById('qgen-hint');
-  const name = nameInput ? nameInput.value.trim() : '';
-  const email = emailInput ? emailInput.value.trim() : '';
-  const url = urlInput.value.trim();
-  if (!name) { nameInput.focus(); errorMsg.textContent = 'Please enter your name.'; errorEl.style.display = 'block'; return; }
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { emailInput.focus(); errorMsg.textContent = 'Please enter a valid email.'; errorEl.style.display = 'block'; return; }
-  if (!url) { urlInput.focus(); return; }
-  let normalizedUrl = url;
-  if (!normalizedUrl.startsWith('http')) { normalizedUrl = 'https://' + (normalizedUrl.startsWith('www.') ? normalizedUrl : 'www.' + normalizedUrl); }
-  urlInput.value = normalizedUrl;
-  if (!normalizedUrl.startsWith('http')) {
-    errorMsg.textContent = 'Please enter a valid URL.';
-    errorEl.style.display = 'block'; return;
-  }
-  errorEl.style.display = 'none';
-  results.style.display = 'none';
-  list.innerHTML = '';
-  btn.disabled = true;
-  btnLabel.textContent = 'Analyzing...';
-  spinner.style.display = 'inline-block';
-  hint.textContent = 'Reading your website and crafting questions...';
-  await submitToHubSpot(name, email);
-  try {
-    const response = await fetch('/api/generate?url=' + encodeURIComponent(url), {
-      method: 'GET'
-    });
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error || 'Request failed');
-    const questions = data.questions;
-    if (!Array.isArray(questions) || questions.length === 0) throw new Error('No questions');
-    results.style.display = 'block';
-    hint.textContent = 'Here are your 9 custom interview questions.';
-    const categories = ['Top of Funnel', 'Middle of Funnel', 'Bottom of Funnel'];
-    questions.slice(0, 9).forEach((q, i) => {
-      if (i % 3 === 0) {
-        const label = document.createElement('li');
-        label.style.cssText = 'display:block;padding:14px 0 4px;border:none;background:none;opacity:1;transform:none;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange)';
-        label.textContent = categories[Math.floor(i/3)];
-        list.appendChild(label);
-      }
-      const li = document.createElement('li');
-      li.innerHTML = '<span class="qnum">0' + (i+1) + '</span><span>' + q + '</span>';
-      list.appendChild(li);
-      setTimeout(() => li.classList.add('visible'), i * 80);
-    });
-  } catch(err) {
-    errorMsg.textContent = 'Something went wrong. Please check the URL and try again.';
-    errorEl.style.display = 'block';
-    hint.textContent = "We'll read your site and build questions tailored to your expertise.";
-  } finally {
-    btn.disabled = false;
-    btnLabel.textContent = 'Generate Questions';
-    spinner.style.display = 'none';
-  }
-}
-
-function copyQuestions() {
-  const items = document.querySelectorAll('#qgen-list li span:last-child');
-  const text = Array.from(items).map((el, i) => (i+1) + '. ' + el.textContent).join('\n');
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.getElementById('qgen-copy');
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy all', 2000);
-  });
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  var urlInput = document.getElementById('qgen-url');
-  if (urlInput) urlInput.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') generateQuestions();
-  });
-});
-
-// Custom cursor
-(function(){
-  const cursor = document.getElementById('cursor');
-  if (!cursor) return;
-  let mx = -100, my = -100;
-  document.addEventListener('mousemove', function(e){
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx + 'px';
-    cursor.style.top = my + 'px';
-  });
-  document.addEventListener('mousedown', function(){ cursor.classList.add('clicking'); });
-  document.addEventListener('mouseup', function(){ cursor.classList.remove('clicking'); });
-  const hoverEls = document.querySelectorAll('a,button,input,[onclick]');
-  hoverEls.forEach(function(el){
-    el.addEventListener('mouseenter', function(){ cursor.classList.add('hovering'); });
-    el.addEventListener('mouseleave', function(){ cursor.classList.remove('hovering'); });
-  });
-})();
-
 function tf(el){el.closest('.fi').classList.toggle('open')}
-(function() {
-  const h1 = document.getElementById('hero-h1');
-  if (!h1) return;
-
-  const phrases = [
-    [
-      {text:"Don't",     br:false},
-      {text:"be",        br:false},
-      {text:"an",        br:true},
-      {text:"invisible", br:false, orange:true},
-      {text:"expert.",   br:false, orange:true}
-    ],
-    [
-      {text:"Build",  br:false, orange:true},
-      {text:"trust",  br:true, orange:true},
-      {text:"before", br:false},
-      {text:"the",    br:false},
-      {text:"call.",  br:false}
-    ]
-  ];
-
-  let current = 0;
-
-  function render(words) {
-    h1.innerHTML = words.map(function(w) {
-      var span = '<span class="hw" style="display:inline-block;opacity:0;transform:translateY(10px);transition:opacity 0.35s ease,transform 0.35s ease">';
-      if (w.orange) span = '<span class="hw o" style="display:inline-block;opacity:0;transform:translateY(10px);transition:opacity 0.35s ease,transform 0.35s ease">';
-      return span + w.text + '</span>' + (w.br ? '<br>' : ' ');
-    }).join('');
-  }
-
-  function animateIn(cb) {
-    var words = h1.querySelectorAll('.hw');
-    words.forEach(function(w, i) {
-      setTimeout(function() {
-        w.style.opacity = '1';
-        w.style.transform = 'translateY(0)';
-      }, i * 80);
-    });
-    if (cb) setTimeout(cb, words.length * 80 + 400);
-  }
-
-  function animateOut(cb) {
-    var words = h1.querySelectorAll('.hw');
-    var total = words.length;
-    words.forEach(function(w, i) {
-      setTimeout(function() {
-        w.style.opacity = '0';
-        w.style.transform = 'translateY(-10px)';
-      }, i * 60);
-    });
-    setTimeout(cb, total * 60 + 300);
-  }
-
-  function cycle() {
-    animateOut(function() {
-      current = (current + 1) % phrases.length;
-      render(phrases[current]);
-      animateIn(function() {
-        setTimeout(cycle, 2500);
-      });
-    });
-  }
-
-  render(phrases[0]);
-  animateIn(function() {
-    setTimeout(cycle, 2500);
-  });
-})();
-
-
-// Sliding headline
 (function(){
-  const wrap = document.getElementById('prob-hero');
-  const label = document.getElementById('prob-label');
-  if (!wrap) return;
-
-  wrap.addEventListener('mouseenter', function() {
-    wrap.classList.add('slid');
-    if (label) {
-      label.style.opacity = '0';
-      setTimeout(function() {
-        label.textContent = 'The Solution';
-        label.style.opacity = '1';
-      }, 250);
-    }
-  });
-
-  wrap.addEventListener('mouseleave', function() {
-    wrap.classList.remove('slid');
-    if (label) {
-      label.style.opacity = '0';
-      setTimeout(function() {
-        label.textContent = 'The Problem';
-        label.style.opacity = '1';
-      }, 250);
-    }
-  });
-})();
-
-// Stat counter animation
-(function(){
-  const el = document.getElementById('stat-num');
-  if (!el) return;
-  const observer = new IntersectionObserver(function(entries) {
-    if (entries[0].isIntersecting) {
-      let start = 0, end = 55, duration = 1800;
-      let startTime = null;
-      function step(ts) {
-        if (!startTime) startTime = ts;
-        const progress = Math.min((ts - startTime) / duration, 1);
-        const ease = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.round(ease * end) + '%';
-        if (progress < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-      observer.disconnect();
-    }
-  }, {threshold: 0.5});
-  observer.observe(el);
-})();
-
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}});},{threshold:0.1});
-document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
-
-(function(){
-  const wrap=document.querySelector('.pmarquee-wrap');
-  const track=document.getElementById('ptrack');
-  if(!wrap||!track)return;
-  function highlight(){
-    const wrapRect=wrap.getBoundingClientRect();
-    const center=wrapRect.left+wrapRect.width/2;
-    const items=track.querySelectorAll('.pitem');
-    let closest=null,closestDist=Infinity;
-    items.forEach(function(item){
-      const r=item.getBoundingClientRect();
-      const itemCenter=r.left+r.width/2;
-      const dist=Math.abs(itemCenter-center);
-      if(dist<closestDist){closestDist=dist;closest=item;}
+  var c=document.querySelector('.cursor');
+  if(c&&window.matchMedia('(hover:hover)').matches){
+    document.addEventListener('mousemove',function(e){c.style.transform='translate('+e.clientX+'px,'+e.clientY+'px)'});
+    document.addEventListener('mousedown',function(){c.classList.add('clicking')});
+    document.addEventListener('mouseup',function(){c.classList.remove('clicking')});
+    document.querySelectorAll('a,button,.fq').forEach(function(el){
+      el.addEventListener('mouseenter',function(){c.classList.add('hovering')});
+      el.addEventListener('mouseleave',function(){c.classList.remove('hovering')});
     });
-    items.forEach(function(item){item.classList.remove('active');});
-    if(closest)closest.classList.add('active');
   }
-  setInterval(highlight,60);
+  var obs=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');obs.unobserve(en.target)}})},{threshold:0.15});
+  document.querySelectorAll('.fade').forEach(function(el){obs.observe(el)});
+  var pw=document.getElementById('probwrap');
+  if(pw){var po=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){setTimeout(function(){pw.classList.add('slid')},900);po.unobserve(pw)}})},{threshold:0.6});po.observe(pw)}
+  var items=document.querySelectorAll('.pitem');var idx=0;
+  if(items.length){setInterval(function(){items.forEach(function(i){i.classList.remove('active')});items[idx%items.length].classList.add('active');idx++},1400)}
 })();
 </script>
-<!-- LinkedIn Insight Tag -->
-<script type="text/javascript">
-_linkedin_partner_id = "1285802";
-window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-</script><script type="text/javascript">
-(function(l) {
-if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
-window.lintrk.q=[]}
-var s = document.getElementsByTagName("script")[0];
-var b = document.createElement("script");
-b.type = "text/javascript";b.async = true;
-b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-s.parentNode.insertBefore(b, s);})(window.lintrk);
-</script>
-<noscript>
-<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=1285802&fmt=gif" />
-</noscript>
-<!-- Start of HubSpot Embed Code -->
-<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/245064687.js"></script>
-<!-- End of HubSpot Embed Code -->
 </body>
-</html
-
-
-
-
+</html>
