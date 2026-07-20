@@ -83,7 +83,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-inner{max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,0.8fr);gap:80px;align-items:center}
 .hero-left{display:flex;flex-direction:column}
 .hero-tag{display:inline-block;border:1px solid rgba(255,255,255,0.4);color:var(--white);font-size:0.82rem;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;padding:9px 18px;border-radius:2px;margin-bottom:36px;background:rgba(255,255,255,0.08);width:fit-content}
-.hero h1{font-family:var(--D);font-size:clamp(2.4rem,4vw,4.4rem);font-weight:800;line-height:1.0;text-transform:uppercase;color:var(--white);margin-bottom:36px;letter-spacing:0.015em;text-shadow:0 2px 40px rgba(0,0,0,0.2);white-space:normal}
+.hero h1{font-family:var(--D);font-size:clamp(2.4rem,4vw,4.4rem);font-weight:800;line-height:1.0;text-transform:uppercase;color:var(--white);margin-bottom:36px;letter-spacing:0.06em;text-shadow:0 2px 40px rgba(0,0,0,0.2);white-space:normal}
 .hero h1 .o{color:var(--orange)}
 .hero-word{display:inline-block;transition:opacity 0.4s ease,transform 0.4s ease}
 .hero-word.fade-out{opacity:0;transform:translateY(-8px)}
@@ -115,18 +115,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .pbar-top{display:flex;align-items:center;gap:20px;padding:0 5%;margin-bottom:16px}
 .plabel{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);white-space:nowrap}
 .psep{width:1px;height:18px;background:rgba(255,255,255,0.12);flex-shrink:0}
-.pmarquee-wrap{position:relative;overflow:hidden;width:100%}
-.pmarquee-track{display:flex;gap:10px;width:max-content;animation:marquee 22s linear infinite;padding:4px 0}
+.pmarquee-wrap{position:relative;overflow:hidden;width:100%;height:34px;display:flex;align-items:center}
+.pmarquee-track{display:flex;align-items:center;gap:10px;width:max-content;animation:marquee 22s linear infinite}
 .pmarquee-track:hover{animation-play-state:paused}
-.pitem{font-size:0.75rem;font-weight:700;color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.06);padding:5px 15px;border-radius:2px;border:1px solid rgba(255,255,255,0.1);white-space:nowrap;transition:font-size 0.15s,color 0.15s,transform 0.15s,background 0.15s;display:inline-block;transform-origin:center}
-.pitem.active{font-size:0.92rem;color:rgba(255,255,255,0.95);transform:scale(1.15);background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.28)}
+.pitem{font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.06);padding:5px 15px;border-radius:2px;border:1px solid rgba(255,255,255,0.1);white-space:nowrap;transition:color 0.25s ease,transform 0.25s ease,background 0.25s ease,border-color 0.25s ease;display:inline-block;transform-origin:center;will-change:transform}
+.pitem.active{color:rgba(255,255,255,0.95);transform:scale(1.12);background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.28)}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* SECTIONS */
 section{padding:96px 5%}
 .w{max-width:1100px;margin:0 auto}
 .ey{font-size:0.82rem;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:var(--orange);margin-bottom:18px}
-.h2{font-family:var(--D);font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;text-transform:uppercase;line-height:1.0;letter-spacing:0.02em;color:var(--dark);margin-bottom:20px}
+.h2{font-family:var(--D);font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;text-transform:uppercase;line-height:1.1;letter-spacing:0.045em;color:var(--dark);margin-bottom:20px}
 .sub{font-size:0.9rem;font-weight:600;color:var(--gray);max-width:460px;line-height:1.8;margin-bottom:52px}
 
 /* WHO WE SERVE */
@@ -198,9 +198,9 @@ section{padding:96px 5%}
 .prob-hero-sec{padding:120px 5% 80px}
 .prob-label{transition:opacity 0.3s ease}
 .prob-hero-wrap{position:relative;cursor:default;margin-bottom:40px}
-.prob-hero-h{font-family:var(--D);font-size:clamp(1.5rem,3.4vw,3.1rem);font-weight:800;line-height:1.08;text-transform:uppercase;color:var(--dark);letter-spacing:-0.01em}
+.prob-hero-h{font-family:var(--D);font-size:clamp(1.5rem,3.4vw,3.1rem);font-weight:800;line-height:1.08;text-transform:uppercase;color:var(--dark);letter-spacing:0.045em}
 .prob-hero-wrap.slid .prob-reveal-h{opacity:1;transform:none}
-.prob-reveal-h{font-family:var(--D);font-size:clamp(1.5rem,3.4vw,3.1rem);font-weight:800;line-height:1.08;text-transform:uppercase;color:var(--orange);letter-spacing:-0.01em;opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.prob-reveal-h{font-family:var(--D);font-size:clamp(1.5rem,3.4vw,3.1rem);font-weight:800;line-height:1.08;text-transform:uppercase;color:var(--orange);letter-spacing:0.045em;opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
 .prob-hero-wrap.slid .prob-reveal-h{transform:translateX(0);opacity:1}
 
 /* PROBLEM */
@@ -384,11 +384,11 @@ footer{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c
 .pain-sec{background:#0a0a0a;padding:100px 5%}
 .pain-inner{max-width:800px;margin:0 auto}
 .pain-eyebrow{font-family:var(--D);font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:20px}
-.pain-h{font-family:var(--D);font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:800;color:var(--white);margin-bottom:28px;line-height:1.15;letter-spacing:-0.01em}
+.pain-h{font-family:var(--D);font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:800;color:var(--white);margin-bottom:28px;line-height:1.15;letter-spacing:0.045em}
 .pain-p{font-size:1.05rem;color:rgba(255,255,255,0.55);line-height:1.85;max-width:640px;margin-bottom:48px}
 .pain-pills{display:flex;flex-wrap:wrap;gap:12px}
 .pain-pill{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:40px;padding:10px 20px;font-size:0.85rem;color:rgba(255,255,255,0.6);font-weight:500}
-.diy-title{font-family:var(--D);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;text-align:center;color:#111;margin-bottom:48px;letter-spacing:-0.01em}
+.diy-title{font-family:var(--D);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;text-align:center;color:#111;margin-bottom:48px;letter-spacing:0.045em}
 .diy-sec{background:var(--white);padding:96px 5%}
 .diy-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;margin-top:0}
 .diy-col-header{font-size:1rem;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;padding:14px 28px;border-radius:8px;display:inline-block;margin-bottom:16px}
@@ -560,7 +560,7 @@ footer{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c
 @media(max-width:900px){.sgrid{grid-template-columns:1fr 1fr}.sgrid .step:nth-child(2n){border-right:none}.sgrid .step{border-bottom:1px solid var(--border)}}
 @media(max-width:560px){.sgrid{grid-template-columns:1fr}.sgrid .step{border-right:none}}
 /* NEW: pricing line */
-.price-line{font-family:var(--D);font-size:clamp(1.4rem,3vw,2rem);font-weight:800;text-transform:uppercase;color:var(--dark);margin:8px 0 16px}
+.price-line{font-family:var(--D);font-size:clamp(1.4rem,3vw,2rem);font-weight:800;text-transform:uppercase;letter-spacing:0.045em;color:var(--dark);margin:8px 0 16px}
 .price-note{font-size:0.9rem;font-weight:600;color:var(--gray);max-width:660px;line-height:1.8;margin-bottom:36px}
 /* NEW: final cta */
 .final-sec{background:linear-gradient(135deg,#0033a0 0%,#0055cc 25%,#0088cc 60%,#00b8d9 85%,#00d4e8 100%);text-align:center}
