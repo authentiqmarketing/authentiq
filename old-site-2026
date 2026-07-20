@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AuthentIQ — Video Thought Leadership for B2B Founders</title>
+<meta name="description" content="Monthly video interviews turned into thought leadership content. Build trust before the first sales call.">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="256x256" href="/favicon-256x256.png">
+<link rel="apple-touch-icon" sizes="512x512" href="/favicon-512x512.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face { font-family: 'Messenger'; src: url('/fonts/Messenger-Regular.otf') format('opentype'); font-weight: 400; }
+
+
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#000B8C;--orange:#FF9E18;--cyan:#00FFFF;
+  --white:#FFFFFF;--off:#F6F7FB;--border:#E4E6F0;
+  --gray:#7A7A80;--dark:#323232;--body:#323232;
+  --D:'Montserrat',Arial,sans-serif;--S:'Montserrat',Arial,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--S);color:var(--body);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* CUSTOM CURSOR */
+*{cursor:none!important}
+.cursor{position:fixed;top:0;left:0;pointer-events:none;z-index:99999;transform:translate(-50%,-50%)}
+.cursor-dot{width:28px;height:28px;background:rgba(220,40,40,0.95);border-radius:50%;position:relative;box-shadow:0 0 0 3px rgba(220,40,40,0.3),0 0 16px rgba(220,40,40,0.6),0 0 32px rgba(220,40,40,0.3);transition:transform 0.12s ease,box-shadow 0.12s ease}
+.cursor-dot::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:10px;height:10px;background:rgba(255,255,255,0.9);border-radius:50%}
+.cursor-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border:2px solid rgba(220,40,40,0.4);border-radius:50%;animation:cursor-pulse 1.5s ease-in-out infinite}
+@keyframes cursor-pulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:0.6}50%{transform:translate(-50%,-50%) scale(1.35);opacity:0}}
+.cursor.clicking .cursor-dot{transform:scale(0.8);box-shadow:0 0 0 5px rgba(220,40,40,0.2),0 0 24px rgba(220,40,40,0.8),0 0 48px rgba(220,40,40,0.4)}
+.cursor.hovering .cursor-dot{transform:scale(1.3);box-shadow:0 0 0 4px rgba(220,40,40,0.25),0 0 24px rgba(220,40,40,0.8),0 0 48px rgba(220,40,40,0.4)}
+@media(hover:none){.cursor{display:none}*{cursor:auto!important}}
+
+
+.sqbar{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,0.08);transition:box-shadow 0.2s}
+.sqbar-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:0 5%;height:68px}
+.sqbar-logo{flex-shrink:0;text-decoration:none}
+.sqbar-logo img{height:20px;width:auto;display:block}
+.sqbar-divider{width:1px;height:24px;background:rgba(0,0,0,0.12);flex-shrink:0}
+.sqbar-label{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(0,0,0,0.4);white-space:nowrap;flex-shrink:0}
+.sqbar-field-wrap{display:flex;gap:8px;flex:1;min-width:0}
+.sqbar-input{flex:1;background:#f4f5fa;border:1.5px solid #e2e4ef;border-radius:6px;padding:9px 14px;font-family:var(--S);font-size:0.78rem;font-weight:600;color:var(--dark);outline:none;transition:border-color 0.2s,background 0.2s;min-width:0}
+.sqbar-input::placeholder{color:#b0b0bc;font-weight:500}
+.sqbar-input:focus{border-color:#0068cc;background:#fff}
+.sqbar-btn{background:var(--navy);color:var(--white);font-family:var(--S);font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:9px 18px;border-radius:6px;border:none;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:6px;flex-shrink:0;transition:background 0.2s}
+.sqbar-btn:hover{background:#0010b0}
+.sqbar-btn:disabled{opacity:0.6;cursor:not-allowed}
+.sqbar-spinner{width:11px;height:11px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite}
+.sqbar-cta{background:var(--orange);color:var(--white);font-family:var(--S);font-size:0.72rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;padding:9px 18px;border-radius:6px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background 0.2s;border:none}
+.sqbar-cta:hover{background:#e88a00}
+.sqbar-close{position:absolute;top:12px;right:16px;background:transparent;border:none;color:var(--gray);font-size:1.2rem;cursor:pointer;line-height:1;padding:4px 8px;border-radius:4px;transition:color 0.2s}
+.sqbar-close:hover{color:var(--dark)}
+.sqbar-results{position:relative;background:rgba(255,255,255,0.99);backdrop-filter:blur(16px);border-top:1px solid rgba(0,0,0,0.07);max-height:340px;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,0.1)}
+.sqbar-results-inner{max-width:1100px;margin:0 auto;padding:18px 5%;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.sqbar-cat{font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+.sqbar-q-group{display:flex;flex-direction:column;gap:6px}
+.sqbar-q{font-size:0.78rem;font-weight:600;color:var(--body);line-height:1.55;padding:10px 12px;background:#f4f5fa;border:1px solid #e2e4ef;border-radius:6px;display:flex;gap:8px}
+.sqbar-q-num{font-family:var(--D);font-size:0.85rem;color:#ccc;flex-shrink:0}
+.sqbar-copy{display:block;margin:10px 5% 14px auto;background:transparent;border:1.5px solid #e2e4ef;color:var(--gray);font-family:var(--S);font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:6px 14px;border-radius:4px;cursor:pointer;transition:all 0.2s;width:fit-content}
+.sqbar-copy:hover{border-color:var(--navy);color:var(--navy)}
+.sqbar-error{font-size:0.72rem;font-weight:600;color:#c0392b;padding:10px 5%;border-top:1px solid #fcc;background:#fff5f5}
+@media(max-width:900px){.sqbar-label{display:none}}
+@media(max-width:600px){
+  .sqbar-inner{gap:8px;padding:0 4%}
+  .sqbar-label{display:none}
+  .sqbar-cta{display:none}
+  .sqbar-divider{display:none}
+  .sqbar-results-inner{grid-template-columns:1fr}
+}
+
+/* NAV */
+nav{position:fixed;top:44px;display:none;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:68px;background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c4e0 100%);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.08)}
+.nav-logo img{height:24px!important;width:auto!important;display:block!important}
+.nav-cta{background:var(--orange);color:var(--white);font-family:var(--S);font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:10px 20px;border-radius:3px;text-decoration:none;transition:background 0.2s}
+.nav-cta:hover{background:#e88a00}
+
+/* HERO — gradient background */
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 5% 80px;position:relative;overflow:hidden;background:linear-gradient(135deg,#0033a0 0%,#0055cc 25%,#0088cc 60%,#00b8d9 85%,#00d4e8 100%)}
+@media(max-width:900px){.hero{min-height:auto}}
+.hero-overlay{display:none}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,0.8fr);gap:80px;align-items:center}
+.hero-left{display:flex;flex-direction:column}
+.hero-tag{display:inline-block;border:1px solid rgba(255,255,255,0.4);color:var(--white);font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:7px 16px;border-radius:2px;margin-bottom:36px;background:rgba(255,255,255,0.08);width:fit-content}
+.hero h1{font-family:var(--D);font-size:clamp(2.4rem,4vw,4.4rem);font-weight:800;line-height:1.0;text-transform:uppercase;color:var(--white);margin-bottom:36px;letter-spacing:0.015em;text-shadow:0 2px 40px rgba(0,0,0,0.2);white-space:normal}
+.hero h1 .o{color:var(--orange)}
+.hero-word{display:inline-block;transition:opacity 0.4s ease,transform 0.4s ease}
+.hero-word.fade-out{opacity:0;transform:translateY(-8px)}
+#hero-h1{transition:opacity 0.5s ease}
+.hero-sub{font-size:1.15rem;font-weight:600;color:rgba(255,255,255,0.75);max-width:460px;line-height:1.6;margin-bottom:48px}
+.hero-break{display:block}
+.hero-highlight{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.18);border-radius:4px;padding:1px 7px;color:rgba(255,255,255,0.95);white-space:nowrap}
+.hero-acts{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.btn-p{background:var(--orange);color:var(--white);font-family:var(--S);font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:15px 34px;border-radius:3px;text-decoration:none;transition:background 0.2s,transform 0.15s;display:inline-block}
+.btn-p:hover{background:#e88a00;transform:translateY(-1px)}
+.btn-g{color:rgba(255,255,255,0.6);font-family:var(--S);font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:color 0.2s}
+.btn-g:hover{color:var(--white)}
+.btn-g::after{content:'→'}
+
+/* HERO VIDEO */
+.hero-right{display:flex;align-items:center;justify-content:center}
+.hero-video-wrap{position:relative;width:280px;border-radius:20px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.12);flex-shrink:0}
+.hero-video-wrap iframe{display:block;width:100%;aspect-ratio:9/16;border:none;border-radius:12px;}
+
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-right{display:flex;justify-content:center;margin-top:32px}
+  .hero-video-wrap{width:220px}
+  .sqbar-label{display:none}.sqbar-field-wrap{display:none}.sqbar-divider{display:none}.sqbar-cta{display:none}
+}
+
+/* PROOF BAR */
+.pbar{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c4e0 100%);padding:24px 0;overflow:hidden;position:relative}
+.pbar-top{display:flex;align-items:center;gap:20px;padding:0 5%;margin-bottom:16px}
+.plabel{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);white-space:nowrap}
+.psep{width:1px;height:18px;background:rgba(255,255,255,0.12);flex-shrink:0}
+.pmarquee-wrap{position:relative;overflow:hidden;width:100%}
+.pmarquee-track{display:flex;gap:10px;width:max-content;animation:marquee 22s linear infinite;padding:4px 0}
+.pmarquee-track:hover{animation-play-state:paused}
+.pitem{font-size:0.75rem;font-weight:700;color:rgba(255,255,255,0.5);background:rgba(255,255,255,0.06);padding:5px 15px;border-radius:2px;border:1px solid rgba(255,255,255,0.1);white-space:nowrap;transition:font-size 0.15s,color 0.15s,transform 0.15s,background 0.15s;display:inline-block;transform-origin:center}
+.pitem.active{font-size:0.92rem;color:rgba(255,255,255,0.95);transform:scale(1.15);background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.28)}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{padding:96px 5%}
+.w{max-width:1100px;margin:0 auto}
+.ey{font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+.h2{font-family:var(--D);font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;text-transform:uppercase;line-height:1.0;letter-spacing:0.02em;color:var(--dark);margin-bottom:20px}
+.sub{font-size:0.9rem;font-weight:600;color:var(--gray);max-width:460px;line-height:1.8;margin-bottom:52px}
+
+/* WHO WE SERVE */
+.who-sec{background:var(--white);padding:80px 5%}
+.who-heading{font-family:var(--S);font-size:clamp(1.4rem,3vw,2rem);font-weight:700;color:var(--dark);margin-bottom:40px;display:inline-block}
+.who-arrow{display:inline-block;font-style:normal;font-size:1.3em;margin-left:8px;color:var(--dark)}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:860px;margin:0 auto 0}
+.who-tile{background:#323232;color:#fff;font-family:var(--S);font-size:0.95rem;font-weight:700;border-radius:14px;padding:22px 20px;text-align:center;display:flex;align-items:center;justify-content:center;min-height:72px}
+.who-tile-you{background:#323232}
+@media(max-width:600px){.who-grid{grid-template-columns:1fr 1fr}}
+
+.vcard-linkedin{width:280px;flex-shrink:0;flex-grow:0;flex-basis:280px;overflow:hidden}
+.vcard-linkedin iframe{width:280px;height:500px;border-radius:16px;display:block;border:none;overflow:hidden}
+
+/* VERTICAL VIDEO CAROUSEL */
+.vcarousel-sec{background:var(--dark);padding:80px 0;overflow:hidden}
+.vcarousel-header{margin-bottom:48px;padding:0 5%}
+.vcarousel-header .ey{color:var(--orange)}
+.vcarousel-header .h2{color:var(--white)}
+.vcarousel-outer{overflow:hidden;width:100%;cursor:grab;user-select:none}
+.vcarousel-outer:active{cursor:grabbing}
+.vcarousel-track{display:flex;flex-wrap:nowrap;align-items:stretch;gap:16px;width:max-content;animation:vscroll 40s linear infinite;padding:10px 40px}
+.vcarousel-track:hover{animation-play-state:paused}
+@keyframes vscroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.vcard{flex-shrink:0;width:300px}
+.vcard-inner{background:#1a1a20;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);box-shadow:0 8px 32px rgba(0,0,0,0.3);height:399px}
+.vcard-screen{padding:12px}
+.vcard-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0033a0,#00c4e0);margin-bottom:8px}
+.vcard-name{font-size:0.65rem;font-weight:700;color:rgba(255,255,255,0.7);margin-bottom:10px;letter-spacing:0.04em}
+.vcard-thumb{background:#0a0a14;aspect-ratio:9/16;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;position:relative}
+.vcard-play{width:32px;height:32px;background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:white;padding-left:2px}
+.vcard-caption{font-size:0.62rem;font-weight:600;color:rgba(255,255,255,0.5);line-height:1.5;padding-bottom:4px}
+
+/* VIDEO */
+.video-sec{background:var(--off);padding:96px 5%}
+.video-wrap{position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.15)}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%}
+
+/* CONTRAST SECTION */
+.contrast-sec{background:var(--dark);padding:96px 5%}
+.contrast-sec .ey{color:var(--orange)}
+.contrast-sec .h2{color:var(--white)}
+.contrast-sec .sub{color:rgba(255,255,255,0.35)}
+.contrast-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden}
+.contrast-card{padding:40px 36px;display:flex;flex-direction:column;gap:24px}
+.contrast-bad{background:rgba(255,255,255,0.03)}
+.contrast-good{background:rgba(0,180,120,0.06)}
+.contrast-label{font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.contrast-label-bad{color:rgba(255,255,255,0.3)}
+.contrast-label-good{color:rgba(0,210,140,0.8)}
+.contrast-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.contrast-dot-bad{background:rgba(255,255,255,0.2)}
+.contrast-dot-good{background:rgba(0,210,140,0.8);box-shadow:0 0 8px rgba(0,210,140,0.5)}
+.contrast-content{flex:1;display:flex;flex-direction:column;gap:20px}
+.contrast-quote{font-size:1.05rem;font-weight:600;line-height:1.75;font-style:italic}
+.contrast-bad .contrast-quote{color:rgba(255,255,255,0.3)}
+.contrast-good .contrast-quote{color:rgba(255,255,255,0.88)}
+.contrast-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+.contrast-tag{font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:4px 10px;border-radius:3px;background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.25);border:1px solid rgba(255,255,255,0.08)}
+.contrast-tag-good{background:rgba(0,210,140,0.08);color:rgba(0,210,140,0.7);border-color:rgba(0,210,140,0.2)}
+.contrast-divider{display:flex;align-items:center;justify-content:center;padding:0 24px;background:rgba(255,255,255,0.02);border-left:1px solid rgba(255,255,255,0.06);border-right:1px solid rgba(255,255,255,0.06)}
+.contrast-vs{font-family:var(--D);font-size:1.4rem;color:rgba(255,255,255,0.15);letter-spacing:0.08em}
+@media(max-width:900px){
+  .contrast-grid{grid-template-columns:1fr}
+  .contrast-divider{padding:20px;border-left:none;border-right:none;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06)}
+}
+
+/* PROBLEM HERO */
+.prob-hero-sec{padding:120px 5% 80px}
+.prob-label{transition:opacity 0.3s ease}
+.prob-hero-wrap{position:relative;cursor:default;margin-bottom:40px;overflow:hidden}
+.prob-hero-h{font-family:var(--D);font-size:clamp(1.6rem,4vw,4rem);font-weight:800;line-height:1.05;text-transform:uppercase;color:var(--dark);letter-spacing:-0.01em;transition:transform 0.55s cubic-bezier(0.4,0,0.2,1),opacity 0.4s ease;will-change:transform}
+.prob-hero-wrap.slid .prob-hero-h{transform:translateX(-110%);opacity:0}
+.prob-reveal-h{font-family:var(--D);font-size:clamp(1.6rem,4vw,4rem);font-weight:800;line-height:1.05;text-transform:uppercase;color:var(--orange);position:absolute;top:0;left:0;right:0;transform:translateX(110%);transition:transform 0.55s cubic-bezier(0.4,0,0.2,1),opacity 0.4s ease;opacity:0;pointer-events:none}
+.prob-hero-wrap.slid .prob-reveal-h{transform:translateX(0);opacity:1}
+
+/* PROBLEM */
+.prob-sec{background:var(--white)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.pc{background:var(--white);padding:36px 28px;border-right:1px solid var(--border)}
+.pc:last-child{border-right:none}
+.pnum{font-family:var(--D);font-size:2.8rem;color:var(--border);line-height:1;margin-bottom:18px}
+.pc h3{font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--dark);margin-bottom:12px}
+.pc p{font-size:0.87rem;font-weight:600;color:var(--gray);line-height:1.75}
+.pcallout{margin-top:32px;background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c4e0 100%);border-radius:6px;padding:40px 44px;display:flex;gap:28px;align-items:flex-start}
+.cbar{width:4px;flex-shrink:0;background:var(--orange);border-radius:2px;align-self:stretch}
+.cq{font-family:var(--D);font-size:clamp(1.1rem,2.2vw,1.6rem);font-weight:800;text-transform:uppercase;line-height:1.35;color:var(--white)}
+.cq em{font-style:normal;color:#00FFFF}
+
+/* STEPS */
+.srow{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.step{background:var(--white);padding:40px 30px}
+.stag{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.stag::after{content:'';flex:1;height:1px;background:var(--border)}
+.step h3{font-family:var(--D);font-size:1.2rem;font-weight:800;text-transform:uppercase;letter-spacing:0.03em;color:var(--dark);margin-bottom:14px;line-height:1.2}
+.step p{font-size:0.87rem;font-weight:600;color:var(--gray);line-height:1.78}
+
+/* DELIVERABLES */
+.del-sec{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c4e0 100%)}
+.del-sec .ey{color:#00FFFF}
+.del-sec .h2{color:var(--white)}
+.del-sec .sub{color:rgba(255,255,255,0.4)}
+.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.08);border-radius:6px;overflow:hidden}
+.di{background:rgba(255,255,255,0.03);padding:30px 26px;display:flex;gap:14px}
+.ddot{width:6px;height:6px;background:var(--orange);border-radius:50%;flex-shrink:0;margin-top:6px}
+.di h4{font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--white);margin-bottom:8px}
+.di p{font-size:0.84rem;font-weight:600;color:rgba(255,255,255,0.4);line-height:1.68}
+
+/* PRICING */
+.price-sec{background:var(--off)}
+.pgr{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:40px 34px;position:relative}
+.card.feat{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c4e0 100%);border-color:transparent}
+.pbadge{position:absolute;top:-12px;left:34px;background:var(--orange);color:var(--white);font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:4px 14px;border-radius:2px}
+.pplan{font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray);margin-bottom:14px}
+.card.feat .pplan{color:rgba(255,255,255,0.35)}
+.pprice{font-family:var(--D);font-size:3.6rem;font-weight:800;color:var(--dark);line-height:1;margin-bottom:6px}
+.card.feat .pprice{color:var(--white)}
+.pper{font-size:0.78rem;font-weight:600;color:var(--gray);margin-bottom:28px}
+.card.feat .pper{color:rgba(255,255,255,0.35)}
+.pdiv{height:1px;background:var(--border);margin-bottom:24px}
+.card.feat .pdiv{background:rgba(255,255,255,0.1)}
+.plist{list-style:none;margin-bottom:32px}
+.plist li{font-size:0.86rem;font-weight:600;color:var(--body);padding:9px 0;border-bottom:1px solid var(--border);display:flex;gap:12px;align-items:flex-start}
+.card.feat .plist li{color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.08)}
+.plist li::before{content:'✓';color:var(--orange);font-weight:700;flex-shrink:0;font-size:0.78rem;margin-top:2px}
+.btnp{display:block;text-align:center;padding:13px 0;border-radius:3px;font-family:var(--S);font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.bto{border:2px solid var(--navy);color:var(--navy)}
+.bto:hover{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c4e0 100%);color:var(--white)}
+.bts{background:var(--orange);color:var(--white);border:2px solid var(--orange)}
+.bts:hover{background:#e88a00}
+.pnote{text-align:center;font-size:0.78rem;font-weight:600;color:var(--gray);margin-top:20px}
+
+/* TEAM */
+.team-sec{background:var(--white)}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tcard{background:var(--off);border-radius:6px;padding:32px 28px;display:flex;flex-direction:column;gap:16px}
+.tphoto{width:72px;height:72px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.tname{font-family:var(--D);font-size:1.2rem;font-weight:800;text-transform:uppercase;letter-spacing:0.02em;color:var(--dark);margin-bottom:4px}
+.trole{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+.tbio{font-size:0.85rem;font-weight:600;color:var(--gray);line-height:1.75}
+
+/* TESTIMONIALS */
+.testi-sec{background:var(--off)}
+.tgr{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tc{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:30px 24px}
+.tctext{font-size:0.88rem;font-weight:600;color:var(--body);line-height:1.78;font-style:italic;margin-bottom:22px}
+.tcauth{display:flex;align-items:center;gap:12px}
+.tcav{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c4e0 100%);display:flex;align-items:center;justify-content:center;font-family:var(--D);font-size:0.72rem;color:var(--white);flex-shrink:0;text-transform:uppercase}
+.tcname{font-size:0.82rem;font-weight:700;color:var(--dark)}
+.tctitle{font-size:0.76rem;font-weight:600;color:var(--gray);margin-top:2px}
+
+/* FAQ */
+.fwrap{max-width:680px}
+.fi{border-bottom:1px solid var(--border)}
+.fi:first-child{border-top:1px solid var(--border)}
+.fq{font-size:0.78rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--dark);padding:22px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;user-select:none}
+.ficon{color:var(--orange);font-size:1.2rem;flex-shrink:0;transition:transform 0.25s;display:inline-block;font-weight:400}
+.fi.open .ficon{transform:rotate(45deg)}
+.fa{font-size:0.88rem;font-weight:600;color:var(--gray);line-height:1.8;display:none;padding-bottom:22px}
+.fi.open .fa{display:block}
+
+/* CTA */
+.cta-sec{padding:96px 5%;text-align:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c4e0 100%)}
+.cta-overlay{position:absolute;inset:0;background:rgba(0,8,80,0.35);pointer-events:none}
+.cta-in{max-width:640px;margin:0 auto;position:relative;z-index:2}
+.cta-sec h2{font-family:var(--D);font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:800;text-transform:uppercase;line-height:1.0;color:var(--white);margin-bottom:20px;letter-spacing:0.02em}
+.cta-sec h2 span{color:var(--orange)}
+.cta-sec p{font-size:0.92rem;font-weight:600;color:rgba(255,255,255,0.6);line-height:1.82;margin-bottom:40px}
+.cta-acts{display:flex;flex-direction:column;align-items:center;gap:16px}
+.btn-cta{background:var(--orange);color:var(--white);font-family:var(--S);font-size:0.82rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:17px 44px;border-radius:3px;text-decoration:none;transition:background 0.2s,transform 0.15s;display:inline-block}
+.btn-cta:hover{background:#e88a00;transform:translateY(-1px)}
+.cta-fine{font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.35);letter-spacing:0.04em}
+
+/* FROM THE BLOG */
+.blog-sec{background:var(--white)}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}
+.blog-card{background:var(--white);padding:0;display:flex;flex-direction:column;text-decoration:none;transition:box-shadow 0.2s;border:1px solid var(--border);border-radius:6px;overflow:hidden;opacity:1!important;transform:none!important}
+.blog-card-img{width:100%;height:180px;object-fit:cover;display:block;background:var(--off)}
+.blog-card-body{padding:24px 28px;display:flex;flex-direction:column;flex:1}
+.blog-card:hover{background:var(--off)}
+.blog-card-tag{font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+.blog-card-title{font-family:var(--D);font-size:1.05rem;font-weight:800;text-transform:uppercase;letter-spacing:0.02em;color:var(--dark);line-height:1.2;margin-bottom:14px}
+.blog-card-excerpt{font-size:0.87rem;font-weight:600;color:var(--gray);line-height:1.75;flex:1;margin-bottom:24px}
+.blog-card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+.blog-card-date{font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#ccc}
+.blog-card-arrow{font-size:0.75rem;font-weight:700;color:var(--navy);letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s}
+.blog-card:hover .blog-card-arrow{color:var(--orange)}
+.blog-bottom{display:flex;justify-content:center}
+.blog-btn{border:2px solid var(--navy);color:var(--navy);font-family:var(--S);font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:13px 34px;border-radius:3px;text-decoration:none;transition:all 0.2s;display:inline-block}
+.blog-btn:hover{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c4e0 100%);border-color:transparent;color:var(--white)}
+.blog-skeleton{background:linear-gradient(90deg,#f0f1f7 25%,#e4e6f0 50%,#f0f1f7 75%);background-size:200% 100%;animation:bskel 1.4s infinite;border-radius:3px}
+@keyframes bskel{0%{background-position:200% 0}100%{background-position:-200% 0}}
+@media(max-width:900px){.blog-grid{grid-template-columns:1fr}}
+
+/* FOOTER */
+footer{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c4e0 100%);padding:44px 5% 28px}
+.fin{max-width:1100px;margin:0 auto}
+.ftop{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:20px}
+.flogo img{height:14px;width:auto;display:block;margin-bottom:10px}
+.ftag{font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.25);max-width:220px;line-height:1.6}
+.flinks{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
+.flinks a{font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.28);text-decoration:none;transition:color 0.2s}
+.flinks a:hover{color:var(--white)}
+.fcopy{font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.15)}
+
+/* QUESTION GENERATOR */
+.qgen-sec{background:#323232;padding:96px 5%;display:flex;flex-direction:column;align-items:center;text-align:center}
+.qgen-sec .h2{color:var(--white)}
+.qgen-sec .sub{color:rgba(255,255,255,0.6);margin-left:auto;margin-right:auto}
+.qgen-box{background:var(--white);border:2px solid rgba(255,255,255,0.2);border-radius:16px;padding:40px 36px;max-width:720px;box-shadow:0 4px 40px rgba(0,0,0,0.3);position:relative}
+.qgen-box::before{content:'FREE TOOL';position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--orange);color:var(--white);font-family:var(--S);font-size:0.62rem;font-weight:700;letter-spacing:0.12em;padding:4px 14px;border-radius:100px}
+.qgen-input-row{display:flex;gap:12px;margin-bottom:14px}
+.qgen-field{flex:1;display:flex;align-items:center;background:var(--white);border:1.5px solid var(--border);border-radius:4px;padding:0 16px;gap:10px;transition:border-color 0.2s}
+.qgen-field:focus-within{border-color:var(--navy)}
+.qgen-prefix{font-size:1rem;flex-shrink:0;opacity:0.5}
+.qgen-input{flex:1;border:none;outline:none;font-family:var(--S);font-size:0.88rem;font-weight:600;color:var(--dark);background:transparent;padding:14px 0}
+.qgen-input::placeholder{color:#b0b0bc;font-weight:500}
+.qgen-btn{background:linear-gradient(135deg,#0033a0 0%,#0068cc 35%,#0099cc 65%,#00c4e0 100%);color:var(--white);font-family:var(--S);font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:14px 24px;border-radius:4px;border:none;cursor:pointer;transition:background 0.2s;white-space:nowrap;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.qgen-btn:hover{background:#0010b0}
+.qgen-btn:disabled{opacity:0.6;cursor:not-allowed}
+.qgen-spinner{width:14px;height:14px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite;flex-shrink:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+.qgen-hint{font-size:0.78rem;font-weight:600;color:var(--gray);line-height:1.6}
+.qgen-results{margin-top:32px;border-top:1px solid var(--border);padding-top:28px}
+.qgen-results-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.qgen-results-label{font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange)}
+.qgen-copy-btn{background:transparent;border:1.5px solid var(--border);color:var(--gray);font-family:var(--S);font-size:0.7rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:6px 14px;border-radius:3px;cursor:pointer;transition:all 0.2s}
+.qgen-copy-btn:hover{border-color:var(--navy);color:var(--navy)}
+.qgen-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.qgen-list li{display:flex;gap:14px;align-items:flex-start;font-size:0.88rem;font-weight:600;color:var(--body);line-height:1.7;padding:16px 18px;background:var(--white);border:1px solid var(--border);border-radius:4px;opacity:0;transform:translateY(8px);transition:opacity 0.4s ease,transform 0.4s ease}
+.qgen-list li.visible{opacity:1;transform:translateY(0)}
+.qgen-list li .qnum{font-family:var(--D);font-size:1.1rem;color:var(--border);flex-shrink:0;line-height:1.4;min-width:20px}
+.qgen-footer-note{margin-top:24px;font-size:0.78rem;font-weight:600;color:var(--gray);line-height:1.7;padding:16px 18px;background:rgba(0,11,140,0.04);border-left:3px solid var(--navy);border-radius:0 4px 4px 0}
+.qgen-footer-note a{color:var(--navy);text-decoration:none;font-weight:700}
+.qgen-footer-note a:hover{text-decoration:underline}
+.qgen-error{margin-top:16px;padding:14px 18px;background:#fff5f5;border:1px solid #fcc;border-radius:4px;font-size:0.84rem;font-weight:600;color:#c0392b}
+@media(max-width:600px){.qgen-input-row{flex-direction:column}.qgen-box{padding:24px 20px}}
+
+/* ============================================
+   CONCEPT SECTIONS
+   ============================================ */
+
+/* HOW IT WORKS DETAIL */
+.btn-learn-more{display:inline-flex;align-items:center;gap:8px;font-family:var(--S);font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--navy);text-decoration:none;border:2px solid var(--navy);padding:12px 28px;border-radius:6px;transition:background 0.2s,color 0.2s}
+.btn-learn-more:hover{background:var(--navy);color:var(--white)}
+.hiw-sec{background:var(--white);padding:96px 5%}
+.hiw-stages{display:flex;flex-direction:column;gap:0;margin-top:56px}
+.hiw-stage{display:grid;grid-template-columns:120px 1fr;gap:40px;padding:40px 0;border-top:1px solid var(--border);align-items:start}
+.hiw-stage:last-child{border-bottom:1px solid var(--border)}
+.hiw-num{font-family:var(--D);font-size:4rem;font-weight:800;color:var(--border);line-height:1;padding-top:4px}
+.hiw-title{font-family:var(--S);font-size:1.1rem;font-weight:800;color:var(--dark);margin-bottom:16px;letter-spacing:0.01em}
+.hiw-body{font-size:0.9rem;font-weight:600;color:var(--gray);line-height:1.85}
+/* DIY VS US */
+.pain-sec{background:#0a0a0a;padding:100px 5%}
+.pain-inner{max-width:800px;margin:0 auto}
+.pain-eyebrow{font-family:var(--D);font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange);margin-bottom:20px}
+.pain-h{font-family:var(--D);font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:800;color:var(--white);margin-bottom:28px;line-height:1.15;letter-spacing:-0.01em}
+.pain-p{font-size:1.05rem;color:rgba(255,255,255,0.55);line-height:1.85;max-width:640px;margin-bottom:48px}
+.pain-pills{display:flex;flex-wrap:wrap;gap:12px}
+.pain-pill{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:40px;padding:10px 20px;font-size:0.85rem;color:rgba(255,255,255,0.6);font-weight:500}
+.diy-title{font-family:var(--D);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;text-align:center;color:#111;margin-bottom:48px;letter-spacing:-0.01em}
+.diy-sec{background:var(--white);padding:96px 5%}
+.diy-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;margin-top:0}
+.diy-col-header{font-size:1rem;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;padding:14px 28px;border-radius:8px;display:inline-block;margin-bottom:16px}
+.diy-col-header-bad{background:rgba(0,0,0,0.08);color:var(--dark)}
+.diy-col-header-good{background:linear-gradient(135deg,#0033a0,#00c4e0);color:var(--white)}
+.diy-col-items{display:flex;flex-direction:column;gap:10px}
+.diy-item{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 20px;font-size:0.9rem;font-weight:600;color:var(--gray);display:flex;align-items:center;gap:14px}
+.diy-item-good{color:var(--body);font-weight:700}
+.diy-arrow{display:flex;align-items:center;justify-content:center;padding-top:56px;flex-shrink:0}
+.diy-arrow svg{width:40px;height:100px}
+@media(max-width:700px){
+  .diy-grid{grid-template-columns:1fr}
+  .diy-arrow{padding-top:0;transform:rotate(90deg);width:40px;margin:0 auto}
+}
+
+/* CONCEPT 1 — Animated Stat */
+
+/* CONCEPT 1 — Animated Stat */
+.concept-stat{background:#323232;padding:120px 5%}
+.concept-stat .ey{color:rgba(255,255,255,0.6);text-align:center}
+.stat-number{font-family:var(--D);font-size:clamp(5rem,14vw,10rem);font-weight:800;color:var(--white);line-height:1;text-align:center;margin-bottom:24px}
+.stat-label{font-size:1.2rem;font-weight:700;color:rgba(255,255,255,0.85);line-height:1.6;margin-bottom:12px;text-align:center}
+.stat-source{font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.35);letter-spacing:0.08em;text-align:center}
+
+/* CONCEPT 2 — Timeline */
+.concept-timeline{background:var(--off);padding:96px 5%}
+.timeline-wrap{position:relative;margin-top:60px}
+.timeline-line{position:absolute;top:40px;left:calc(12.5% + 20px);right:calc(12.5% + 20px);height:2px;background:var(--border);z-index:0}
+.timeline-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative;z-index:1}
+.tstep{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+.tstep-icon{width:80px;height:80px;background:var(--white);border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--navy)}
+.tstep-icon svg{width:36px;height:36px}
+.tstep-dot{width:12px;height:12px;background:var(--orange);border-radius:50%;border:2px solid var(--white);box-shadow:0 0 0 2px var(--orange)}
+.tstep-label{font-size:0.82rem;font-weight:700;color:var(--dark);line-height:1.4;letter-spacing:0.02em;text-transform:uppercase}
+.tstep-desc{font-size:0.76rem;color:#888;text-align:center;line-height:1.5;margin-top:8px;max-width:140px}
+@media(max-width:600px){.timeline-steps{grid-template-columns:1fr 1fr}.timeline-line{display:none}}
+
+/* CONCEPT 3 — Phone Mockup */
+.concept-phone{background:var(--white);padding:96px 5%}
+.concept-phone-grid{display:grid;grid-template-columns:1fr auto;gap:80px;align-items:center;max-width:1000px}
+.phone-list{list-style:none;margin-top:8px;display:flex;flex-direction:column;gap:12px}
+.phone-list li{font-size:0.9rem;font-weight:600;color:var(--body);display:flex;align-items:center;gap:10px}
+.phone-check{color:var(--orange);font-weight:700}
+.phone-frame{width:240px;background:#323232;border-radius:32px;padding:14px;box-shadow:0 40px 80px rgba(0,0,0,0.25);border:6px solid #222;flex-shrink:0}
+.phone-notch{width:60px;height:8px;background:#1a1a24;border-radius:4px;margin:0 auto 12px}
+.phone-screen{background:#fff;border-radius:20px;overflow:hidden}
+.li-post{padding:14px}
+.li-header{display:flex;gap:10px;align-items:center;margin-bottom:12px}
+.li-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#0033a0,#00c4e0);flex-shrink:0}
+.li-name{font-size:0.72rem;font-weight:700;color:#0a0a12}
+.li-title{font-size:0.62rem;color:#888}
+.li-thumb{background:#222;aspect-ratio:16/9;border-radius:6px;display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:10px}
+.li-play{color:white;font-size:1.2rem;opacity:0.9}
+.li-duration{position:absolute;bottom:6px;right:8px;font-size:0.6rem;color:rgba(255,255,255,0.7);font-weight:600}
+.li-caption{font-size:0.65rem;color:#333;line-height:1.5;margin-bottom:10px}
+.li-actions{display:flex;gap:12px;border-top:1px solid #eee;padding-top:8px}
+.li-like,.li-comment{font-size:0.62rem;color:#888;font-weight:600}
+@media(max-width:900px){.concept-phone-grid{grid-template-columns:1fr}.phone-frame{display:none}}
+
+/* CONCEPT 4 — Pull Quote Testimonials */
+.concept-quotes{background:var(--dark);padding:96px 5%}
+.concept-quotes .ey{color:var(--orange)}
+.concept-quotes .h2{color:var(--white)}
+.quotes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.quote-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:36px 30px;display:flex;flex-direction:column;gap:20px;transition:background 0.2s}
+.quote-card:hover{background:rgba(255,255,255,0.07)}
+.quote-card-featured{background:rgba(255,158,24,0.08);border-color:rgba(255,158,24,0.2)}
+.quote-avatar{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--D);font-size:1rem;font-weight:800;color:var(--white);flex-shrink:0}
+.quote-text{font-size:1.05rem;font-weight:700;color:var(--white);line-height:1.65;font-style:italic;flex:1}
+.quote-attr{font-size:0.72rem;font-weight:700;color:rgba(255,255,255,0.35);letter-spacing:0.06em;text-transform:uppercase}
+@media(max-width:900px){.quotes-grid{grid-template-columns:1fr}}
+
+/* CONCEPT 5 — Pricing Comparison */
+.concept-pricing{background:var(--off);padding:96px 5%}
+.pricing-compare{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:center;max-width:900px}
+.pc-label{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px;padding:8px 16px;border-radius:4px;display:inline-block}
+.pc-label-bad{background:rgba(0,0,0,0.06);color:var(--gray)}
+.pc-label-good{background:linear-gradient(135deg,#0033a0,#00c4e0);color:white}
+.pc-items{display:flex;flex-direction:column;gap:10px}
+.pc-item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:8px;font-size:0.88rem;font-weight:600}
+.pc-item-bad{background:var(--white);border:1px solid var(--border);color:var(--gray)}
+.pc-item-good{background:var(--white);border:1px solid rgba(0,100,200,0.15);color:var(--body)}
+.pc-icon{font-size:1.1rem;flex-shrink:0}
+.pc-vs{font-family:var(--D);font-size:2rem;font-weight:800;color:var(--orange);text-align:center;flex-shrink:0}
+@media(max-width:700px){.pricing-compare{grid-template-columns:1fr}.pc-vs{text-align:left}}
+
+/* CONCEPT 6 — Equation */
+.concept-equation{background:var(--white);padding:96px 5%}
+.concept-equation .ey{text-align:center}
+.concept-equation .h2{text-align:center;margin-left:auto;margin-right:auto}
+.eq-wrap{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:60px}
+.eq-block{display:flex;flex-direction:column;align-items:center;gap:10px;background:var(--off);border:1px solid var(--border);border-radius:20px;padding:32px 28px;min-width:130px}
+.eq-block svg{width:52px;height:52px;color:var(--navy)}
+.eq-value{font-family:var(--D);font-size:3rem;font-weight:800;color:var(--dark);line-height:1}
+.eq-value-orange{color:var(--orange)}
+.eq-unit{font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray)}
+.eq-block-trust{border-color:rgba(255,158,24,0.3);background:rgba(255,158,24,0.05)}
+.eq-block-trust svg{color:var(--orange)}
+.eq-arrow{font-size:2rem;color:var(--border);font-weight:300;flex-shrink:0}
+@media(max-width:700px){.eq-wrap{gap:10px}.eq-arrow{font-size:1.4rem}.eq-block{padding:20px 18px;min-width:100px}.eq-value{font-size:2.2rem}}
+
+/* FADE */
+.fade{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade.in{opacity:1;transform:translateY(0)}
+
+/* MOBILE */
+@media(max-width:900px){
+  .pgrid{grid-template-columns:1fr}
+  .pc{border-right:none;border-bottom:1px solid var(--border)}
+  .pc:last-child{border-bottom:none}
+  .srow{grid-template-columns:1fr}
+  .dgrid{grid-template-columns:1fr 1fr}
+  .pgr{grid-template-columns:1fr}
+  .tgrid{grid-template-columns:1fr 1fr}
+  .tgr{grid-template-columns:1fr}
+  .hero-inner{grid-template-columns:1fr}
+  .hero-right{display:flex;justify-content:center;margin-top:24px}
+  .hero-video-wrap{width:200px}
+  .hero{padding:120px 5% 72px}
+  .hero h1{font-size:clamp(2.4rem,10vw,4rem);white-space:normal;line-height:1.0}
+  .hero-sub{max-width:100%}
+}
+@media(max-width:600px){
+  .hero{padding:100px 4% 60px}
+  .hero h1{font-size:clamp(2rem,9vw,3rem);white-space:normal;line-height:1.0}
+  .hero-tag{font-size:0.6rem;padding:6px 12px;margin-bottom:24px}
+  .hero-sub{font-size:0.82rem;margin-bottom:32px;line-height:1.65}
+  .hero-highlight{white-space:normal;display:inline}
+  .hero-break{display:inline}
+  .hero-acts{flex-direction:column;align-items:flex-start;gap:12px}
+  .btn-p{width:100%;text-align:center;padding:14px 24px}
+  .hero-highlight{white-space:normal}
+  section{padding:64px 4%}
+  .dgrid{grid-template-columns:1fr}
+  .tgrid{grid-template-columns:1fr}
+  .pcallout{flex-direction:column;gap:16px;padding:28px 24px}
+  .cbar{width:36px;height:4px;align-self:auto}
+  .sqbar-inner{height:56px}
+}
+</style>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/245064687.js"></script>
+<script src="https://js-na2.hsforms.net/forms/embed/245064687.js" defer></script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2037031713545831');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2037031713545831&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script>!function(key) {if (window.reb2b) return;window.reb2b = {loaded: true};var s = document.createElement("script");s.async = true;s.src = "https://b2bjsstore.s3.us-west-2.amazonaws.com/b/" + key + "/" + key + ".js.gz";document.getElementsByTagName("script")[0].parentNode.insertBefore(s, document.getElementsByTagName("script")[0]);}("VN080H41ED6J");</script>
+<script src="https://t.contentsquare.net/uxa/cfcd7477dc1e3.js"></script>
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor" id="cursor">
+  <div class="cursor-ring"></div>
+  <div class="cursor-dot"></div>
+</div>
+
+<!-- NAV + QUESTION BAR -->
+<div class="sqbar" id="sqbar">
+  <div class="sqbar-inner">
+    <a class="sqbar-logo" href="#"><img src="/images/image-1.png" alt="AuthentIQ Marketing" style="height:24px;width:auto;display:block;"></a>
+    <div class="sqbar-divider"></div>
+    <span class="sqbar-label">Get 9 interview questions</span>
+    <div class="sqbar-field-wrap">
+      <input class="sqbar-input" id="sqbar-url" type="url" placeholder="https://yourwebsite.com" autocomplete="off" />
+      <button class="sqbar-btn" id="sqbar-btn" onclick="generateStickyQuestions()">
+        <span id="sqbar-btn-label">Generate Topics</span>
+        <span id="sqbar-spinner" class="sqbar-spinner" style="display:none"></span>
+      </button>
+    </div>
+    <a class="sqbar-cta" href="https://meetings-na2.hubspot.com/grant-taleck/interview-authentiq" target="_blank">Book Free Demo</a>
+  </div>
+  <div class="sqbar-results" id="sqbar-results" style="display:none">
+    <button class="sqbar-close" onclick="document.getElementById('sqbar-results').style.display='none'">✕</button>
+    <div class="sqbar-results-inner" id="sqbar-results-inner"></div>
+  </div>
+</div>
+
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">Video thought leadership for B2B leaders</div>
+      <h1 id="hero-h1">Don't be an<br><span class="o">invisible expert.</span></h1>
+      <p class="hero-sub"><span class="hero-highlight">Monthly video interviews</span> turned into thought leadership content. <span class="hero-highlight">Your face, your voice, your real ideas,</span><span class="hero-break"> edited, captioned, and scheduled for you.</span></p>
+      <div class="hero-acts">
+        <a class="btn-p" href="https://meetings-na2.hubspot.com/grant-taleck/interview-authentiq" target="_blank">Book your free demo</a>
+        <a class="btn-g" href="#see-how-it-works">See how it works</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-video-wrap">
+        <iframe src="https://player.vimeo.com/video/1187369250?title=0&byline=0&portrait=0&badge=0&autopause=0&autoplay=1&muted=1&loop=1&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="width:100%;aspect-ratio:9/16;border-radius:12px;display:block;"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROOF BAR -->
+<div class="pbar">
+  <div class="pbar-top">
+    <span class="plabel">Working with</span>
+    <span class="psep"></span>
+  </div>
+  <div class="pmarquee-wrap">
+    <div class="pmarquee-track" id="ptrack">
+      <span class="pitem">Financial Advisors</span>
+      <span class="pitem">Consultants</span>
+      <span class="pitem">Recruiting Firms</span>
+      <span class="pitem">B2B Founders</span>
+      <span class="pitem">EOS Implementers</span>
+      <span class="pitem">Executives</span>
+      <span class="pitem">Coaches</span>
+      <span class="pitem">Investors</span>
+      <span class="pitem">Speakers</span>
+      <span class="pitem">Financial Advisors</span>
+      <span class="pitem">Consultants</span>
+      <span class="pitem">Recruiting Firms</span>
+      <span class="pitem">B2B Founders</span>
+      <span class="pitem">EOS Implementers</span>
+      <span class="pitem">Executives</span>
+      <span class="pitem">Coaches</span>
+      <span class="pitem">Investors</span>
+      <span class="pitem">Speakers</span>
+    </div>
+  </div>
+</div>
+
+<!-- PAIN SECTION -->
+<section class="pain-sec">
+  <div class="w pain-inner">
+    <div class="pain-eyebrow">Sound familiar?</div>
+    <h2 class="pain-h">You know you should be posting video. Something always gets in the way.</h2>
+    <p class="pain-p">You sit down to record. Nothing feels good enough. You tell yourself you'll do it next week. Another project gets in the way. Meanwhile someone in your space is showing up every week, and your buyers are starting to recognize their face instead of yours.</p>
+    <div class="pain-pills">
+      <div class="pain-pill">Too busy to stay consistent</div>
+      <div class="pain-pill">Stared at the screen and posted nothing</div>
+      <div class="pain-pill">Never know what to talk about</div>
+      <div class="pain-pill">Your expertise is invisible</div>
+    </div>
+  </div>
+</section>
+
+<section class="concept-stat">
+  <div class="w" style="text-align:center;max-width:800px">
+    <div class="ey">The Reality</div>
+    <div class="stat-number" id="stat-num">0%</div>
+    <p class="stat-label">of hidden decision-makers use thought leadership<br>as part of their vetting process.</p>
+    <p class="stat-source">2025 Edelman-LinkedIn B2B Thought Leadership Impact Report</p>
+  </div>
+</section>
+
+<!-- CONCEPT 1: Animated Stat -->
+
+<!-- DIY VS US SECTION -->
+<section class="diy-sec">
+  <div class="w">
+    <h2 class="diy-title">Video builds trust. Consistency builds pipeline.</h2>
+    <div class="diy-grid">
+      <div class="diy-col">
+        <div class="diy-col-header diy-col-header-bad">DIYing It</div>
+        <div class="diy-col-items">
+          <div class="diy-item">⏰ Hours lost every week</div>
+          <div class="diy-item">📉 Do it for 3 months, then stop</div>
+          <div class="diy-item">🤖 Generic AI content nobody trusts</div>
+          <div class="diy-item">🗓️ No strategy, no direction</div>
+          <div class="diy-item">👻 Invisible to your buyers</div>
+        </div>
+      </div>
+      <div class="diy-col">
+        <div class="diy-col-header diy-col-header-good">Working with us</div>
+        <div class="diy-col-items">
+          <div class="diy-item diy-item-good">⚡ Use our time as leverage</div>
+          <div class="diy-item diy-item-good">📈 Sustainable system</div>
+          <div class="diy-item diy-item-good">🎙️ Your real face, voice, and ideas</div>
+          <div class="diy-item diy-item-good">🧠 Six-month strategic playbook</div>
+          <div class="diy-item diy-item-good">🤝 The expert your buyers already trust</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERTICAL VIDEO CAROUSEL -->
+<section class="vcarousel-sec">
+  <div class="vcarousel-header w">
+    <div class="ey">Example Content</div>
+    <h2 class="h2">Browse some content<br>we've created.</h2>
+  </div>
+  <div class="vcarousel-outer">
+    <div class="vcarousel-track" id="vcarousel-track">
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7453416290993463297?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7453073294804742145?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7452397116246691841?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7446553595107282944?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7439384031554813952?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7444761975370260481?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7423059982859923456?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7424111231390740480?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7453416290993463297?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7453073294804742145?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7452397116246691841?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7446553595107282944?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7439384031554813952?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7444761975370260481?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7423059982859923456?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7424111231390740480?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7450908462751956992?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+      <div class="vcard vcard-linkedin">
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7428106433797189632?collapsed=1" height="500" width="280" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-sec">
+  <div class="w">
+    <h2 class="h2">Real results from<br>real conversations.</h2>
+    <div class="tgr">
+      <div class="tc fade"><p class="tctext">"Their editing expertise is truly top notch, consistently delivering a flawless, polished final product. They have become an invaluable partner in our creative endeavors."</p><div class="tcauth"><img class="tcav" src="/images/image-2.png" alt="Charles Good"><div><div class="tcname">Charles Good</div><div class="tctitle">Institute for Management Studies</div></div></div></div>
+      <div class="tc fade" style="transition-delay:.1s"><p class="tctext">"I always wanted to appear more professional on video but kept neglecting it. Working with AuthentIQ, I finally got it right. It is like going from a ripped t-shirt to the nicest suit I have ever worn."</p><div class="tcauth"><img class="tcav" src="/images/image-3.png" alt="Brian Helfman"><div><div class="tcname">Brian Helfman</div><div class="tctitle">Founder and Facilitator</div></div></div></div>
+      <div class="tc fade" style="transition-delay:.2s"><p class="tctext">"3 words after watching video 1: WOW WOW WOW. You made this an easy process. Simple and easy to engage with, and that makes a big difference."</p><div class="tcauth"><img class="tcav" src="/images/image-4.png" alt="Neil Wood"><div><div class="tcname">Neil Wood</div><div class="tctitle">Consultant</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT 2: Process Timeline -->
+<section class="concept-timeline">
+  <div class="w">
+    <div class="ey">The Process</div>
+    <h2 class="h2">Our Process.</h2>
+    <div class="timeline-wrap">
+      <div class="timeline-line"></div>
+      <div class="timeline-steps">
+        <div class="tstep fade">
+          <div class="tstep-icon">
+            <!-- Brain icon v2 -->
+            <svg viewBox="0 0 40 40" fill="none"><path d="M20 34v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M13 30c-4 0-7-3-7-7 0-2.5 1.3-4.7 3.3-6C9.1 16.1 9 15.3 9 14.5 9 11 11.5 8 15 8c.8 0 1.5.1 2.2.4C18.2 7.5 19.1 7 20 7s1.8.5 2.8 1.4C23.5 8.1 24.2 8 25 8c3.5 0 6 3 6 6.5 0 .8-.1 1.6-.3 2.5C32.7 18.3 34 20.5 34 23c0 4-3 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 30c-2 0-4-2-4-4v-6c0-2 2-4 4-4s4 2 4 4v6c0 2-2 4-4 4z" stroke="currentColor" stroke-width="2"/><path d="M16 22h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="tstep-dot"></div>
+          <div class="tstep-label">Develop Topics<br>&amp; Questions</div>
+          <div class="tstep-desc">A discovery call to learn your business, then we build questions your buyers care about.</div>
+        </div>
+        <div class="tstep fade" style="transition-delay:.1s">
+          <div class="tstep-icon">
+            <!-- Camera icon -->
+            <svg viewBox="0 0 40 40" fill="none"><rect x="4" y="12" width="24" height="18" rx="3" stroke="currentColor" stroke-width="2"/><path d="M28 18l8-4v12l-8-4V18z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="14" cy="21" r="4" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <div class="tstep-dot"></div>
+          <div class="tstep-label">Monthly 30 Min<br>Interview</div>
+          <div class="tstep-desc">We ask strategic questions and coach you on camera. You just show up and talk.</div>
+        </div>
+        <div class="tstep fade" style="transition-delay:.2s">
+          <div class="tstep-icon">
+            <!-- Laptop icon -->
+            <svg viewBox="0 0 40 40" fill="none"><rect x="6" y="9" width="28" height="18" rx="2" stroke="currentColor" stroke-width="2"/><path d="M2 27h36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14 31h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M15 18l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="tstep-dot"></div>
+          <div class="tstep-label">Our Team Edits<br>&amp; Distributes</div>
+          <div class="tstep-desc">We handle editing, captions, and scheduling. You don't touch a thing.</div>
+        </div>
+        <div class="tstep fade" style="transition-delay:.3s">
+          <div class="tstep-icon">
+            <!-- Growth/trending up icon -->
+            <svg viewBox="0 0 40 40" fill="none"><path d="M6 30l9-10 6 6 13-14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 12h6v6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="tstep-dot"></div>
+          <div class="tstep-label">Trust<br>Compounds</div>
+          <div class="tstep-desc">The longer you show up, the more familiar you become. That's when deals get easier.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="video-sec" id="see-how-it-works">
+  <div class="w" style="max-width:800px">
+    <div class="ey">See It In Action</div>
+    <h2 class="h2">Watch how it works.</h2>
+    <div class="video-wrap">
+      <iframe src="https://www.loom.com/embed/7104a9be01ec4f719b79be1333d8c5ba" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- QUESTION GENERATOR -->
+<section class="qgen-sec" id="questions">
+  <div class="w">
+    <h2 class="h2">The magic is in<br>the interview.</h2>
+    <p class="sub">Drop in your website URL and we'll generate a custom set of content recording questions that we would ask during our first content recording session together.</p>
+    <div class="qgen-box fade">
+      <div class="qgen-input-row">
+        <div class="qgen-field">
+          <span class="qgen-prefix">&#128100;</span>
+          <input class="qgen-input" id="qgen-name" type="text" placeholder="Your name" autocomplete="name" />
+        </div>
+        <div class="qgen-field">
+          <span class="qgen-prefix">&#9993;</span>
+          <input class="qgen-input" id="qgen-email" type="email" placeholder="Your email" autocomplete="email" />
+        </div>
+      </div>
+      <div class="qgen-input-row" style="margin-top:10px;">
+        <div class="qgen-field">
+          <span class="qgen-prefix">&#127760;</span>
+          <input class="qgen-input" id="qgen-url" type="url" placeholder="https://yourwebsite.com" autocomplete="off" />
+        </div>
+        <button class="qgen-btn" id="qgen-btn" onclick="generateQuestions()">
+          <span id="qgen-btn-label">Generate Questions</span>
+          <span id="qgen-spinner" class="qgen-spinner" style="display:none"></span>
+        </button>
+      </div>
+      <p class="qgen-hint" id="qgen-hint">We'll read your site and build questions tailored to your expertise.</p>
+      <div class="qgen-results" id="qgen-results" style="display:none">
+        <div class="qgen-results-header">
+          <span class="qgen-results-label">Your 9 Interview Questions</span>
+          <button class="qgen-copy-btn" onclick="copyQuestions()" id="qgen-copy">Copy all</button>
+        </div>
+        <ol class="qgen-list" id="qgen-list"></ol>
+        <div class="qgen-footer-note">These questions are built around your content. Use them in your next recording session, or <a href="https://meetings-na2.hubspot.com/grant-taleck/interview-authentiq" target="_blank">book a free demo</a> and we'll run the interview for you.</div>
+      </div>
+      <div class="qgen-error" id="qgen-error" style="display:none">
+        <span id="qgen-error-msg"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="price-sec" id="pricing">
+  <div class="w">
+    <div class="ey">Pricing</div>
+    <h2 class="h2">Simple pricing.<br>No contracts.</h2>
+    <p class="sub">Month to month. We would rather earn your business every month than lock you in.</p>
+    <div class="pgr">
+      <div class="card fade">
+        <div class="pplan">Individual</div>
+        <div class="pprice">$495</div>
+        <div class="pper">per person, per month</div>
+        <div class="pdiv"></div>
+        <ul class="plist">
+          <li>30-min monthly video interview</li>
+          <li>4 LinkedIn videos edited and posted</li>
+          <li>Captions written in your voice</li>
+          <li>Scheduled directly to LinkedIn</li>
+          <li>Strategic question prep each month</li>
+        </ul>
+        <a class="btnp bto" href="https://meetings-na2.hubspot.com/grant-taleck/interview-authentiq" target="_blank">Book a free demo</a>
+      </div>
+      <div class="card feat fade" style="transition-delay:.1s">
+        <div class="pbadge">Best for teams</div>
+        <div class="pplan">Authority Team</div>
+        <div class="pprice">$1495</div>
+        <div class="pper">per person / 3+ people</div>
+        <div class="pdiv"></div>
+        <ul class="plist">
+          <li>Everything in Individual</li>
+          <li>Coordinated team content strategy</li>
+          <li>Monthly performance debrief</li>
+          <li>Content that builds company authority</li>
+          <li>Land and expand model</li>
+        </ul>
+        <a class="btnp bts" href="https://meetings-na2.hubspot.com/grant-taleck/interview-authentiq" target="_blank">Book a free demo</a>
+      </div>
+    </div>
+    <p class="pnote">Free demo includes a short interview and one edited clip. No commitment required.</p>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-sec">
+  <div class="w">
+    <div class="ey">Who You're Working With</div>
+    <h2 class="h2">A small team that<br>gets it right.</h2>
+    <p class="sub">Everyone who touches your content is someone you have met.</p>
+    <div class="tgrid">
+      <div class="tcard fade">
+        <img class="tphoto" src="/images/image-5.jpeg" alt="Grant Taleck">
+        <div>
+          <div class="tname">Grant Taleck</div>
+          <div class="trole">Co-Founder</div>
+          <p class="tbio">Grant runs every discovery call and leads client relationships. He understands what makes a B2B founder convert and what makes prospects trust you before the first conversation.</p>
+        </div>
+      </div>
+      <div class="tcard fade" style="transition-delay:.1s">
+        <img class="tphoto" src="/images/image-6.jpeg" alt="Mitch Kubik">
+        <div>
+          <div class="tname">Mitch Kubik</div>
+          <div class="trole">Co-Founder</div>
+          <p class="tbio">Mitch runs operations and oversees every client account. He makes sure the content that goes live actually sounds like the person who said it.</p>
+        </div>
+      </div>
+      <div class="tcard fade" style="transition-delay:.2s">
+        <img class="tphoto" src="/images/image-7.jpeg" alt="Bridget Grasso">
+        <div>
+          <div class="tname">Bridget Grasso</div>
+          <div class="trole">Head of Production</div>
+          <p class="tbio">Bridget leads every client interview and drives production. With a background in broadcast and video, she asks the questions that make the content actually work.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:var(--white)">
+  <div class="w">
+    <div class="ey">FAQ</div>
+    <h2 class="h2">Common questions.</h2>
+    <div class="fwrap">
+      <div class="fi"><div class="fq" onclick="tf(this)">What actually happens each month?<span class="ficon">+</span></div><div class="fa">Once a month we sit down on a 30-minute video call. We come prepared with strategic questions designed to pull out your best thinking. After the call we handle everything: editing, captions, scheduling. Four videos go live on your LinkedIn. You do nothing after the interview.</div></div>
+      <div class="fi"><div class="fq" onclick="tf(this)">What is the free demo?<span class="ficon">+</span></div><div class="fa">The demo is a short interview session where we ask you a few strategic questions on video. We edit one clip from that conversation and send it to you. No commitment, no credit card. You see exactly what the content looks and feels like before deciding anything.</div></div>
+      <div class="fi"><div class="fq" onclick="tf(this)">How long before I see results?<span class="ficon">+</span></div><div class="fa">You will have content live within the first week. The real results, warmer sales calls and prospects who already feel like they know you, typically show up around months 3 to 6. This is a long game. The founders who stay with it are the ones who win.</div></div>
+      <div class="fi"><div class="fq" onclick="tf(this)">Will it sound like me?<span class="ficon">+</span></div><div class="fa">Yes, because it is you. We are not writing scripts or putting words in your mouth. We ask you questions and you answer them in your own words. The content sounds like you because it comes from you.</div></div>
+      <div class="fi"><div class="fq" onclick="tf(this)">How is this different from AI or a ghostwriter?<span class="ficon">+</span></div><div class="fa">AI and ghostwriters start with a blank page and fill it with something professional but generic. We start with you: your face, your voice, your actual ideas. You cannot fake a face on video. That is what builds trust.</div></div>
+      <div class="fi"><div class="fq" onclick="tf(this)">Is there a contract?<span class="ficon">+</span></div><div class="fa">No contract. Month to month. We would rather earn your business every month than lock you in.</div></div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- FROM THE BLOG -->
+<section class="blog-sec">
+  <div class="w">
+    <div class="ey">AuthentIQ Insights</div>
+    <h2 class="h2">From the blog.</h2>
+    <p class="sub">Practical thinking on LinkedIn, video content, and building trust before the first sales call.</p>
+    <div class="blog-grid" id="blog-grid"></div>
+<script>
+(function(){
+  fetch('/api/blog-rss')
+    .then(function(r){return r.json();})
+    .then(function(data){
+      if(!data.items||!data.items.length)return;
+      var html='';
+      for(var i=0;i<data.items.length;i++){
+        var p=data.items[i];
+        var img=p.image?'<img class="blog-card-img" src="'+p.image+'" alt="" loading="lazy">':'<div class="blog-card-img"></div>';
+        html+='<a class="blog-card" href="'+p.link+'" target="_blank" rel="noopener">'+img+'<div class="blog-card-body"><div class="blog-card-tag">AuthentIQ</div><div class="blog-card-title">'+p.title+'</div><div class="blog-card-excerpt">'+p.desc+'</div><div class="blog-card-footer"><span class="blog-card-date">'+p.date+'</span><span class="blog-card-arrow">Read more</span></div></div></a>';
+      }
+      document.getElementById('blog-grid').innerHTML=html;
+    }).catch(function(){});
+})();
+</script>
+    <div class="blog-bottom">
+      <a href="https://blog.authentiqmarketing.com" target="_blank" class="blog-btn">Read all posts →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+
+
+<!-- BOOKING EMBED -->
+<section style="background:var(--off);padding:96px 5%;">
+  <div class="w" style="max-width:900px;">
+    <div class="ey">Book Your Free Demo</div>
+    <h2 class="h2" style="margin-bottom:12px;">See it for yourself.<br>Pick a time below.</h2>
+    <p style="font-size:0.9rem;font-weight:600;color:var(--gray);line-height:1.8;margin-bottom:40px;max-width:460px;">A short interview, one edited clip, sent to you. No commitment, no credit card. Just a conversation.</p>
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:6px;overflow:hidden;">
+      <div class="meetings-iframe-container" data-src="https://meetings-na2.hubspot.com/grant-taleck/interview-authentiq?embed=true"></div>
+      <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="fin">
+    <div class="ftop">
+      <div>
+        <div class="flogo"><img src="/images/image-8.png" alt="AuthentIQ Marketing"></div>
+        <p class="ftag">Video thought leadership for B2B founders and firm leaders.</p>
+      </div>
+      <div class="flinks">
+        <a href="#how-it-works">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="https://www.linkedin.com/in/granttaleck/" target="_blank">LinkedIn</a>
+        <a href="https://www.authentiqmarketing.com/terms-and-conditions" target="_blank">Terms</a>
+        <a href="https://www.authentiqmarketing.com/copy-of-terms-and-conditions" target="_blank">Privacy</a>
+      </div>
+    </div>
+    <div class="fcopy">© 2026 AuthentIQ LLC. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+// Sticky Question Generator
+async function generateStickyQuestions() {
+  const urlInput = document.getElementById('sqbar-url');
+  const btn = document.getElementById('sqbar-btn');
+  const btnLabel = document.getElementById('sqbar-btn-label');
+  const spinner = document.getElementById('sqbar-spinner');
+  const resultsWrap = document.getElementById('sqbar-results');
+  const resultsInner = document.getElementById('sqbar-results-inner');
+  let url = urlInput.value.trim();
+  if (!url) { urlInput.focus(); return; }
+  if (!url.startsWith('http')) { url = 'https://' + (url.startsWith('www.') ? url : 'www.' + url); }
+  urlInput.value = url;
+  btn.disabled = true;
+  btnLabel.textContent = 'Analyzing...';
+  spinner.style.display = 'inline-block';
+  resultsWrap.style.display = 'none';
+  resultsInner.innerHTML = '';
+  try {
+    const response = await fetch('/api/generate?url=' + encodeURIComponent(url), {
+      method: 'GET'
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || 'Request failed');
+    const questions = data.questions;
+    if (!Array.isArray(questions) || questions.length === 0) throw new Error('No questions');
+    const cats = ['Top of Funnel', 'Middle of Funnel', 'Bottom of Funnel'];
+    cats.forEach((cat, ci) => {
+      const group = document.createElement('div');
+      group.className = 'sqbar-q-group';
+      const catLabel = document.createElement('div');
+      catLabel.className = 'sqbar-cat';
+      catLabel.textContent = cat;
+      group.appendChild(catLabel);
+      for (let i = 0; i < 3; i++) {
+        const q = questions[ci * 3 + i];
+        if (!q) continue;
+        const qEl = document.createElement('div');
+        qEl.className = 'sqbar-q';
+        qEl.innerHTML = '<span class="sqbar-q-num">0' + (ci*3+i+1) + '</span><span>' + q + '</span>';
+        group.appendChild(qEl);
+      }
+      resultsInner.appendChild(group);
+    });
+    const copyBtn = document.createElement('button');
+    copyBtn.className = 'sqbar-copy';
+    copyBtn.textContent = 'Copy all questions';
+    copyBtn.onclick = function() {
+      const cats2 = ['Top of Funnel','Middle of Funnel','Bottom of Funnel'];
+      let text = cats2.map((c,ci) => c + ':\n' + questions.slice(ci*3,ci*3+3).map((q,i)=>(ci*3+i+1)+'. '+q).join('\n')).join('\n\n');
+      navigator.clipboard.writeText(text).then(() => { copyBtn.textContent = 'Copied!'; setTimeout(()=>copyBtn.textContent='Copy all questions',2000); });
+    };
+    resultsInner.parentElement.appendChild(copyBtn);
+    resultsWrap.style.display = 'block';
+  } catch(err) {
+    resultsInner.innerHTML = '<div class="sqbar-error">Something went wrong. Please check the URL and try again.</div>';
+    resultsWrap.style.display = 'block';
+  } finally {
+    btn.disabled = false;
+    btnLabel.textContent = 'Generate Topics';
+    spinner.style.display = 'none';
+  }
+}
+document.addEventListener('DOMContentLoaded', function() {
+  var si = document.getElementById('sqbar-url');
+  if (si) si.addEventListener('keydown', function(e){ if(e.key==='Enter') generateStickyQuestions(); });
+});
+
+
+async function submitToHubSpot(name, email) {
+  const portalId = '245064687';
+  const formId = '771e1140-d16f-49ac-892e-c1060a7b9263';
+  const nameParts = name.trim().split(' ');
+  const firstName = nameParts[0] || '';
+  const lastName = nameParts.slice(1).join(' ') || '';
+  try {
+    await fetch('https://api.hsforms.com/submissions/v3/integration/submit/' + portalId + '/' + formId, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        fields: [
+          { name: 'firstname', value: firstName },
+          { name: 'lastname', value: lastName },
+          { name: 'email', value: email }
+        ],
+        context: { pageUri: window.location.href, pageName: document.title }
+      })
+    });
+  } catch(e) { /* silent fail */ }
+}
+
+async function generateQuestions() {
+  const urlInput = document.getElementById('qgen-url');
+  const nameInput = document.getElementById('qgen-name');
+  const emailInput = document.getElementById('qgen-email');
+  const btn = document.getElementById('qgen-btn');
+  const btnLabel = document.getElementById('qgen-btn-label');
+  const spinner = document.getElementById('qgen-spinner');
+  const results = document.getElementById('qgen-results');
+  const list = document.getElementById('qgen-list');
+  const errorEl = document.getElementById('qgen-error');
+  const errorMsg = document.getElementById('qgen-error-msg');
+  const hint = document.getElementById('qgen-hint');
+  const name = nameInput ? nameInput.value.trim() : '';
+  const email = emailInput ? emailInput.value.trim() : '';
+  const url = urlInput.value.trim();
+  if (!name) { nameInput.focus(); errorMsg.textContent = 'Please enter your name.'; errorEl.style.display = 'block'; return; }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { emailInput.focus(); errorMsg.textContent = 'Please enter a valid email.'; errorEl.style.display = 'block'; return; }
+  if (!url) { urlInput.focus(); return; }
+  let normalizedUrl = url;
+  if (!normalizedUrl.startsWith('http')) { normalizedUrl = 'https://' + (normalizedUrl.startsWith('www.') ? normalizedUrl : 'www.' + normalizedUrl); }
+  urlInput.value = normalizedUrl;
+  if (!normalizedUrl.startsWith('http')) {
+    errorMsg.textContent = 'Please enter a valid URL.';
+    errorEl.style.display = 'block'; return;
+  }
+  errorEl.style.display = 'none';
+  results.style.display = 'none';
+  list.innerHTML = '';
+  btn.disabled = true;
+  btnLabel.textContent = 'Analyzing...';
+  spinner.style.display = 'inline-block';
+  hint.textContent = 'Reading your website and crafting questions...';
+  await submitToHubSpot(name, email);
+  try {
+    const response = await fetch('/api/generate?url=' + encodeURIComponent(url), {
+      method: 'GET'
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || 'Request failed');
+    const questions = data.questions;
+    if (!Array.isArray(questions) || questions.length === 0) throw new Error('No questions');
+    results.style.display = 'block';
+    hint.textContent = 'Here are your 9 custom interview questions.';
+    const categories = ['Top of Funnel', 'Middle of Funnel', 'Bottom of Funnel'];
+    questions.slice(0, 9).forEach((q, i) => {
+      if (i % 3 === 0) {
+        const label = document.createElement('li');
+        label.style.cssText = 'display:block;padding:14px 0 4px;border:none;background:none;opacity:1;transform:none;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--orange)';
+        label.textContent = categories[Math.floor(i/3)];
+        list.appendChild(label);
+      }
+      const li = document.createElement('li');
+      li.innerHTML = '<span class="qnum">0' + (i+1) + '</span><span>' + q + '</span>';
+      list.appendChild(li);
+      setTimeout(() => li.classList.add('visible'), i * 80);
+    });
+  } catch(err) {
+    errorMsg.textContent = 'Something went wrong. Please check the URL and try again.';
+    errorEl.style.display = 'block';
+    hint.textContent = "We'll read your site and build questions tailored to your expertise.";
+  } finally {
+    btn.disabled = false;
+    btnLabel.textContent = 'Generate Questions';
+    spinner.style.display = 'none';
+  }
+}
+
+function copyQuestions() {
+  const items = document.querySelectorAll('#qgen-list li span:last-child');
+  const text = Array.from(items).map((el, i) => (i+1) + '. ' + el.textContent).join('\n');
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('qgen-copy');
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy all', 2000);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var urlInput = document.getElementById('qgen-url');
+  if (urlInput) urlInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') generateQuestions();
+  });
+});
+
+// Custom cursor
+(function(){
+  const cursor = document.getElementById('cursor');
+  if (!cursor) return;
+  let mx = -100, my = -100;
+  document.addEventListener('mousemove', function(e){
+    mx = e.clientX; my = e.clientY;
+    cursor.style.left = mx + 'px';
+    cursor.style.top = my + 'px';
+  });
+  document.addEventListener('mousedown', function(){ cursor.classList.add('clicking'); });
+  document.addEventListener('mouseup', function(){ cursor.classList.remove('clicking'); });
+  const hoverEls = document.querySelectorAll('a,button,input,[onclick]');
+  hoverEls.forEach(function(el){
+    el.addEventListener('mouseenter', function(){ cursor.classList.add('hovering'); });
+    el.addEventListener('mouseleave', function(){ cursor.classList.remove('hovering'); });
+  });
+})();
+
+function tf(el){el.closest('.fi').classList.toggle('open')}
+(function() {
+  const h1 = document.getElementById('hero-h1');
+  if (!h1) return;
+
+  const phrases = [
+    [
+      {text:"Don't",     br:false},
+      {text:"be",        br:false},
+      {text:"an",        br:true},
+      {text:"invisible", br:false, orange:true},
+      {text:"expert.",   br:false, orange:true}
+    ],
+    [
+      {text:"Build",  br:false, orange:true},
+      {text:"trust",  br:true, orange:true},
+      {text:"before", br:false},
+      {text:"the",    br:false},
+      {text:"call.",  br:false}
+    ]
+  ];
+
+  let current = 0;
+
+  function render(words) {
+    h1.innerHTML = words.map(function(w) {
+      var span = '<span class="hw" style="display:inline-block;opacity:0;transform:translateY(10px);transition:opacity 0.35s ease,transform 0.35s ease">';
+      if (w.orange) span = '<span class="hw o" style="display:inline-block;opacity:0;transform:translateY(10px);transition:opacity 0.35s ease,transform 0.35s ease">';
+      return span + w.text + '</span>' + (w.br ? '<br>' : ' ');
+    }).join('');
+  }
+
+  function animateIn(cb) {
+    var words = h1.querySelectorAll('.hw');
+    words.forEach(function(w, i) {
+      setTimeout(function() {
+        w.style.opacity = '1';
+        w.style.transform = 'translateY(0)';
+      }, i * 80);
+    });
+    if (cb) setTimeout(cb, words.length * 80 + 400);
+  }
+
+  function animateOut(cb) {
+    var words = h1.querySelectorAll('.hw');
+    var total = words.length;
+    words.forEach(function(w, i) {
+      setTimeout(function() {
+        w.style.opacity = '0';
+        w.style.transform = 'translateY(-10px)';
+      }, i * 60);
+    });
+    setTimeout(cb, total * 60 + 300);
+  }
+
+  function cycle() {
+    animateOut(function() {
+      current = (current + 1) % phrases.length;
+      render(phrases[current]);
+      animateIn(function() {
+        setTimeout(cycle, 2500);
+      });
+    });
+  }
+
+  render(phrases[0]);
+  animateIn(function() {
+    setTimeout(cycle, 2500);
+  });
+})();
+
+
+// Sliding headline
+(function(){
+  const wrap = document.getElementById('prob-hero');
+  const label = document.getElementById('prob-label');
+  if (!wrap) return;
+
+  wrap.addEventListener('mouseenter', function() {
+    wrap.classList.add('slid');
+    if (label) {
+      label.style.opacity = '0';
+      setTimeout(function() {
+        label.textContent = 'The Solution';
+        label.style.opacity = '1';
+      }, 250);
+    }
+  });
+
+  wrap.addEventListener('mouseleave', function() {
+    wrap.classList.remove('slid');
+    if (label) {
+      label.style.opacity = '0';
+      setTimeout(function() {
+        label.textContent = 'The Problem';
+        label.style.opacity = '1';
+      }, 250);
+    }
+  });
+})();
+
+// Stat counter animation
+(function(){
+  const el = document.getElementById('stat-num');
+  if (!el) return;
+  const observer = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+      let start = 0, end = 55, duration = 1800;
+      let startTime = null;
+      function step(ts) {
+        if (!startTime) startTime = ts;
+        const progress = Math.min((ts - startTime) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(ease * end) + '%';
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+      observer.disconnect();
+    }
+  }, {threshold: 0.5});
+  observer.observe(el);
+})();
+
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}});},{threshold:0.1});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+
+(function(){
+  const wrap=document.querySelector('.pmarquee-wrap');
+  const track=document.getElementById('ptrack');
+  if(!wrap||!track)return;
+  function highlight(){
+    const wrapRect=wrap.getBoundingClientRect();
+    const center=wrapRect.left+wrapRect.width/2;
+    const items=track.querySelectorAll('.pitem');
+    let closest=null,closestDist=Infinity;
+    items.forEach(function(item){
+      const r=item.getBoundingClientRect();
+      const itemCenter=r.left+r.width/2;
+      const dist=Math.abs(itemCenter-center);
+      if(dist<closestDist){closestDist=dist;closest=item;}
+    });
+    items.forEach(function(item){item.classList.remove('active');});
+    if(closest)closest.classList.add('active');
+  }
+  setInterval(highlight,60);
+})();
+</script>
+<!-- LinkedIn Insight Tag -->
+<script type="text/javascript">
+_linkedin_partner_id = "1285802";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="text/javascript">
+(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=1285802&fmt=gif" />
+</noscript>
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/245064687.js"></script>
+<!-- End of HubSpot Embed Code -->
+</body>
+</html
+
+
+
